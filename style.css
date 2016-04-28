@@ -1,9 +1,13 @@
 body {
     background-color: white;
     color: black;
-    font: 15px arial, sans-serif;
+    font: 15px Arial, Helvetica, sans-serif;
     background-image: url("banner01.png");
     background-repeat: no-repeat;
+}
+
+main {
+    top:50px;
 }
 
 h1 {
@@ -13,7 +17,7 @@ h2 {
     color: white;
     background-color: navy;
     border: 5px solid navy;
-    font: 16px arial, sans-serif;
+    font: 16px;
 }
 
 

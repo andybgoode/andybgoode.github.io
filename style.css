@@ -2,6 +2,7 @@ body {
     background-color: white;
     color: black;
     font: 15px arial, sans-serif;
+    background-image: url("banner01.png");
 }
 
 h1 {

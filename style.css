@@ -3,6 +3,7 @@ body {
     color: black;
     font: 15px arial, sans-serif;
     background-image: url("banner01.png");
+    background-repeat: no-repeat;
 }
 
 h1 {
@@ -14,14 +15,5 @@ h2 {
     border: 5px solid navy;
     font: 16px arial, sans-serif;
 }
-banner {
-    left: 0px;
-    top: 0px;
-    border: 1px solid red;
-}
-logo {
-    left: 0px;
-    top: 0px;
-    border: 1px solid green;
-}
+
 

@@ -10,6 +10,10 @@ main {
     top:50px;
 }
 
+main {
+    top:0px;
+}
+
 h1 {
     color: black;
 }

@@ -1,7 +1,7 @@
 body {
     background-color: white;
     color: black;
-    font: 15px arial, sans-serif;
+    font: 12px arial, sans-serif;
 }
 
 h1 {
@@ -11,5 +11,6 @@ h2 {
     color: white;
     background-color: navy;
     border: 5px solid navy;
+    font: 15px arial, sans-serif;
 }
 

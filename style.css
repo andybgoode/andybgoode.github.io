@@ -26,12 +26,9 @@ main {
 
 h1 {
     color: black;
-    //background-color: #82E8F6;
-    
+    background-color:: #82E8F6;
     border-radius: 10px;
-    background: #82E8F6;
     padding: 10px; 
-//    width: 200px;
     height: 40px; 
     
 }

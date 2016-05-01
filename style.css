@@ -57,5 +57,6 @@ ul {
 }
 
 li {
-    margin: 0px 0px 3px 0px;
+    //margin: 0px 0px 3px 0px;
+    padding: 2px;
 }

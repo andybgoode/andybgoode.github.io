@@ -30,17 +30,15 @@ h1 {
     background: #82E8F6;
     border-radius: 10px;
     padding: 10px; 
-    //height: 40px; 
     }
-h2 {
     
+h2 {
     color: white;
-     background-color: #FFBAD7;
-//     border: 5px solid #FFBAD7;
+    background-color: #FFBAD7;
     border-radius: 10px;
     padding: 5px; 
     height: 30px;
-    //font: 16px;
+    /font: 18px;
 }
 @font-face {
 	font-family: 'CherryCreamSoda';

@@ -1,7 +1,8 @@
 body {
     background-color: white;
     color: black;
-    font: 15px Arial, Helvetica, sans-serif;
+    font-family: 'CherryCreamSoda', sans-serif;
+   // font: 15px Arial, Helvetica, sans-serif;
 }
 
 main {
@@ -16,7 +17,7 @@ h1 {
     color: black;
 }
 h2 {
-    font-family: 'CherryCreamSoda', sans-serif;
+    
     color: white;
     background-color: navy;
     border: 5px solid navy;

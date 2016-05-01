@@ -17,18 +17,21 @@ main {
     top:50px;
 }
 
-main {
+main2 {
     top:0px;
 }
 
 h1 {
     color: black;
+    background-color: #EA2020;
 }
 h2 {
     
     color: white;
-    background-color: navy;
-    border: 5px solid navy;
+//    background-color: navy;
+//    border: 5px solid navy;
+     background-color: #FFBAD7;
+     border: 5px solid #FFBAD7;
     font: 16px;
 }
 @font-face {

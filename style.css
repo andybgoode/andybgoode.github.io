@@ -16,10 +16,19 @@ h1 {
     color: black;
 }
 h2 {
+    font-family: 'lovelyFont', sans-serif;
     color: white;
     background-color: navy;
     border: 5px solid navy;
     font: 16px;
 }
-
+@font-face {
+	font-family: 'CherryCreamSoda';
+	src: url('CherryCreamSoda.ttf'); 
+	src: 
+		local('Cherry Cream Soda'),
+		local('Cherry-Cream-Soda'),
+        url('CherryCreamSoda.ttf') 
+	    format('truetype');
+}
 

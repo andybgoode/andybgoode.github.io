@@ -13,7 +13,7 @@ body {
    //grey=#585858
 }
 
-textbox-area {
+.textbox-area {
     color: black;
     background: #FFFFFF;
     border-radius: 10px;

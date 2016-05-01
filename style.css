@@ -14,8 +14,8 @@ body {
 }
 
 tiles-area {
-   top:0px;
-   left:0px;
+   top:10px;
+   left:20px;
    height:40px;
    background-image: url("tiles.gif");
    background-repeat: repeat;
@@ -28,6 +28,13 @@ main {
 h1 {
     color: black;
     background-color: #82E8F6;
+    
+    border-radius: 10px;
+    background: #73AD21;
+    padding: 20px; 
+//    width: 200px;
+    height: 40px; 
+    
 }
 h2 {
     

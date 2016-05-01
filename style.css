@@ -15,6 +15,7 @@ tiles-area {
    top:10px;
    left:20px;
    height:40px;
+   width:100%;
    background-image: url("tiles.gif");
    background-repeat: repeat;
 }

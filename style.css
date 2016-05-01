@@ -17,10 +17,6 @@ main {
     top:50px;
 }
 
-main2 {
-    top:0px;
-}
-
 h1 {
     color: black;
     background-color: #82E8F6;
@@ -44,3 +40,6 @@ h2 {
 	    format('truetype');
 }
 
+ul {
+    list-style-image: url('bullet-record.gif');
+}

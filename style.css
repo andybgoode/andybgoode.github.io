@@ -1,9 +1,7 @@
 body {
     background-color: white;
-    //background-image: url("tiles.gif");
-    //background-repeat: repeat;
     color: black;
-    font-family: 'CherryCreamSoda', sans-serif;
+    font-family: 'CherryCreamSoda', Helvetica, sans-serif;
    // font: 15px Arial, Helvetica, sans-serif;
    //red=#EA2020
    //blue=#82E8F6

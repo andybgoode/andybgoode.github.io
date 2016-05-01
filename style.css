@@ -54,3 +54,7 @@ h2 {
 ul {
     list-style-image: url('bulletrecord.gif');
 }
+
+li {
+    margin: 0 0 3px 0;
+}

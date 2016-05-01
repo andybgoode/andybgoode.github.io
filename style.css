@@ -35,10 +35,11 @@ h1 {
 h2 {
     
     color: white;
-//    background-color: navy;
-//    border: 5px solid navy;
      background-color: #FFBAD7;
-     border: 5px solid #FFBAD7;
+//     border: 5px solid #FFBAD7;
+    border-radius: 10px;
+    padding: 10px; 
+    height: 40px;
     font: 16px;
 }
 @font-face {

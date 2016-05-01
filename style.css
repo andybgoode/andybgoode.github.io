@@ -1,4 +1,6 @@
 body {
+    background-image: url("tiles.gif");
+    background-repeat: repeat;
     background-color: white;
     color: black;
     font-family: 'CherryCreamSoda', Helvetica, sans-serif;

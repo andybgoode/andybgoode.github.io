@@ -65,6 +65,12 @@ li {
     padding: 1px;
 }
 
+info-area {
+    position: relative;
+    left: 270px;	
+}
+
 andybgoode {
-	float: right;
+    position: relative;
+    left: 10px;
 }

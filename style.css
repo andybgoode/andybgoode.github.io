@@ -65,14 +65,14 @@ li {
     padding: 1px;
 }
 
-info-area {
-    position: relative;
-    left: 270px;	
-}
+//info-area {
+//    position: relative;
+//    left: 270px;	
+//}
 
 andybgoode {
-    position: relative;
-    left: 100px;
+    float: right;
+    margin: 0 0 10px 10px;
     width: 250px;
     height: 250px;
 }

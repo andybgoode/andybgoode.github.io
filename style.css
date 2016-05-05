@@ -73,4 +73,6 @@ info-area {
 andybgoode {
     position: relative;
     left: 10px;
+    width: 250px;
+    height: 250px;
 }

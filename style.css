@@ -1,5 +1,5 @@
 body {
-    background-image: url("tiles.gif");
+    background-image: url("images/tiles.gif");
     background-repeat: repeat;
     background-color: white;
     color: black;
@@ -54,16 +54,16 @@ main {
 
 @font-face {
 	font-family: 'CherryCreamSoda';
-	src: url('CherryCreamSoda.ttf'); 
+	src: url('misc/CherryCreamSoda.ttf'); 
 	src: 
 		local('Cherry Cream Soda'),
 		local('Cherry-Cream-Soda'),
-        url('CherryCreamSoda.ttf') 
+        url('misc/CherryCreamSoda.ttf') 
 	    format('truetype');
 }
 
 ul {
-    list-style-image: url('bulletrecord.gif');
+    list-style-image: url('images/bulletrecord.gif');
 }
 
 li {
@@ -73,4 +73,12 @@ li {
 
 img {
 	border: 0;
+}
+
+
+.menu {
+   color: black;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;  
 }

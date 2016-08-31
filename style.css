@@ -75,10 +75,26 @@ img {
 	border: 0;
 }
 
-
 .menu {
-   color: black;
+    color: black;
     background: #FFFFFF;
     border-radius: 10px;
     padding: 10px;  
 }
+
+.albumheading {
+	padding-top: 20px;
+}
+
+.photo {
+    width: 300px;
+}
+
+.phototablecell {
+	width: 310px;
+}
+
+.phototext {
+	width: 310px;
+}
+

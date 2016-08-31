@@ -55,11 +55,10 @@ main {
 @font-face {
 	font-family: 'CherryCreamSoda';
 	src: url('misc/CherryCreamSoda.ttf'); 
-	src: 
-		local('Cherry Cream Soda'),
-		local('Cherry-Cream-Soda'),
-        url('misc/CherryCreamSoda.ttf') 
-	    format('truetype');
+	src: local('Cherry Cream Soda'),
+	     local('Cherry-Cream-Soda'),
+             url('misc/CherryCreamSoda.ttf') 
+	     format('truetype');
 }
 
 ul {

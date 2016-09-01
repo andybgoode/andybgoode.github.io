@@ -97,3 +97,57 @@ img {
 	width: 310px;
 }
 
+
+.polaroids {
+	background: #EEEEEE;
+	margin:0px;
+	padding:10px;
+}
+
+.polaroidcell {
+	background: #EEEEEE;
+	margin:0px;
+	padding:6px;
+}
+
+.polaroid {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+
+.photoH {
+	width: 300px;	
+	display: block;
+	margin: auto;
+}
+
+.photoV {
+	height: 300px;	
+	display: block;
+	margin: auto;
+}
+
+.photocell {
+	background: #FFFFFF;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border:none;
+	width: 300px;
+	height: 300px;
+}
+
+.phototext {
+	background: #FFFFFF;
+	width: 300px;
+	height: 50px;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	border:none;
+	text-align: left;
+	vertical-align: top;
+}
+

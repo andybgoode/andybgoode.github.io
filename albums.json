@@ -1,0 +1,99 @@
+[{"albums":[
+
+{
+ "title":"Tamworth Food Festival",
+ "desc":"Tamworth Food Gusto Food Festival. I sung with my other vocal group, 'The Jays'",
+ "folder":"/photos1/",
+ "urlTitle":"", "url":"www.bing.com",
+ "photos":[
+  {"img":"one","cap":"ONE","tags":""},
+  {"img":"two","cap":"TWO","tags":""},
+  {"img":"three","cap":"THREE","tags":""},
+  {"img":"four","cap":"FOUR","tags":""},
+  {"img":"five","cap":"FIVE","tags":""}
+ ]
+}
+,
+{
+ "title":"Press Photos",
+ "desc":"Some higher res files for Press / Publicity....Just Click on the photo so it shows the big version, right click, save as",
+ "folder":"/photos2/",
+ "urlTitle":"google", "url":"www.google.com",
+ "photos":[
+  {"img":"andybgoode0002","cap":"Andy B Goode Flyer (HIGH RESOLUTION)","tags":""},
+  {"img":"andybgoode0001","cap":"Andy B Goode Flyer background image (HIGH RESOLUTION)","tags":""},
+  {"img":"andybgoode0004","cap":"Close up of Andy B Goode crooning (HIGH RESOLUTION)","tags":""},
+  {"img":"andybgoode0014","cap":"The vintage style microphone (HIGH RESOLUTION)","tags":""}
+ ]
+}
+,
+{
+ "title":"Birthday Parties",
+ "desc":"Birthday Parties desc here",
+ "folder":"/photos/",
+ "urlTitle":"", "url":"",
+ "photos":[
+  {"img":"andybgoode0005","cap":"The Birthday Girl Dressed as a Flapper","tags":""},
+  {"img":"andybgoode0015","cap":"Elaine's Birthday Party","tags":""},
+  {"img":"andybgoode0006","cap":"Anne's Birthday Party","tags":""},
+  {"img":"andybgoode0016","cap":"What a card","tags":""},
+  {"img":"five","cap":"FIVE","tags":""},
+  {"img":"six","cap":"six text","tags":""},
+  {"img":"seven","cap":"seven","tags":""},
+  {"img":"eight","cap":"eight","tags":""},
+  {"img":"nine","cap":"text 9","tags":""},
+  {"img":"ten","cap":"text 10","tags":""},
+  {"img":"eleven","cap":"11 text","tags":""},
+  {"img":"twelve","cap":"12 text","tags":""}
+ ]
+}
+,
+{
+ "title":"Vintage Fetes / Fayres",
+ "desc":"a4 desc",
+ "folder":"/photos/",
+ "urlTitle":"", "url":"",
+ "photos":[
+  {"img":"one4","cap":"ONE4","tags":""},
+  {"img":"two4","cap":"Two4","tags":""},
+  {"img":"three4","cap":"Three4","tags":""}
+ ]
+}
+,
+{
+ "title":"The Jays Vintage Vocal Tribute Group",
+ "desc":"a5 desc",
+ "folder":"/photos/",
+ "urlTitle":"", "url":"",
+ "photos":[
+  {"img":"one4","cap":"ONE4","tags":""},
+  {"img":"two4","cap":"Two4","tags":""},
+  {"img":"three4","cap":"Three4","tags":""}
+ ]
+}
+,
+{
+ "title":"A Vintage Christmas",
+ "desc":"Xmas with Andy B Goode and The Jays",
+ "folder":"/photos/",
+ "urlTitle":"", "url":"",
+ "photos":[
+  {"img":"one4","cap":"ONE4","tags":""},
+  {"img":"two4","cap":"Two4","tags":""},
+  {"img":"three4","cap":"Three4","tags":""}
+ ]
+}
+,
+{
+ "title":"a7 title",
+ "desc":"a7 desc",
+ "folder":"/photos/",
+ "urlTitle":"", "url":"",
+ "photos":[
+  {"img":"one4","cap":"ONE4","tags":""},
+  {"img":"lastbutone","cap":"Lastbutone","tags":""},
+  {"img":"last","cap":"Last","tags":""}
+ ]
+}
+
+]}]

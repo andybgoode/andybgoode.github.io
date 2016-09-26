@@ -1,0 +1,467 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+
+<script type="text/javascript">
+
+//------------------
+//User Variables Here
+//var albumFile = "file:///home/anbritto_gb/Documents/AJB/test/albums.json";
+var albumFile = "albums.json";
+var albumsPerPage = 3;
+var slideShowSlideTime = 4; // should be 8
+var myVar = setInterval(theTimer, 500);
+//------------------
+
+
+
+var theTime = 0;
+var slideShowRunning = false;
+
+function theTimer() {
+  theTime += 1;
+  if (theTime > slideShowSlideTime) { 
+    theTime = 0;
+    if (slideShowRunning) {
+      showAPhoto(nextPhotoIndex);
+    }
+  }
+//document.getElementById("tempText").innerHTML = "theTime="+theTime;
+}
+
+//all photos
+var photoArray = [];
+var masterPhotoIndex = 0;
+var albumArray = [];
+
+var prevPhotoIndex = 0;
+var selectedPhotoIndex = 0;
+var nextPhotoIndex = 0;
+
+//a page has: array of albums (calculated from 'number of albums')
+var currentPageIndex = 0;
+var pageArray = [];
+
+//cache for big photos
+var photo1cache = -1;
+var photo2cache = -1;
+var photo3cache = -1;
+
+
+
+function assignSelectedPrevNext(photoIndex) {
+  selectedPhotoIndex = photoIndex;
+  prevPhotoIndex = photoIndex-1;
+  if (prevPhotoIndex<0) { prevPhotoIndex = photoArray.length - 1; }
+  nextPhotoIndex = photoIndex+1;
+  if (nextPhotoIndex>=photoArray.length) { nextPhotoIndex = 0; }
+}
+
+//search for and return cache number for passed index
+function locateCacheForPhoto(photoIndex) {
+  var r=-1;
+  if (photo1cache==photoIndex) {r=1;}
+  if (photo2cache==photoIndex) {r=2;}
+  if (photo3cache==photoIndex) {r=3;}
+  return r;
+}
+
+//single cache
+function assignCache(cacheNumber,fileName) {
+o = "<DIV onClick='buttonNextPhoto()' style='display:inline'>"+fileName+".jpg</DIV>";
+//Image file
+//Full screen polaroid style
+  document.getElementById('bigPhoto'+cacheNumber).innerHTML = o;
+}
+
+//assign all available caches
+function assignAllCache(photoArrayRef) {
+  //select photo, prev and next
+  assignSelectedPrevNext(photoArrayRef);
+
+  if (photo1cache==-1) {
+    //first photo selected (no existing cached photos), load cache
+    photo1cache = selectedPhotoIndex;
+    photo2cache = prevPhotoIndex;
+    photo3cache = nextPhotoIndex;
+    assignCache("1", photoArray[selectedPhotoIndex].fileName);
+    assignCache("2", photoArray[prevPhotoIndex].fileName);
+    assignCache("3", photoArray[nextPhotoIndex].fileName);
+  }
+  //assign cache
+  selectCacheNumber = locateCacheForPhoto(photoArrayRef);
+  prevCacheNumber = locateCacheForPhoto(prevPhotoIndex);
+  nextCacheNumber = locateCacheForPhoto(nextPhotoIndex);
+  if (selectCacheNumber==-1) {
+    //image not cached, select a cache that is not needed for something else
+    if ((prevCacheNumber!=1) && (nextCacheNumber!=1)) {
+      selectCacheNumber = 1;
+      photo1cache = selectedPhotoIndex;
+      assignCache("1",photoArray[selectedPhotoIndex].fileName);
+    } else {
+      if ((prevCacheNumber!=2) && (nextCacheNumber!=2)) {
+        selectCacheNumber = 2;
+        photo2cache = selectedPhotoIndex;
+        assignCache("2",photoArray[selectedPhotoIndex].fileName);
+      } else {
+        if ((prevCacheNumber!=3) && (nextCacheNumber!=3)) {
+          selectCacheNumber = 3;
+          photo3cache = selectedPhotoIndex;
+          assignCache("3",photoArray[selectedPhotoIndex].fileName);
+        }
+      }
+    }
+  }
+  if (prevCacheNumber==-1) {
+    //image not cached, select a cache that is not needed for something else
+    if ((nextCacheNumber!=1) && (selectCacheNumber!=1)) {
+      prevCacheNumber = 1;
+      photo1cache = prevPhotoIndex;
+      assignCache("1",photoArray[prevPhotoIndex].fileName);
+    } else {
+      if ((nextCacheNumber!=2) && (selectCacheNumber!=2)) {
+        prevCacheNumber = 2;
+        photo2cache = prevPhotoIndex;
+        assignCache("2",photoArray[prevPhotoIndex].fileName);
+      } else {
+        if ((nextCacheNumber!=3) && (selectCacheNumber!=3)) {
+          prevCacheNumber = 3;
+          photo3cache = prevPhotoIndex;
+          assignCache("3",photoArray[prevPhotoIndex].fileName);
+        }
+      }
+    }
+  }
+  if (nextCacheNumber==-1) {
+    //image not cached, select a cache that is not needed for something else
+    if ((prevCacheNumber!=1) && (selectCacheNumber!=1)) {
+      nextCacheNumber = 1;
+      photo1cache = nextPhotoIndex;
+      assignCache("1",photoArray[nextPhotoIndex].fileName);
+    } else {
+    if ((prevCacheNumber!=2) && (selectCacheNumber!=2)) {
+        nextCacheNumber = 2;
+        photo2cache = nextPhotoIndex;
+        assignCache("2",photoArray[nextPhotoIndex].fileName);
+      } else {
+        if ((prevCacheNumber!=3) && (selectCacheNumber!=3)) {
+          nextCacheNumber = 3;
+          photo3cache = nextPhotoIndex;
+          assignCache("3",photoArray[nextPhotoIndex].fileName);
+        }
+      }
+    }
+  }
+//document.getElementById('tempText').innerHTML = "CACHE DEBUG C: photoArrayRef="+photoArrayRef+" selected file="+photoArray[photoArrayRef].fileName+" prevPhotoIndex="+prevPhotoIndex+" selectedPhotoIndex="+selectedPhotoIndex+" nextPhotoIndex="+nextPhotoIndex+" photo1cache="+photo1cache+" photo2cache="+photo2cache+" photo3cache="+photo3cache + " prevCacheNumber="+prevCacheNumber+" selectCacheNumber="+selectCacheNumber+" nextCacheNumber="+nextCacheNumber;
+  return selectCacheNumber;
+}
+
+function showAPhoto(photoArrayRef) {
+//document.getElementById('tempText').innerHTML = photoArrayRef;
+  useCacheNumber = assignAllCache(photoArrayRef);
+  showPhoto(photoArrayRef, useCacheNumber);
+}
+
+
+function showPhoto(photoArrayRef,cacheNumber) {
+//document.getElementById('tempText').innerHTML = "SHOW CACHE 'bigPhoto'"+cacheNumber;
+
+  //hide small photos, show controls
+  document.getElementById('photosArea').style.display = 'none';
+  document.getElementById('controls').style.display = 'inline';
+
+  //show correct big photo.... cacheNumber
+  document.getElementById('bigPhotoArea').style.display = 'inline';
+  if (cacheNumber==1) {
+    document.getElementById('bigPhoto1').style.display = 'inline';
+    document.getElementById('bigPhoto2').style.display = 'none';
+    document.getElementById('bigPhoto3').style.display = 'none';
+  } else {
+    document.getElementById('bigPhoto1').style.display = 'none';
+    if (cacheNumber==2) {
+      document.getElementById('bigPhoto2').style.display = 'inline';
+      document.getElementById('bigPhoto3').style.display = 'none';
+    } else {
+      document.getElementById('bigPhoto2').style.display = 'none';
+      document.getElementById('bigPhoto3').style.display = 'inline';
+    }
+  }
+}
+
+function buttonPrevPhoto() {
+  theTime = 0;
+  showAPhoto(prevPhotoIndex);
+}
+
+
+function buttonNextPhoto() {
+  theTime = 0;
+  showAPhoto(nextPhotoIndex);
+}
+
+
+function buttonClosePhoto() {
+  theTime = 0;
+  slideShowRunning = false;
+  closePhoto();
+}
+
+
+function closePhoto() {
+
+  //controls
+  document.getElementById('controls').style.display = 'none';
+  document.getElementById('buttonPause').style.display = 'none';
+  document.getElementById('buttonStart').style.display = 'inline';
+
+  document.getElementById('photosArea').style.display = 'inline';
+
+  //hide all big photos
+  document.getElementById('bigPhoto1').style.display = 'none';
+  document.getElementById('bigPhoto2').style.display = 'none';
+  document.getElementById('bigPhoto3').style.display = 'none';
+  document.getElementById('bigPhotoArea').style.display = 'none';
+}
+
+
+function buttonStartSlideshow() {
+  slideShowRunning = true;
+  document.getElementById('buttonPause').style.display = 'inline';
+  document.getElementById('buttonStart').style.display = 'none';
+  theTime = 0;
+  showAPhoto(selectedPhotoIndex);
+
+}
+
+
+function buttonPauseSlideshow() {
+  slideShowRunning = false;
+  document.getElementById('buttonPause').style.display = 'none';
+  document.getElementById('buttonStart').style.display = 'inline';
+}
+
+
+function displayPhoto(aPhoto,albumIndex,photoIndex) {
+  //place photo: photo info and photo image
+  o = "<DIV id='a"+albumIndex+"p"+photoIndex+"Image' style='display: inline' alt='"+aPhoto.caption+"' onClick='showAPhoto("+aPhoto.photoArrayRef+")'>["+aPhoto.fileName+"-thumb.jpg]</DIV>";
+  o += "<DIV id='a"+albumIndex+"p"+photoIndex+"Caption' style='display: inline' onClick='showAPhoto("+aPhoto.photoArrayRef+")'>"+aPhoto.caption+"</DIV>";
+//Image file
+//Full screen polaroid style
+
+  document.getElementById("a"+albumIndex+"p"+photoIndex+"PhotoArea").innerHTML = o;
+}
+
+
+function displayAlbum(anAlbum,albumIndex) {
+  //place album: album info and photos
+  o = "<DIV id='album"+albumIndex+"Title'>"+anAlbum.title+"</DIV>";
+  o += "<DIV id='album"+albumIndex+"Caption'>"+anAlbum.caption+"</DIV>";
+  o += "<DIV id='album"+albumIndex+"URLTitle'>"+anAlbum.urlTitle+"</DIV>";
+  o += "<DIV id='album"+albumIndex+"URL'>"+anAlbum.url+"</DIV>";
+  o += "<DIV id='album"+albumIndex+"Photos' style='display: inline'></DIV>";
+  document.getElementById('album'+albumIndex+"Area").innerHTML = o;
+
+  //create placeholders for each photo in this album
+  a = "";
+  for (i = 0; i < anAlbum.photos.length; i++) {
+    a += "<DIV id='a"+albumIndex+"p"+i+"PhotoArea' style='display: inline'></DIV>";
+  }
+  document.getElementById("album"+albumIndex+"Photos").innerHTML = a;
+
+  //display all album photos in placeholders
+  for (photoIndex = 0; photoIndex < anAlbum.photos.length; photoIndex++) {
+    displayPhoto(anAlbum.photos[photoIndex],albumIndex,photoIndex);
+  }
+}
+
+
+function displayPage(pageNumIndex) {
+  //create placeholders for each album
+  var tempAlbumArray = pageArray[pageNumIndex];
+  o = "";
+  for (albumIndex = 0; albumIndex < tempAlbumArray.length; albumIndex++) {
+    o += "<DIV id='album"+albumIndex+"Area'></DIV>"
+  }
+  document.getElementById('photoThumbnailPage').innerHTML = o;
+  //display all albums in placeholders
+  for (albumIndex = 0; albumIndex < tempAlbumArray.length; albumIndex++) {
+    displayAlbum(tempAlbumArray[albumIndex],albumIndex);
+  }
+}
+
+
+
+//sets and displays that page
+function showPage(pageNumIndex) {
+  //set page number
+  currentPageIndex = pageNumIndex;
+  //display all albums on this page
+  displayPage(pageNumIndex)
+}
+
+//show a control for each available page
+function showPagesControls() {
+  o = "";  
+  for (pageIndex = 0; pageIndex < pageArray.length; pageIndex++) {
+    if (pageIndex!=0) {
+      o += ", ";
+    }
+    o += "<DIV id='pageControl("+pageIndex+")' style='display: inline' onClick='showPage("+pageIndex+")'>["+(pageIndex+1)+"]</DIV>";
+  }
+  document.getElementById('photoPageControlsAbove').innerHTML = o;
+  document.getElementById('photoPageControlsBelow').innerHTML = o;
+}
+
+
+//auto assign albums onto pages
+function assignAlbumsOntoPages() {
+  if (albumsPerPage<1) { albumsPerPage = 1; }
+  f = Math.floor(albumArray.length / albumsPerPage);
+  for (i = 0; i < f; i++) {
+    var temparray =[];
+    offset = (i*albumsPerPage);
+    for (a = 0; a < albumsPerPage; a++) {
+      temparray.push( albumArray[a + offset] )
+    }
+    pageArray.push(temparray);
+  }
+  m = albumArray.length % albumsPerPage;
+  offset = (f*albumsPerPage);
+  var temparray =[];
+  for (a = 0; a < m; a++) {
+    temparray.push( albumArray[a + offset] )
+  }
+  if (temparray.length != 0) {
+    pageArray.push(temparray);
+  }
+}
+
+
+</script>
+
+</HEAD>
+<BODY onload="startWebPageCode()">
+
+<DIV id='tempText'>x</DIV>
+<DIV>header stuff here</DIV>
+
+<!-- photo page display area !-->
+<DIV id='photosArea'>
+<DIV id='photoPageControlsAbove'></DIV>
+<DIV id='photoThumbnailPage'></DIV>
+<DIV id='photoPageControlsBelow'></DIV>
+</DIV>
+<!-- full screen photo display area (and caches) !-->
+<DIV id='bigPhotoArea' style="display: none">
+<DIV id='bigPhoto1' style="display: none">big1 here</DIV>
+<DIV id='bigPhoto2' style="display: none">big2 here</DIV>
+<DIV id='bigPhoto3' style="display: none">big3 here</DIV>
+</DIV>
+
+<!-- photo controls !-->
+<DIV id='buttonStart' style="display: inline" onClick="buttonStartSlideshow()">[PLAY]</DIV>
+<DIV id='buttonPause' style="display: none" onClick="buttonPauseSlideshow()">[PAUSE]</DIV>
+<DIV id='controls' style="display: none">
+<DIV id='buttonprevious' style="display: inline" onClick="buttonPrevPhoto()">[PREV]</DIV>
+<DIV id='buttonnext' style="display: inline" onClick="buttonNextPhoto()">[NEXT]</DIV>
+<DIV id='buttonclose' style="display: inline" onClick="buttonClosePhoto()">[CLOSE]</DIV>
+</DIV>
+
+
+
+<DIV>footer stuff</DIV>
+
+<script type="text/javascript" src="albums.json"></script>
+<script type="text/javascript">
+
+function startWebPageCode() {
+  //DEBUG
+
+
+//  document.getElementById('tempText').innerHTML = "TEST HERE";
+
+  loadJSON(myJSONcallback);
+  //no code below here
+}
+function loadJSON(callbackFunction) { 
+  var  xhttp = new XMLHttpRequest();
+   xhttp.overrideMimeType("application/json");
+   xhttp.open('GET', albumFile, true);
+//alert("TEST loadJSON A1 - ok");
+   xhttp.onreadystatechange = function () {
+    if ( xhttp.readyState == 4) {
+//alert("TEST loadJSON A2  xhttp.readyState="+ xhttp.readyState + "  xhttp.status="+ xhttp.status);
+      if ( xhttp.status == "200") {
+	//Firefox
+        callbackFunction( xhttp.responseText);
+      }
+      if ( xhttp.status == "0") {
+        //Chrome needs status 0
+alert("TEST loadJSON A3 xhttp.responseText="+xhttp.responseText);
+        callbackFunction( xhttp.responseText);
+      }
+    }
+  }
+  xhttp.send(null);
+}
+function myJSONcallback(response) {
+  // json data should be wrapped in square brackets
+alert("TEST myJSONcallback myJSONcallback B1 response="+response);
+  var rawJsonObj = JSON.parse(response);
+//var rawJsonObj = eval('(' + response + ')');
+
+//alert("TEST myJSONcallback myJSONcallback B2 rawJsonObj="+rawJsonObj);
+  var tempalbumJSONArray = rawJsonObj[0].albums;
+  for (albumIndex = 0; albumIndex < tempalbumJSONArray.length; albumIndex++) {
+//alert("TEST myJSONcallback myJSONcallback B3 albumIndex="+albumIndex);
+    assignAlbumFromJSON( tempalbumJSONArray[albumIndex] );
+  }
+  initVars();
+}
+
+function assignAlbumFromJSON(albumJSON) {
+  var tempPhotoArray = [];
+  for (i = 0; i < albumJSON.photos.length; i++) {
+    var tempPhoto = {fileName:albumJSON.folder+albumJSON.photos[i].img, caption:albumJSON.photos[i].cap, tags:albumJSON.photos[i].tags, photoArrayRef:masterPhotoIndex};
+    masterPhotoIndex++;
+    tempPhotoArray.push(tempPhoto);
+    photoArray.push(tempPhoto);
+  }
+  var anAlbum = {title:albumJSON.title, caption:albumJSON.desc, folder:albumJSON.folder, urlTitle:albumJSON.urlTitle, url:albumJSON.url, photos: tempPhotoArray}; 
+  albumArray.push(anAlbum);
+}
+
+
+function initVars() {
+
+//console.log("TEST");
+//document.getElementById('tempText').innerHTML = "TEST";
+
+  prevPhotoIndex = 0; //last
+  selectedPhotoIndex = 0; //first
+  nextPhotoIndex = 0; //second
+
+  //assign albums onto pages, then show first page 
+  assignAlbumsOntoPages();
+  showPagesControls();
+  showPage(0);
+
+//TODO Image for play button
+//TODO Image for pause button
+//TODO Image for previous button
+//TODO Image for next button
+
+//TODO Test on Chrome .... FAILS
+//TODO Test on IE
+//TODO Test on Android Browser
+//TODO Test on Safari
+
+//TODO Tag cloud
+
+}
+
+
+</script>
+
+</BODY>
+</HTML>

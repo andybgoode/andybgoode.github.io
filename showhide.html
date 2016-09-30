@@ -2,13 +2,175 @@
 <HEAD>
 <meta charset="UTF-8">
 
+<STYLE>
+
+
+body {
+    background-image: url("images/tiles.gif");
+    background-repeat: repeat;
+    background-color: white;
+    color: black;
+    font-family: 'CherryCreamSoda', Helvetica, sans-serif;
+    font-style: normal;
+    font-size: 1.0625em;
+   /* 
+   17px;
+   red=#EA2020
+   light blue=#82E8F6
+   pink=#FFBAD7
+   white=#FFFFFF
+   black=#000000
+   grey=#585858
+   */
+}
+
+img {
+	border: 0;
+}
+
+@font-face {
+	font-family: 'CherryCreamSoda';
+	src: url('misc/CherryCreamSoda.ttf'); 
+	src: local('Cherry Cream Soda'),
+	     local('Cherry-Cream-Soda'),
+             url('misc/CherryCreamSoda.ttf') 
+	     format('truetype');
+}
+
+
+
+#photosArea {
+	background: #EEEEEE;
+	display: inline-block;
+	padding:3px;
+}
+.polaroids {
+	background: #EEEEEE;
+	margin:0px;
+	padding:10px;
+}
+.polaroid {
+	background: #EEEEEE;
+	display: inline-block;
+	padding:3px;
+}
+.polaroidTable {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	display: inline-block;
+}
+
+.photocellrow {
+	height: 315px;
+	max-height: 315px;
+}
+.photocell {
+	background: #FFFFFF;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border: none;
+	width: 300px;
+	height: 300px;
+	max-width: 300px;
+	max-height: 300px;
+}
+.photoH {
+	width: 300px;	
+	display: block;
+	margin: 0px;
+}
+.photoV {
+	height: 300px;	
+	display: block;
+	margin: auto;
+}
+
+.phototextrow {
+	height: 70px;
+	max-height: 70px;
+}
+.phototextcell {
+	background: #FFFFFF;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: top;
+	border:none;
+}
+
+
+.largePolaroids {
+	background: #EEEEEE;
+	margin:0px;
+	padding:10px;
+}
+.largePolaroid {
+	background: #EEEEEE;
+	display: inline-block;
+	padding:3px;
+}
+.largePolaroidTable {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	display: inline-block;
+}
+
+.largePhotocellrow {
+	height: 315px;
+	max-height: 315px;
+}
+.largePhotocell {
+	background: #FFFFFF;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border: none;
+	width: 300px;
+	height: 300px;
+	max-width: 300px;
+	max-height: 300px;
+}
+.largePhotoH {
+	width: 300px;	
+	display: block;
+	margin: 0px;
+}
+.largePhotoV {
+	height: 300px;	
+	display: block;
+	margin: auto;
+}
+
+.largePhototextrow {
+	height: 70px;
+	max-height: 70px;
+}
+.largePhototextcell {
+	background: #FFFFFF;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: top;
+	border:none;
+}
+
+
+</STYLE>
+
 <script type="text/javascript">
 
 //------------------
 //User Variables Here
 //var albumFile = "file:///home/anbritto_gb/Documents/AJB/test/albums.json";
 var albumFile = "albums.json";
-var albumsPerPage = 3;
+var albumsPerPage = 7;
 var slideShowSlideTime = 4; // should be 8
 var myVar = setInterval(theTimer, 500);
 //------------------
@@ -68,9 +230,18 @@ function locateCacheForPhoto(photoIndex) {
 
 //single cache
 function assignCache(cacheNumber,fileName) {
-o = "<DIV onClick='buttonNextPhoto()' style='display:inline'>"+fileName+".jpg</DIV>";
-//Image file
 //Full screen polaroid style
+
+//o = "<DIV onClick='buttonNextPhoto()' style='display:inline'>"+fileName+".jpg</DIV>";
+
+//TODO determine photoH or photoV
+  var HorV = "largePhotoH";
+
+//TODO caption
+  var caption = "xxxxx xxxxx";
+
+  o = "<DIV class='largePolaroid' onClick='buttonNextPhoto()'><TABLE class='largePolaroidTable'><TR class='largePhotocellrow'><TD class='largePhotocell'><img src='"+fileName+".jpg' class='"+HorV+"'  alt='x"+caption+"'></TD></TR><TR class='largePhototextrow'><TD class='largePhototextcell'>"+caption+"</TD></TR></TABLE></DIV>";
+
   document.getElementById('bigPhoto'+cacheNumber).innerHTML = o;
 }
 
@@ -209,6 +380,10 @@ function buttonClosePhoto() {
 
 function closePhoto() {
 
+//TODO
+//dont remove all style....this explains missing style
+//dots[i].className = dots[i].className.replace(" active", "");
+
   //controls
   document.getElementById('controls').style.display = 'none';
   document.getElementById('buttonPause').style.display = 'none';
@@ -243,10 +418,14 @@ function buttonPauseSlideshow() {
 
 function displayPhoto(aPhoto,albumIndex,photoIndex) {
   //place photo: photo info and photo image
-  o = "<DIV id='a"+albumIndex+"p"+photoIndex+"Image' style='display: inline' alt='"+aPhoto.caption+"' onClick='showAPhoto("+aPhoto.photoArrayRef+")'>["+aPhoto.fileName+"-thumb.jpg]</DIV>";
-  o += "<DIV id='a"+albumIndex+"p"+photoIndex+"Caption' style='display: inline' onClick='showAPhoto("+aPhoto.photoArrayRef+")'>"+aPhoto.caption+"</DIV>";
-//Image file
-//Full screen polaroid style
+//  o = "<DIV id='a"+albumIndex+"p"+photoIndex+"Image' style='display: inline' alt='"+aPhoto.caption+"' onClick='showAPhoto("+aPhoto.photoArrayRef+")'>["+aPhoto.fileName+"-thumb.jpg]</DIV>";
+//  o += "<DIV id='a"+albumIndex+"p"+photoIndex+"Caption' style='display: inline' onClick='showAPhoto("+aPhoto.photoArrayRef+")'>"+aPhoto.caption+"</DIV>";
+//  document.getElementById("a"+albumIndex+"p"+photoIndex+"PhotoArea").innerHTML = o;
+
+//TODO determine photoH or photoV
+  var HorV = "photoH";
+
+  o = "<DIV class='polaroid' onClick='showAPhoto("+aPhoto.photoArrayRef+")'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='"+aPhoto.fileName+"-thumb.jpg' class='"+HorV+"'  alt='"+aPhoto.caption+"'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>"+aPhoto.caption+"</TD></TR></TABLE></DIV>";
 
   document.getElementById("a"+albumIndex+"p"+photoIndex+"PhotoArea").innerHTML = o;
 }
@@ -254,17 +433,24 @@ function displayPhoto(aPhoto,albumIndex,photoIndex) {
 
 function displayAlbum(anAlbum,albumIndex) {
   //place album: album info and photos
-  o = "<DIV id='album"+albumIndex+"Title'>"+anAlbum.title+"</DIV>";
+  if (anAlbum.url=="") {
+    linkText = "";
+  } else {
+    linkText = "<DIV id='album"+albumIndex+"URLTitle'><a href='"+anAlbum.url+"'>"+anAlbum.urlTitle+"</a></DIV>";
+  }
+
+  o = "<DIV class='albuminfo'>";
+  o += "<DIV id='album"+albumIndex+"Title'>"+anAlbum.title+"</DIV>";
+  o += linkText;
   o += "<DIV id='album"+albumIndex+"Caption'>"+anAlbum.caption+"</DIV>";
-  o += "<DIV id='album"+albumIndex+"URLTitle'>"+anAlbum.urlTitle+"</DIV>";
-  o += "<DIV id='album"+albumIndex+"URL'>"+anAlbum.url+"</DIV>";
-  o += "<DIV id='album"+albumIndex+"Photos' style='display: inline'></DIV>";
+  o += "<DIV id='album"+albumIndex+"Photos' class='polaroids'></DIV>";
+  o += "</DIV>";
   document.getElementById('album'+albumIndex+"Area").innerHTML = o;
 
   //create placeholders for each photo in this album
   a = "";
   for (i = 0; i < anAlbum.photos.length; i++) {
-    a += "<DIV id='a"+albumIndex+"p"+i+"PhotoArea' style='display: inline'></DIV>";
+    a += "<DIV id='a"+albumIndex+"p"+i+"PhotoArea' style='display: inline-block'></DIV>";
   }
   document.getElementById("album"+albumIndex+"Photos").innerHTML = a;
 
@@ -346,30 +532,41 @@ function assignAlbumsOntoPages() {
 <DIV>header stuff here</DIV>
 
 <!-- photo page display area !-->
-<DIV id='photosArea'>
-<DIV id='photoPageControlsAbove'></DIV>
+<DIV id='photosArea' style="background: #AAEEEE;padding:3px;">
+<DIV id='photoPageControlsAbove' style='color: blue;'></DIV>
 <DIV id='photoThumbnailPage'></DIV>
-<DIV id='photoPageControlsBelow'></DIV>
+<DIV id='photoPageControlsBelow' style='color: blue;'></DIV>
 </DIV>
 <!-- full screen photo display area (and caches) !-->
-<DIV id='bigPhotoArea' style="display: none">
-<DIV id='bigPhoto1' style="display: none">big1 here</DIV>
-<DIV id='bigPhoto2' style="display: none">big2 here</DIV>
-<DIV id='bigPhoto3' style="display: none">big3 here</DIV>
+<DIV id='bigPhotoArea' style="display: none" class="largePolaroids">
+<DIV id='bigPhoto1' style="display: none" class="largePolaroid">big1 here</DIV>
+<DIV id='bigPhoto2' style="display: none" class="largePolaroid">big2 here</DIV>
+<DIV id='bigPhoto3' style="display: none" class="largePolaroid">big3 here</DIV>
 </DIV>
 
 <!-- photo controls !-->
-<DIV id='buttonStart' style="display: inline" onClick="buttonStartSlideshow()">[PLAY]</DIV>
-<DIV id='buttonPause' style="display: none" onClick="buttonPauseSlideshow()">[PAUSE]</DIV>
+<DIV id='buttonStart' style="display: inline;background: #EEEEEE;padding:2px;" onClick="buttonStartSlideshow()">[PLAY]</DIV>
+<DIV id='buttonPause' style="display: none;background: #EEEEEE;padding:2px;" onClick="buttonPauseSlideshow()">[PAUSE]</DIV>
 <DIV id='controls' style="display: none">
-<DIV id='buttonprevious' style="display: inline" onClick="buttonPrevPhoto()">[PREV]</DIV>
-<DIV id='buttonnext' style="display: inline" onClick="buttonNextPhoto()">[NEXT]</DIV>
-<DIV id='buttonclose' style="display: inline" onClick="buttonClosePhoto()">[CLOSE]</DIV>
+<DIV id='buttonprevious' style="display: inline;background: #EEEEEE;padding:2px;" onClick="buttonPrevPhoto()">[PREV]</DIV>
+<DIV id='buttonnext' style="display: inline;background: #EEEEEE;padding:2px;" onClick="buttonNextPhoto()">[NEXT]</DIV>
+<DIV id='buttonclose' style="display: inline;background: #EEEEEE;padding:2px;" onClick="buttonClosePhoto()">[CLOSE]</DIV>
 </DIV>
 
-
+<!--
+<DIV class='polaroids'>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/andybgoode0007.jpg' class='photoH' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 1 xxx xxx xxxxxx xxxx xxx xxx xxxxxx xxxx</TD></TR></TABLE></DIV>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/andybgoode0007.jpg' class='photoH' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 2 xx1 xx2 xxxxx3 xxx4 xx5 xx6 xxxxx7 xxx8 xxx9 xx10 xxx11</TD></TR></TABLE></DIV>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/andybgoode0013.jpg' class='photoV' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 3</TD></TR></TABLE></DIV>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/andybgoode0006.jpg' class='photoH' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 4 xxx xxx xxxxxx xxxx xxx xxx xxxxxx xxxx</TD></TR></TABLE></DIV>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/andybgoode0013.jpg' class='photoV' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 5 xxx xxx xxxxxx xxxx xxx xxx xxxxxx xxxx</TD></TR></TABLE></DIV>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/andybgoode0007.jpg' class='photoH' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 6 xxx xxx xxxxxx xxxx xxx xxx xxxxxx xxxx</TD></TR></TABLE></DIV>
+<DIV class='polaroid'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='photos/xxx.jpg' class='photoH' alt='AndyBGoode Flyer'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>description of great day 7</TD></TR></TABLE></DIV>
+</DIV>
+-->
 
 <DIV>footer stuff</DIV>
+
 
 <script type="text/javascript" src="albums.json"></script>
 <script type="text/javascript">
@@ -397,7 +594,7 @@ function loadJSON(callbackFunction) {
       }
       if ( xhttp.status == "0") {
         //Chrome needs status 0
-alert("TEST loadJSON A3 xhttp.responseText="+xhttp.responseText);
+//alert("TEST loadJSON A3 xhttp.responseText="+xhttp.responseText);
         callbackFunction( xhttp.responseText);
       }
     }
@@ -406,7 +603,7 @@ alert("TEST loadJSON A3 xhttp.responseText="+xhttp.responseText);
 }
 function myJSONcallback(response) {
   // json data should be wrapped in square brackets
-alert("TEST myJSONcallback myJSONcallback B1 response="+response);
+//alert("TEST myJSONcallback myJSONcallback B1 response="+response);
   var rawJsonObj = JSON.parse(response);
 //var rawJsonObj = eval('(' + response + ')');
 
@@ -451,6 +648,8 @@ function initVars() {
 //TODO High Res Photos
 //TODO Thumbnail Presentation
 //TODO Full Screen Photo Presentation
+
+//TODO DOWNLOAD button when full screen..show same time as next button
 
 //TODO Image for play button
 //TODO Image for pause button

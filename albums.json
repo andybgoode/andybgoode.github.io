@@ -1,7 +1,7 @@
 [{"albums":[
 
 {
- "title":"1) Press Photos",
+ "title":"Press Photos",
  "desc":"Please feel free to use these photos for press/reviews/adverts/etc.. just include 'Andy B Goode' and a link to this website or the my facebook page. Click on a photo then click on DOWNLOAD.",
  "published":"YES",
  "folder":"photos/",
@@ -15,7 +15,7 @@
 }
 ,
 {
- "title":"2) Private Parties / Events",
+ "title":"Private Parties / Events",
  "desc":"Birthday Parties are always fun",
  "published":"YES",
  "folder":"photos/",
@@ -29,7 +29,7 @@
 }
 ,
 {
- "title":"3) Vintage Fetes / Fayres",
+ "title":"Vintage Fetes / Fayres",
  "desc":"We all love Village Summer Fetes and Vintage Fayres.",
  "published":"YES",
  "folder":"photos/",
@@ -47,7 +47,7 @@
 }
 ,
 {
- "title":"4) The Jays Vintage",
+ "title":"The Jays Vintage",
  "desc":"I am also proud to be part of a 1940s Vocal Vintage Tribute Group with some lovely ladies. We sing Andrews sisters, Bing Crosby, Frank Sinatra, Dean Martin style songs.",
  "published":"YES",
  "folder":"photos/",
@@ -65,7 +65,7 @@
 }
 ,
 {
- "title":"5) A Vintage Christmas",
+ "title":"A Vintage Christmas",
  "desc":"Xmas with Andy B Goode and The Jays is always quite special. We have enjoyed performing some Xmas Lights Switch on events at Tamworth and Ashby-de-la-Zouche.",
  "published":"YES",
  "folder":"photos/",
@@ -79,7 +79,7 @@
 }
 ,
 {
- "title":"6) Tamworth Food Festival",
+ "title":"Tamworth Food Festival",
  "desc":"Tamworth Food Gusto Food Festival. I sung with my other vocal group, 'The Jays'",
  "published":"NO",
  "folder":"photos/",

@@ -2,88 +2,94 @@
 
 {
  "title":"1) Press Photos",
- "desc":"Some higher res photos for Press / Publicity. Click on the photo so it shows the big High Res version, right click, save as",
+ "desc":"Please feel free to use these photos for press/reviews/adverts/etc.. just include 'Andy B Goode' and a link to this website or the my facebook page. Click on a photo then click on DOWNLOAD.",
+ "published":"YES",
  "folder":"photos/",
  "urlTitle":"Andy B Goode Facebook Page", "url":"https://www.facebook.com/AndyBGoode",
  "photos":[
-  {"img":"andybgoode0002","cap":"Andy B Goode Flyer","tags":""},
-  {"img":"andybgoode0001","cap":"Andy B Goode Flyer background photo","tags":"Flyer"},
-  {"img":"andybgoode0004","cap":"Close up of Andy B Goode crooning","tags":"Mic,Singer"},
-  {"img":"andybgoode0014","cap":"The vintage style microphone","tags":"Mic"}
- ]
+  {"img":"andybgoode0001","cap":"Andy B Goode ready to entertain","tags":"","date":"","download":"-HighRes"},
+  {"img":"andybgoode0004","cap":"Close up of Andy B Goode crooning","tags":"Mic,Singer","date":"","download":"-HighRes"},
+  {"img":"andybgoode0014","cap":"My vintage style microphone","tags":"Mic","date":"","download":"-HighRes"},
+  {"img":"andybgoode0002","cap":"Andy B Goode Flyer","tags":"Flyer","date":"","download":"-HighRes"}
+  ]
 }
 ,
 {
- "title":"2) Private Parties",
+ "title":"2) Private Parties / Events",
  "desc":"Birthday Parties are always fun",
+ "published":"YES",
  "folder":"photos/",
  "urlTitle":"", "url":"",
  "photos":[
-  {"img":"andybgoode0005","cap":"The Birthday Girl Dressed as a Flapper","tags":"Birthday,Flapper"},
-  {"img":"andybgoode0015","cap":"Elaine's Birthday Party","tags":"Birthday"},
-  {"img":"andybgoode0006","cap":"Anne's Birthday Party","tags":"Birthday"},
-  {"img":"andybgoode0016","cap":"What a card","tags":"Singer"}
+  {"img":"andybgoode0005","cap":"The Birthday Girl Dressed as a 1920s Flapper","tags":"Birthday,Flapper","date":"","download":""},
+  {"img":"andybgoode0015","cap":"Elaine's Birthday Party","tags":"Birthday","date":"","download":""},
+  {"img":"andybgoode0006","cap":"Anne's Birthday Party","tags":"Birthday","date":"","download":""},
+  {"img":"andybgoode0016","cap":"What a card","tags":"Singer","date":"","download":""}
  ]
 }
 ,
 {
  "title":"3) Vintage Fetes / Fayres",
  "desc":"We all love Village Summer Fetes and Vintage Fayres.",
+ "published":"YES",
  "folder":"photos/",
  "urlTitle":"", "url":"",
  "photos":[
-  {"img":"andybgoode0011","cap":"Waving the flag at St Pauls Dosthill Fete, I wasn't the only one who dressed vintage style","tags":""},
-  {"img":"andybgoode0012","cap":"Singing by the picturesque Dosthill church","tags":""},
-  {"img":"andybgoode0008","cap":"Out together dancing, Cheek to Cheek","tags":""},
-  {"img":"andybgoode0010","cap":"Singing with Passion","tags":""},
-  {"img":"andybgoode0007","cap":"A Traction engine at Norton Juxta Twycross Summer Fete","tags":""},
-  {"img":"andybgoode0018","cap":"A beautiful summers day, with heavy rain showers...of course this is England","tags":""},
-  {"img":"andybgoode0017","cap":"A lovely venue to sing, right by the swimming pool","tags":""},
-  {"img":"andybgoode0017","cap":"I sang 'Teenager in Love' live on the local radio station TRC FM","tags":""}
+  {"img":"andybgoode0011","cap":"Waving the flag at St Pauls Dosthill Fete, I wasn't the only one who dressed vintage style","tags":"","date":"","download":""},
+  {"img":"andybgoode0012","cap":"Singing by the picturesque Dosthill church","tags":"","date":"","download":""},
+  {"img":"andybgoode0008","cap":"Out together dancing, Cheek to Cheek","tags":"","date":"","download":""},
+  {"img":"andybgoode0010","cap":"Singing with Passion","tags":"","date":"","download":""},
+  {"img":"andybgoode0007","cap":"A Traction engine at Norton Juxta Twycross Summer Fete","tags":"","date":"","download":""},
+  {"img":"andybgoode0018","cap":"A beautiful summers day, with heavy rain showers...of course this is England","tags":"","date":"","download":""},
+  {"img":"andybgoode0017","cap":"A lovely venue to sing, right by the swimming pool","tags":"","date":"","download":""},
+  {"img":"andybgoode0017","cap":"I sang 'Teenager in Love' live on the local radio station TRC FM","tags":"","date":"","download":""}
  ]
 }
 ,
 {
- "title":"4) The Jays Vintage Vocal Tribute Group",
+ "title":"4) The Jays Vintage",
  "desc":"I am also proud to be part of a 1940s Vocal Vintage Tribute Group with some lovely ladies. We sing Andrews sisters, Bing Crosby, Frank Sinatra, Dean Martin style songs.",
+ "published":"YES",
  "folder":"photos/",
  "urlTitle":"The Jays Facebook Page", "url":"https://www.facebook.com/TheJaysVintage",
  "photos":[
-  {"img":"thejays0001","cap":"The Jays at Tamworth Castle Grounds","tags":""},
-  {"img":"thejays0002","cap":"The Jays at Tamworth Castle Grounds amongst the flowers","tags":""},
-  {"img":"thejays0006","cap":"The Jays perform at Tamworth Band Stand","tags":""},
-  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":""},
-  {"img":"thejays0005","cap":"I'm just leaning on the lamp post on the corner of the street, till a certain little lady comes b","tags":""},
-  {"img":"thejays0004","cap":"Fly me to the moon","tags":""},
-  {"img":"thejays0003","cap":"A Cheeky Jays Shot","tags":""},
-  {"img":"thejays0008","cap":"The Jays Vocal Vintage Tribute Group from Tamworth Staffordshire","tags":""}
+  {"img":"thejays0001","cap":"The Jays at Tamworth Castle Grounds","tags":"","date":"","download":""},
+  {"img":"thejays0002","cap":"The Jays at Tamworth Castle Grounds amongst the flowers","tags":"","date":"","download":""},
+  {"img":"thejays0006","cap":"The Jays perform at Tamworth Band Stand","tags":"","date":"","download":""},
+  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"","date":"","download":""},
+  {"img":"thejays0005","cap":"I'm just leaning on the lamp post...","tags":"","date":"","download":""},
+  {"img":"thejays0004","cap":"Fly me to the moon","tags":"","date":"","download":""},
+  {"img":"thejays0003","cap":"A Cheeky Jays Shot","tags":"","date":"","download":""},
+  {"img":"thejays0008","cap":"The Jays Vocal Vintage Tribute Group from Tamworth Staffordshire","tags":"","date":"","download":""}
  ]
 }
 ,
 {
  "title":"5) A Vintage Christmas",
  "desc":"Xmas with Andy B Goode and The Jays is always quite special. We have enjoyed performing some Xmas Lights Switch on events at Tamworth and Ashby-de-la-Zouche.",
+ "published":"YES",
  "folder":"photos/",
  "urlTitle":"The Jays Facebook Page", "url":"https://www.facebook.com/TheJaysVintage",
  "photos":[
-  {"img":"thejays0007","cap":"The Jays at Tamworth Christmas Light Switch on","tags":"Christmas"},
-  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"Christmas"},
-  {"img":"thejays0007","cap":"Posing for the local Tamworth Herald Paper","tags":"Christmas"},
-  {"img":"thejays0007","cap":"Simply having a wonderful Xmas time","tags":"Christmas"}
+  {"img":"thejays0007","cap":"The Jays at Tamworth Christmas Light Switch on","tags":"Christmas","date":"","download":""},
+  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"Christmas","date":"","download":""},
+  {"img":"thejays0007","cap":"Posing for the local Tamworth Herald Paper","tags":"Christmas","date":"","download":""},
+  {"img":"thejays0007","cap":"Simply having a wonderful Xmas time","tags":"Christmas","date":"","download":""}
  ]
 }
 ,
 {
  "title":"6) Tamworth Food Festival",
  "desc":"Tamworth Food Gusto Food Festival. I sung with my other vocal group, 'The Jays'",
+ "published":"NO",
  "folder":"photos/",
  "urlTitle":"bing", "url":"www.bing.com",
  "photos":[
-  {"img":"andybgoode0007","cap":"ONE","tags":""},
-  {"img":"andybgoode0007","cap":"TWO","tags":""},
-  {"img":"three","cap":"THREE","tags":""},
-  {"img":"four","cap":"FOUR","tags":""},
-  {"img":"five","cap":"FIVE","tags":""}
+  {"img":"andybgoode0007","cap":"ONE","tags":"","date":"","download":""},
+  {"img":"andybgoode0007","cap":"TWO","tags":"","date":"","download":""},
+  {"img":"three","cap":"THREE","tags":"","date":"","download":""},
+  {"img":"four","cap":"FOUR","tags":"","date":"","download":""},
+  {"img":"five","cap":"FIVE","tags":"","date":"","download":""}
  ]
 }
 

@@ -21,7 +21,10 @@ h1 {
     color: black;
     background: #82E8F6;
     border-radius: 10px;
-    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
     font-size: 2.8125em; 
     /*45px;*/
     }
@@ -81,73 +84,177 @@ img {
     padding: 10px;  
 }
 
-.albumheading {
-	padding-top: 20px;
+
+
+#photoPageControlsAbove {
+  color: blue;width:100%;background-color:#EEEEEE;
 }
-
-.photo {
-    width: 300px;
+#photoPageControlsBelow {
+  color: blue;width:100%;background-color:#EEEEEE;
 }
-
-.phototablecell {
-	width: 310px;
+.pageControl {
+  cursor: pointer; display: inline;background-color:#EEEEEE;
 }
-
-.phototext {
-	width: 310px;
+#photosArea {
+	background: #EEEEEE;
+	display: inline-block;
+	padding:2px;
 }
-
-
 .polaroids {
 	background: #EEEEEE;
 	margin:0px;
-	padding:10px;
+	padding:1px;
 }
-
-.polaroidcell {
-	background: #EEEEEE;
-	margin:0px;
-	padding:6px;
-}
-
 .polaroid {
+	background: #EEEEEE;
+	display: inline-block;
+	padding:2px;
+}
+.polaroidTable {
 	border: 1px solid #000000;
 	border-collapse: collapse;
+	display: inline-block;
 }
-
-.photoH {
-	width: 300px;	
-	display: block;
-	margin: auto;
+.albumArea {
+    padding-top: 20px;
 }
-
-.photoV {
-	height: 300px;	
-	display: block;
-	margin: auto;
+.albumInfo {
+    padding-left: 5px;padding-top: 10px; background-color:#EEEEEE;
 }
-
+.albumTitle {
+    font-weight: 900;
+}
+.photocellrow {
+	height: 315px;
+	max-height: 315px;
+}
 .photocell {
 	background: #FFFFFF;
 	padding-top: 10px;
 	padding-right: 10px;
 	padding-left: 10px;
 	padding-bottom: 5px;
-	border:none;
+	border: none;
 	width: 300px;
 	height: 300px;
+	max-width: 300px;
+	max-height: 300px;
 }
-
-.phototext {
+.photoH {
+	width: 300px;	
+	display: block;
+	margin: 0px;
+}
+.photoV {
+	height: 300px;	
+	display: block;
+	margin: auto;
+}
+.phototextrow {
+	height: 70px;
+	max-height: 70px;
+}
+.phototextcell {
 	background: #FFFFFF;
-	width: 300px;
-	height: 50px;
 	padding-top: 0px;
 	padding-right: 10px;
 	padding-bottom: 10px;
 	padding-left: 10px;
-	border:none;
 	text-align: left;
 	vertical-align: top;
+	border:none;
 }
+.largePolaroids {
+	background: #EEEEEE;
+	margin:0px;
+	padding:10px;	
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: none;
+    overflow: hidden;
+    z-index: 99;
+}
+.largePolaroid {
+	background: #EEEEEE;
+	display: inline-block;
+	padding:1px;
+
+}
+.largePolaroidTable {
+	border: 1px solid #000000;
+	border-collapse: collapse;
+	display: inline-block;
+}
+.largePhotocellrow {	
+    height:100%;
+}
+.largePhotocell {
+	background: #FFFFFF;
+	padding-top: 10px;
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 5px;
+	border: none;
+}
+.largePhotoH {		
+	display: block;
+	margin: 0px;
+	width:100%;
+}
+.largePhototextrow {
+	height: 70px;
+	max-height: 70px;
+}
+.largePhototextcell {
+	background: #FFFFFF;
+	padding-top: 0px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	text-align: left;
+	vertical-align: top;
+	border:none;
+	word-wrap: break-word;
+}
+#bigPhoto1 {
+    display: none;
+}
+#bigPhoto2 {
+    display: none;
+}
+#bigPhoto3 {
+    display: none;
+}
+#controls {
+    z-index: 100;cursor: pointer; position: absolute;display: none
+}
+#buttonDownload {
+    position: fixed; top: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+}
+#buttonStart {
+    cursor: pointer; display: block;background-color: #DDDDDD;padding:2px;
+}
+#buttonPlay {
+    position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;
+}
+#buttonPause {
+    position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;
+}
+#buttonPrevious {
+    position: fixed; bottom: 50px; left: 10px; display: inline;background: #DDDDDD;padding:2px;
+}
+#buttonNext {
+    position: fixed; bottom: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+}
+#buttonClose {
+    position: fixed; top: 20px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+}
+
+
+
 

@@ -233,9 +233,6 @@ img {
 #controls {
     z-index: 100;cursor: pointer; position: absolute;display: none
 }
-#buttonDownload {
-    position: fixed; top: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
-}
 #buttonStart {
     cursor: pointer; display: block;background-color: #DDDDDD;padding:2px;
 }
@@ -246,14 +243,18 @@ img {
     position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;
 }
 #buttonPrevious {
-    position: fixed; bottom: 50px; left: 10px; display: inline;background: #DDDDDD;padding:2px;
+    position: fixed; top: 140px; left: 10px; display: inline;background: #DDDDDD;padding:2px;
 }
 #buttonNext {
-    position: fixed; bottom: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+    position: fixed; top: 140px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
 }
 #buttonClose {
     position: fixed; top: 20px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
 }
+#buttonDownload {
+    position: fixed; top: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+}
+
 
 
 

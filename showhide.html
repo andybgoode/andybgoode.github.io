@@ -142,7 +142,6 @@ function resizeBigPhoto(cacheNumber) {
       bigImg.style.height = (windowH - heightBuffer) + "px";
       bigImg.style.width = 'auto';
     } else {
-//TEST
       bigImg.style.width = (windowW - widthBuffer) + "px";
       bigImg.style.height = 'auto';
     }
@@ -157,6 +156,7 @@ function resizeBigPhoto(cacheNumber) {
   }
   var imgWidth = bigImg.clientWidth;
   bigImgTextCell.style.width = imgWidth + "px";
+  bigImgTextCell.style.maxWidth = imgWidth + "px";
 }
 
 
@@ -337,7 +337,6 @@ function buttonPauseSlideshow() {
 
 
 function displayPhoto(aPhoto,albumIndex,photoIndex) {
-//TODO determine photoH or photoV
   var HorV = "photoH";
   o = "<DIV class='polaroid' onClick='showAPhoto("+aPhoto.photoArrayRef+")'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='"+aPhoto.fileName+"-thumb.jpg' class='"+HorV+"' alt='"+aPhoto.caption+"'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>"+aPhoto.caption+"</TD></TR></TABLE></DIV>";
   document.getElementById("a"+albumIndex+"p"+photoIndex+"PhotoArea").innerHTML = o;
@@ -497,7 +496,7 @@ function assignAlbumsOntoPages() {
 <li>Instagram: <a href="https://www.instagram.com/andybgoodevocalist">andybgoodevocalist</a></li>
 <li>YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
 <li>Twitter: <a href="http://www.twitter.com/AndyBGoode">AndyBGoode</a></li>
-<li>website: v2.0.10</li>
+<li>website: v2.0.11</li>
 </ul>
 </div>
 </div>
@@ -588,21 +587,24 @@ function initVars() {
 
 //TODO Test on Firefox .... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
 //TODO Test on IE ......... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
-//TODO Test on Chrome ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing display problems
+//TODO Test on Chrome ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
 //TODO Test on Edge ....... 
 
-//TODO full screen buttons need to be deeper and transparent
-//TODO Test on Android Browser Portrait.... OVERALL FAIL: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  no photo (seems to not have correct screen size)+photo captions dont wrap, causing display problems
-//TODO Test on Android Browser Landscape.... OVERALL FAIL: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  no photo (screen size seems ok)+photo captions dont wrap, causing display problems
-//TODO Test on Android Chrome Portrait.... OVERALL OK: Thumbnails = Full Screen =  photo captions dont wrap, causing minor display problems
-//TODO Test on Android Chrome Landscape.... OVERALL OK: Thumbnails = Full Screen =  photo captions dont wrap, causing display problems
+//TODO full screen buttons need to be deeper
+
+//TODO Test on Android Browser Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing display problems
+//TODO Test on Android Browser Landscape.... OVERALL FAIL: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  photo captions dont wrap, causing minor display problems
+
+//TODO Test on Android Chrome Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO Test on Android Chrome Landscape.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+
 //TODO Test on Safari Portrait..... 
 //TODO Test on Safari Landscape..... 
 
 
 //TODO display something if no javascript
 
-
+//TODO Display Date (in full screen mode caption)
 //TODO Display Tag cloud
 
 }

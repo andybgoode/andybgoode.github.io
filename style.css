@@ -236,22 +236,27 @@ width: 300px;
 	cursor: pointer; display: block;background-color: #DDDDDD;padding:2px;
 }
 #buttonPlay {
-	position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;
+/*	position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;*/
+	position: fixed; top: 20px; left: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 20px; border-radius: 10px;
 }
 #buttonPause {
-	position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;
+/*	position: fixed; top: 20px; left: 10px;z-index: 100;cursor: pointer; display: none;background: #DDDDDD;padding:2px;*/
+	position: fixed; top: 20px; left: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 20px; border-radius: 10px;
 }
 #buttonPrevious {
-	position: fixed; top: 50%; left: 10px; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 24px; border-radius: 10px;
+	position: fixed; top: 50%; left: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 24px; border-radius: 10px;
 }
 #buttonNext {
-	position: fixed; top: 50%; right: 10px; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 24px; border-radius: 10px;
+	position: fixed; top: 50%; right: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 24px; border-radius: 10px;
 }
 #buttonClose {
-	position: fixed; top: 20px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+/*	position: fixed; top: 20px; right: 10px; display: inline;background: #DDDDDD;padding:2px;*/
+	position: fixed; top: 20px; right: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 23px; border-radius: 10px;
 }
 #buttonDownload {
-	position: fixed; top: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;
+/*	position: fixed; top: 50px; right: 10px; display: inline;background: #DDDDDD;padding:2px;*/
+	position: fixed; top: 90px; right: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 15px; border-radius: 10px;
+
 }
 
 

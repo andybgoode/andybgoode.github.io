@@ -580,7 +580,6 @@ function initVars() {
   showPagesControls();
   showPage(0);
 
-//  window.addEventListener("resize",screenResized());
 
 //TODO Thumbnail Photos
 //TODO High Res Photos
@@ -590,10 +589,10 @@ function initVars() {
 //TODO Test on Chrome ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
 //TODO Test on Edge ....... 
 
-//TODO full screen buttons need to be deeper
+//TODO full screen buttons PLAY, CLOSE, DOWNLOAD need to be deeper
 
-//TODO Test on Android Browser Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing display problems
-//TODO Test on Android Browser Landscape.... OVERALL FAIL: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO Test on Android Browser Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO Test on Android Browser Landscape.... OVERALL OK: Thumbnails =  OK, Full Screen =  photo captions dont wrap, causing minor display problems
 
 //TODO Test on Android Chrome Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
 //TODO Test on Android Chrome Landscape.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
@@ -612,11 +611,9 @@ function initVars() {
 
 window.addEventListener("resize", screenResized);
 
-var x = 0;
+
 //resize all cached big images if the screen resizes
 function screenResized() {
-
-//TODO delete
   if (photo1cache!=-1) {
     resizeBigPhoto('1');
   }
@@ -626,9 +623,8 @@ function screenResized() {
   if (photo3cache!=-1) {
     resizeBigPhoto('3');
   }
-
-
 }
+
 </script>
 
 

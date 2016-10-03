@@ -56,6 +56,8 @@ var myVar = setInterval(theTimer, 500);
 //------------------------------------
 
 
+//TODO DELETE THIS
+var tempX = 0;
 
 var theTime = 0;
 var slideShowRunning = false;
@@ -121,14 +123,13 @@ function assignCache(cacheNumber,photo) {
 }
 
 
-function resizeBigPhoto(cacheNumber) {
-  
+//resize based upon current screen size
+function resizeBigPhoto(cacheNumber) {  
   var bigImg = document.getElementById("bigPhotoImg"+cacheNumber);
   var windowW = window.innerWidth;
   var windowH = window.innerHeight; 
   var landscape=false;
   if (windowW>=windowH) {landscape=true;}  
-  //resize based upon screen size
   if (landscape) {
     bigImg.style.height = (windowH - 120) + "px";
     bigImg.style.width = 'auto';	
@@ -414,6 +415,7 @@ function assignAlbumsOntoPages() {
 }
 
 
+
 </script>
 
 </HEAD>
@@ -476,10 +478,11 @@ function assignAlbumsOntoPages() {
 <li>Instagram: <a href="https://www.instagram.com/andybgoodevocalist">andybgoodevocalist</a></li>
 <li>YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
 <li>Twitter: <a href="http://www.twitter.com/AndyBGoode">AndyBGoode</a></li>
-<li>website: v2.0.9</li>
+<li>website: v2.0.10</li>
 </ul>
 </div>
 </div>
+
 
 </div>
 
@@ -559,6 +562,8 @@ function initVars() {
   showPagesControls();
   showPage(0);
 
+//  window.addEventListener("resize",screenResized());
+
 //TODO Thumbnail Photos
 //TODO High Res Photos
 
@@ -578,13 +583,33 @@ function initVars() {
 
 //TODO display something if no javascript
 
-//TODO if screen size changes resize all cached images
 
 //TODO Display Tag cloud
 
 }
 
+
+window.addEventListener("resize", screenResized);
+
+var x = 0;
+//resize all cached big images if the screen resizes
+function screenResized() {
+
+//TODO delete
+  if (photo1cache!=-1) {
+    resizeBigPhoto('1');
+  }
+  if (photo2cache!=-1) {
+    resizeBigPhoto('2');
+  }
+  if (photo3cache!=-1) {
+    resizeBigPhoto('3');
+  }
+
+
+}
 </script>
+
 
 </BODY>
 </HTML>

@@ -116,28 +116,32 @@ function locateCacheForPhoto(photoIndex) {
 function assignCache(cacheNumber,photo) {
   var fileName = photo.fileName;
   var caption = photo.caption;  
-  o = "<DIV class='largePolaroid' onClick='buttonNextPhoto()'><TABLE class='largePolaroidTable'><TR class='largePhotocellrow'><TD class='largePhotocell'><img id='bigPhotoImg"+cacheNumber+"' src='"+fileName+".jpg' class='largePhotoH' alt='"+caption+"'></TD></TR><TR class='largePhototextrow'><TD class='largePhototextcell'>"+caption+"</TD></TR></TABLE></DIV>";
+  o = "<DIV class='largePolaroid' onClick='buttonNextPhoto()'><TABLE class='largePolaroidTable'><TR class='largePhotocellrow'><TD class='largePhotocell'><img id='bigPhotoImg"+cacheNumber+"' src='"+fileName+".jpg' class='largePhotoH' alt='"+caption+"'></TD></TR><TR class='largePhototextrow'><TD id='largePhototextcell"+cacheNumber+"' class='largePhototextcell'>"+caption+"</TD></TR></TABLE></DIV>";
   document.getElementById('bigPhoto'+cacheNumber).innerHTML = o;  
   var thisPhoto = document.getElementById("bigPhotoImg"+cacheNumber);
   thisPhoto.addEventListener("load", resizeBigPhoto(cacheNumber));
 }
 
 
-//resize based upon current screen size
+//resize based upon current screen size, set text caption image width
 function resizeBigPhoto(cacheNumber) {  
   var bigImg = document.getElementById("bigPhotoImg"+cacheNumber);
+  var bigImgTextCell = document.getElementById("largePhototextcell"+cacheNumber);
   var windowW = window.innerWidth;
-  var windowH = window.innerHeight; 
+  var windowH = window.innerHeight;
+  var heightBuffer = 110;
+  var widthBuffer = 100;
   var landscape=false;
   if (windowW>=windowH) {landscape=true;}  
   if (landscape) {
-    bigImg.style.height = (windowH - 120) + "px";
+    bigImg.style.height = (windowH - heightBuffer) + "px";
     bigImg.style.width = 'auto';	
   } else {
-    bigImg.style.width = (windowW - 120) + "px";
+    bigImg.style.width = (windowW - widthBuffer) + "px";
     bigImg.style.height = 'auto';
   }
-//TODO set text area to same width as image  
+  var imgWidth = bigImg.clientWidth;
+  bigImgTextCell.style.width = imgWidth + "px";
 }
 
 
@@ -446,8 +450,8 @@ function assignAlbumsOntoPages() {
 <DIV id='controls'>
 <DIV id='buttonPlay' onClick="buttonStartSlideshow()">[PLAY]</DIV>
 <DIV id='buttonPause' onClick="buttonPauseSlideshow()">[PAUSE]</DIV>
-<DIV id='buttonPrevious' onClick="buttonPrevPhoto()">[PREV]</DIV>
-<DIV id='buttonNext' onClick="buttonNextPhoto()">[NEXT]</DIV>
+<DIV id='buttonPrevious' onClick="buttonPrevPhoto()">&#10094;</DIV>
+<DIV id='buttonNext' onClick="buttonNextPhoto()">&#10095;</DIV>
 <DIV id='buttonClose' onClick="buttonClosePhoto()">[CLOSE]</DIV>
 <DIV id='buttonDownload' onClick="buttonDownloadPhoto()"><a href="photos/andybgoode0002-highres.jpg" download>[DOWNLOAD]</a></DIV>
 </DIV>  

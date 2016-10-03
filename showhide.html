@@ -123,22 +123,37 @@ function assignCache(cacheNumber,photo) {
 }
 
 
-//resize based upon current screen size, set text caption image width
+//resize based upon current screen and photo, set text caption image width
 function resizeBigPhoto(cacheNumber) {  
   var bigImg = document.getElementById("bigPhotoImg"+cacheNumber);
   var bigImgTextCell = document.getElementById("largePhototextcell"+cacheNumber);
   var windowW = window.innerWidth;
   var windowH = window.innerHeight;
+  var photoW = bigImg.clientWidth;
+  var photoH = bigImg.clientHeight;
   var heightBuffer = 110;
   var widthBuffer = 100;
-  var landscape=false;
-  if (windowW>=windowH) {landscape=true;}  
-  if (landscape) {
-    bigImg.style.height = (windowH - heightBuffer) + "px";
-    bigImg.style.width = 'auto';	
+  var windowLandscape=false;
+  var photoLandscape=false;
+  if (windowW>=windowH) {windowLandscape=true;} 
+  if (photoW>=photoH) {photoLandscape=true;} 
+  if (windowLandscape) {
+    if (photoLandscape) {
+      bigImg.style.height = (windowH - heightBuffer) + "px";
+      bigImg.style.width = 'auto';
+    } else {
+//TEST
+      bigImg.style.width = (windowW - widthBuffer) + "px";
+      bigImg.style.height = 'auto';
+    }
   } else {
-    bigImg.style.width = (windowW - widthBuffer) + "px";
-    bigImg.style.height = 'auto';
+    if (photoLandscape) {
+      bigImg.style.width = (windowW - widthBuffer) + "px";
+      bigImg.style.height = 'auto';
+    } else {
+      bigImg.style.height = (windowH - heightBuffer) + "px";
+      bigImg.style.width = 'auto';
+    }
   }
   var imgWidth = bigImg.clientWidth;
   bigImgTextCell.style.width = imgWidth + "px";
@@ -573,14 +588,14 @@ function initVars() {
 
 //TODO Test on Firefox .... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
 //TODO Test on IE ......... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
-//TODO Test on Chrome ..... OVERALL OK: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  photo captions dont wrap, causing display problems
+//TODO Test on Chrome ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing display problems
 //TODO Test on Edge ....... 
 
 //TODO full screen buttons need to be deeper and transparent
 //TODO Test on Android Browser Portrait.... OVERALL FAIL: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  no photo (seems to not have correct screen size)+photo captions dont wrap, causing display problems
 //TODO Test on Android Browser Landscape.... OVERALL FAIL: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  no photo (screen size seems ok)+photo captions dont wrap, causing display problems
-//TODO Test on Android Chrome Portrait.... OVERALL OK: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  photo captions dont wrap, causing display problems
-//TODO Test on Android Chrome Landscape.... OVERALL OK: Thumbnails =  1) photo captions dont wrap, causing display problems, Full Screen =  photo captions dont wrap, causing display problems
+//TODO Test on Android Chrome Portrait.... OVERALL OK: Thumbnails = Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO Test on Android Chrome Landscape.... OVERALL OK: Thumbnails = Full Screen =  photo captions dont wrap, causing display problems
 //TODO Test on Safari Portrait..... 
 //TODO Test on Safari Landscape..... 
 

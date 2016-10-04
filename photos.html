@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<HTML>
 <!--
- Copyright (C) 2016 Andrew Brittons.
+ Copyright (C) 2016 Andrew Britton.
  All rights reserved
  -->
-<head>
+<HEAD>
 <title>Andy B Goode - Photos- Vintage Rock n Roll Singer, Staffordshire, UK</title>
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <meta http-equiv="Cache-Control" content="no-cache" />
@@ -43,9 +43,424 @@
   ga('create', 'UA-77123620-1', 'auto');
   ga('send', 'pageview');
 </script>
-</head>
 
-<body>
+<script type="text/javascript">
+
+//------------------------------------
+//User Variables Here
+//var albumFile = "file:///home/anbritto_gb/Documents/AJB/test/albums.json";
+var albumFile = "albums.json";
+var albumsPerPage = 7;
+var slideShowSlideTime = 7; // should be 8
+var myVar = setInterval(theTimer, 500);
+//------------------------------------
+
+
+//Image Sizes:
+//Thumbnail Photo Dimensions = 300x300
+//Large  Photo Dimensions = max 1024
+//High Res Dimensions = original size
+
+
+var theTime = 0;
+var slideShowRunning = false;
+
+function theTimer() {
+  theTime += 1;
+  if (theTime > slideShowSlideTime) { 
+    theTime = 0;
+    if (slideShowRunning) {
+      showAPhoto(nextPhotoIndex);
+    }
+  }
+}
+
+var photoArray = [];
+var masterPhotoIndex = 0;
+var albumArray = [];
+
+//a page has: array of albums (calculated from 'number of albums')
+var currentPageIndex = 0;
+var pageArray = [];
+var prevPhotoIndex = 0;
+var selectedPhotoIndex = 0;
+var nextPhotoIndex = 0;
+
+//cache for big photos
+var photo1cache = -1;
+var photo2cache = -1;
+var photo3cache = -1;
+
+
+function assignSelectedPrevNext(photoIndex) {
+  selectedPhotoIndex = photoIndex;
+  prevPhotoIndex = photoIndex-1;
+  if (prevPhotoIndex<0) {
+    prevPhotoIndex = photoArray.length - 1;
+  }
+  nextPhotoIndex = photoIndex+1;
+  if (nextPhotoIndex>=photoArray.length) {
+    nextPhotoIndex = 0;
+  }
+}
+
+
+//search for and return cache number for passed index
+function locateCacheForPhoto(photoIndex) {
+  var r=-1;
+  if (photo1cache==photoIndex) {r=1;}
+  if (photo2cache==photoIndex) {r=2;}
+  if (photo3cache==photoIndex) {r=3;}
+  return r;
+}
+
+
+//single cache - Full screen polaroid style
+function assignCache(cacheNumber,photo) {
+  var fileName = photo.fileName;
+  var caption = photo.caption;
+  if (photo.date!="") {
+    caption += " ("+photo.date+")";
+  }
+  o = "<DIV class='largePolaroid' onClick='buttonNextPhoto()'><TABLE class='largePolaroidTable'><TR class='largePhotocellrow'><TD class='largePhotocell'><img id='bigPhotoImg"+cacheNumber+"' src='"+fileName+".jpg' class='largePhotoH' alt='"+caption+"'></TD></TR><TR class='largePhototextrow'><TD id='largePhototextcell"+cacheNumber+"' class='largePhototextcell'>"+caption+"</TD></TR></TABLE></DIV>";
+  document.getElementById('bigPhoto'+cacheNumber).innerHTML = o;  
+  var thisPhoto = document.getElementById("bigPhotoImg"+cacheNumber);
+  thisPhoto.addEventListener("load", resizeBigPhoto(cacheNumber));
+}
+
+
+//resize based upon current screen and photo, set text caption image width
+function resizeBigPhoto(cacheNumber) {  
+  var bigImg = document.getElementById("bigPhotoImg"+cacheNumber);
+  var bigImgTextCell = document.getElementById("largePhototextcell"+cacheNumber);
+  var windowW = window.innerWidth;
+  var windowH = window.innerHeight;
+  var photoW = bigImg.clientWidth;
+  var photoH = bigImg.clientHeight;
+  var heightBuffer = 110;
+  var widthBuffer = 100;
+  var windowLandscape=false;
+  var photoLandscape=false;
+  if (windowW>=windowH) {windowLandscape=true;} 
+  if (photoW>=photoH) {photoLandscape=true;} 
+  if (windowLandscape) {
+    if (photoLandscape) {
+      bigImg.style.height = (windowH - heightBuffer) + "px";
+      bigImg.style.width = 'auto';
+    } else {
+      bigImg.style.width = (windowW - widthBuffer) + "px";
+      bigImg.style.height = 'auto';
+    }
+  } else {
+    if (photoLandscape) {
+      bigImg.style.width = (windowW - widthBuffer) + "px";
+      bigImg.style.height = 'auto';
+    } else {
+      bigImg.style.height = (windowH - heightBuffer) + "px";
+      bigImg.style.width = 'auto';
+    }
+  }
+  var imgWidth = bigImg.clientWidth;
+  bigImgTextCell.style.width = imgWidth + "px";
+  bigImgTextCell.style.maxWidth = imgWidth + "px";
+}
+
+
+//assign all available caches
+function assignAllCache(photoArrayRef) {
+  //select photo, prev and next
+  assignSelectedPrevNext(photoArrayRef);
+
+  if (photo1cache==-1) {
+    //first photo selected (no existing cached photos), load cache
+    photo1cache = selectedPhotoIndex;
+    photo2cache = prevPhotoIndex;
+    photo3cache = nextPhotoIndex;
+    assignCache("1", photoArray[selectedPhotoIndex]);
+    assignCache("2", photoArray[prevPhotoIndex]);
+    assignCache("3", photoArray[nextPhotoIndex]);
+  }
+  //assign cache
+  selectCacheNumber = locateCacheForPhoto(photoArrayRef);
+  prevCacheNumber = locateCacheForPhoto(prevPhotoIndex);
+  nextCacheNumber = locateCacheForPhoto(nextPhotoIndex);
+  if (selectCacheNumber==-1) {
+    //image not cached, select a cache that is not needed for something else
+    if ((prevCacheNumber!=1) && (nextCacheNumber!=1)) {
+      selectCacheNumber = 1;
+      photo1cache = selectedPhotoIndex;
+      assignCache("1",photoArray[selectedPhotoIndex]);
+    } else {
+      if ((prevCacheNumber!=2) && (nextCacheNumber!=2)) {
+        selectCacheNumber = 2;
+        photo2cache = selectedPhotoIndex;
+        assignCache("2",photoArray[selectedPhotoIndex]);
+      } else {
+        if ((prevCacheNumber!=3) && (nextCacheNumber!=3)) {
+          selectCacheNumber = 3;
+          photo3cache = selectedPhotoIndex;
+          assignCache("3",photoArray[selectedPhotoIndex]);
+        }
+      }
+    }
+  }
+  if (prevCacheNumber==-1) {
+    //image not cached, select a cache that is not needed for something else
+    if ((nextCacheNumber!=1) && (selectCacheNumber!=1)) {
+      prevCacheNumber = 1;
+      photo1cache = prevPhotoIndex;
+      assignCache("1",photoArray[prevPhotoIndex]);
+    } else {
+      if ((nextCacheNumber!=2) && (selectCacheNumber!=2)) {
+        prevCacheNumber = 2;
+        photo2cache = prevPhotoIndex;
+        assignCache("2",photoArray[prevPhotoIndex]);
+      } else {
+        if ((nextCacheNumber!=3) && (selectCacheNumber!=3)) {
+          prevCacheNumber = 3;
+          photo3cache = prevPhotoIndex;
+          assignCache("3",photoArray[prevPhotoIndex]);
+        }
+      }
+    }
+  }
+  if (nextCacheNumber==-1) {
+    //image not cached, select a cache that is not needed for something else
+    if ((prevCacheNumber!=1) && (selectCacheNumber!=1)) {
+      nextCacheNumber = 1;
+      photo1cache = nextPhotoIndex;
+      assignCache("1",photoArray[nextPhotoIndex]);
+    } else {
+    if ((prevCacheNumber!=2) && (selectCacheNumber!=2)) {
+        nextCacheNumber = 2;
+        photo2cache = nextPhotoIndex;
+        assignCache("2",photoArray[nextPhotoIndex]);
+      } else {
+        if ((prevCacheNumber!=3) && (selectCacheNumber!=3)) {
+          nextCacheNumber = 3;
+          photo3cache = nextPhotoIndex;
+          assignCache("3",photoArray[nextPhotoIndex]);
+        }
+      }
+    }
+  }
+  return selectCacheNumber;
+}
+
+
+function showAPhoto(photoArrayRef) {
+  useCacheNumber = assignAllCache(photoArrayRef);
+  showPhoto(photoArrayRef, useCacheNumber);
+}
+
+
+function showPhoto(photoArrayRef,cacheNumber) {
+  //hide small photos, show controls
+  document.getElementById('photosArea').style.display = 'none';
+  if (slideShowRunning) {
+    document.getElementById('buttonPause').style.display = 'inline';
+    document.getElementById('buttonPlay').style.display = 'none';
+  } else {
+    document.getElementById('buttonPause').style.display = 'none';
+    document.getElementById('buttonPlay').style.display = 'inline';
+  }
+  document.getElementById('controls').style.display = 'inline';
+
+  //show correct big photo.... cacheNumber
+  document.getElementById('bigPhotoArea').style.display = 'inline';
+  if (cacheNumber==1) {
+    document.getElementById('bigPhoto1').style.display = 'inline';
+    document.getElementById('bigPhoto2').style.display = 'none';
+    document.getElementById('bigPhoto3').style.display = 'none';
+  } else {
+    document.getElementById('bigPhoto1').style.display = 'none';
+    if (cacheNumber==2) {
+      document.getElementById('bigPhoto2').style.display = 'inline';
+      document.getElementById('bigPhoto3').style.display = 'none';
+    } else {
+      document.getElementById('bigPhoto2').style.display = 'none';
+      document.getElementById('bigPhoto3').style.display = 'inline';
+    }
+  }  
+  //alter download button
+  var extension = photoArray[photoArrayRef].download+".jpg";
+  document.getElementById('buttonDownload').innerHTML = "<a href='"+photoArray[photoArrayRef].fileName+extension+"' download>[DOWNLOAD]</a>"
+}
+
+function buttonPrevPhoto() {
+  theTime = 0;
+  showAPhoto(prevPhotoIndex);
+}
+
+
+function buttonNextPhoto() {
+  theTime = 0;
+  showAPhoto(nextPhotoIndex);
+}
+
+
+function buttonClosePhoto() {
+  theTime = 0;
+  slideShowRunning = false;
+  closePhoto();
+}
+
+
+function closePhoto() {
+
+//TODO
+//dont remove all style....this explains missing style
+//dots[i].className = dots[i].className.replace(" active", "");
+
+  //controls
+  document.getElementById('controls').style.display = 'none';
+  document.getElementById('buttonPause').style.display = 'none';
+  document.getElementById('buttonPlay').style.display = 'inline';
+  document.getElementById('photosArea').style.display = 'inline';
+
+  //hide all big photos
+  document.getElementById('bigPhoto1').style.display = 'none';
+  document.getElementById('bigPhoto2').style.display = 'none';
+  document.getElementById('bigPhoto3').style.display = 'none';
+  document.getElementById('bigPhotoArea').style.display = 'none';
+}
+
+
+function buttonStartSlideshow() {
+  slideShowRunning = true;
+  document.getElementById('buttonPause').style.display = 'inline';
+  document.getElementById('buttonPlay').style.display = 'none';
+  theTime = 0;
+  showAPhoto(selectedPhotoIndex);
+}
+
+
+function buttonPauseSlideshow() {
+  slideShowRunning = false;
+  document.getElementById('buttonPause').style.display = 'none';
+  document.getElementById('buttonPlay').style.display = 'inline';
+}
+
+
+function displayPhoto(aPhoto,albumIndex,photoIndex) {
+  var HorV = "photoH";
+  o = "<DIV class='polaroid' onClick='showAPhoto("+aPhoto.photoArrayRef+")'><TABLE class='polaroidTable'><TR class='photocellrow'><TD class='photocell'><img src='"+aPhoto.fileName+"-thumb.jpg' class='"+HorV+"' alt='"+aPhoto.caption+"'></TD></TR><TR class='phototextrow'><TD class='phototextcell'>"+aPhoto.caption+"</TD></TR></TABLE></DIV>";
+  document.getElementById("a"+albumIndex+"p"+photoIndex+"PhotoArea").innerHTML = o;
+}
+
+
+function displayAlbum(anAlbum,albumIndex) {
+  //place album: album info and photos
+  if (anAlbum.url=="") {
+    linkText = "";
+  } else {
+    linkText = "<DIV id='album"+albumIndex+"URLTitle'><a href='"+anAlbum.url+"'>"+anAlbum.urlTitle+"</a></DIV>";
+  }
+  o = "<DIV class='albumInfo'>";
+  o += "<DIV id='album"+albumIndex+"Title' class='albumTitle'>"+anAlbum.title+"</DIV>";
+  o += linkText;
+  o += "<DIV id='album"+albumIndex+"Caption' class='albumCaption'>"+anAlbum.caption+"</DIV>";
+  o += "</DIV>";
+  o += "<DIV id='album"+albumIndex+"Photos' class='polaroids'></DIV>";
+  document.getElementById('album'+albumIndex+"Area").innerHTML = o;
+
+  //create placeholders for each photo in this album
+  a = "";
+  for (i = 0; i < anAlbum.photos.length; i++) {
+    a += "<DIV id='a"+albumIndex+"p"+i+"PhotoArea' style='display: inline-block'></DIV>";
+  }
+  document.getElementById("album"+albumIndex+"Photos").innerHTML = a;
+
+  //display all album photos in placeholders
+  for (photoIndex = 0; photoIndex < anAlbum.photos.length; photoIndex++) {
+    displayPhoto(anAlbum.photos[photoIndex],albumIndex,photoIndex);
+  }
+}
+
+
+function displayPage(pageNumIndex) {
+  //create placeholders for each album
+  var tempAlbumArray = pageArray[pageNumIndex];
+  o = "<DIV id='buttonStart' onClick='buttonStartSlideshow()'>[START SLIDESHOW]</DIV>";
+  for (albumIndex = 0; albumIndex < tempAlbumArray.length; albumIndex++) {
+    o += "<DIV id='album"+albumIndex+"Area' class='albumArea'></DIV>"
+  }
+  document.getElementById('photoThumbnailPage').innerHTML = o;
+  //display all albums in placeholders
+  for (albumIndex = 0; albumIndex < tempAlbumArray.length; albumIndex++) {
+    displayAlbum(tempAlbumArray[albumIndex],albumIndex);
+  }
+}
+
+
+//sets and displays that page
+function showPage(pageNumIndex) {
+  //set page number, display some albums on this page
+  currentPageIndex = pageNumIndex;
+  displayPage(pageNumIndex);
+}
+
+
+//show a control for each available page
+function showPagesControls() {
+  o = "Page ";  
+  for (pageIndex = 0; pageIndex < pageArray.length; pageIndex++) {
+    if (pageIndex!=0) {
+      o += ", ";
+    }
+    o += "<DIV id='pageControl("+pageIndex+")' class='pageControl' onClick='showPage("+pageIndex+")'>["+(pageIndex+1)+"]</DIV>";
+  }
+  document.getElementById('photoPageControlsAbove').innerHTML = o;
+  document.getElementById('photoPageControlsBelow').innerHTML = o;
+}
+
+
+
+
+//assign some albums onto pages
+function assignAlbumsOntoPages() {
+  if (albumsPerPage<1) { albumsPerPage = 1; }
+  f = Math.floor(albumArray.length / albumsPerPage);
+  for (i = 0; i < f; i++) {
+    var temparray =[];
+    offset = (i*albumsPerPage);
+    for (a = 0; a < albumsPerPage; a++) {
+      temparray.push( albumArray[a + offset] )
+    }
+    pageArray.push(temparray);
+  }
+  m = albumArray.length % albumsPerPage;
+  offset = (f*albumsPerPage);
+  var temparray =[];
+  for (a = 0; a < m; a++) {
+    temparray.push( albumArray[a + offset] )
+  }
+  if (temparray.length != 0) {
+    pageArray.push(temparray);
+  }
+}
+
+
+function isPublishedNow(pubValue) {
+  var pubValueCap;
+  if (pubValue==undefined) {
+    pubValueCap = "";
+  } else {
+    pubValueCap = pubValue.toUpperCase();
+  }
+  var published = true;
+  if ( (pubValueCap=="NO") || (pubValueCap=="FALSE") || (pubValueCap=="0") ) {
+    published = false;
+  }
+  return published;
+}
+
+
+</script>
+
+</HEAD>
+<BODY onload="startWebPageCode()">
+
 
 <h1><img id="logo" src="images/logo.gif" alt="AndyBGoode Logo"> Andy B Goode</h1>
 
@@ -62,121 +477,36 @@
 
 <div id="main">
 
-
-
 <div id="photos-highres-area">
-<h2 id="photos" class="banner">Press Photos</h2>
-<div class="textbox-area">
-Click on a photo to download high quality version (for publicity purposes).
-<br/>Please feel free to use these photos for press/reviews/adverts/etc.. just include "Andy B Goode" and a link to this website or the my facebook page.<br/>
-
-
-
-<table class="phototable">
-<tr>
-<td class="phototablecell"><a href="photos/andybgoode0002-highres.jpg" download><img src="photos/andybgoode0002-thumb.jpg" class="photo" alt="Click to download high quality version" ></a></td>
-<td class="phototablecell"><a href="photos/andybgoode0001-highres.jpg"download><img src="photos/andybgoode0001-thumb.jpg" class="photo" alt="Click to download high quality version" ></a></td>
-<td class="phototablecell"><a href="photos/andybgoode0004-highres.jpg" download><img src="photos/andybgoode0004-thumb.jpg" class="photo" alt="Click to download high quality version" ></a></td>
-<td class="phototablecell"><a href="photos/andybgoode0014-highres.jpg" download><img src="photos/andybgoode0014-thumb.jpg" class="photo" alt="Click to download high quality version" ></a></td>
-</tr>
-<tr>
-<td class="phototext">Andy B Goode Flyer (HIGH RESOLUTION)</td>
-<td class="phototext">Andy B Goode Flyer background image (HIGH RESOLUTION)</td>
-<td class="phototext">Close up (HIGH RESOLUTION)</td>
-<td class="phototext">The vintage style microphone (HIGH RESOLUTION)</td>
-</tr>
-</table>
-</div>
-</div>
-
-<div id="photos-area">
 <h2 id="photos" class="banner">Photos</h2>
 <div class="textbox-area">
-Please check out my facebook page for very recent photos <a href="https://www.facebook.com/AndyBGoode">www.facebook.com/AndyBGoode</a><br/>
-If you have have any great photos from my gigs, please do send me a link to them.<br/>
 
-<table class="phototable">
+<noscript>Your browser does not have JavaScript switched on. Please switch it on to see the photo albums.</noscript>
 
-<tr>
-<td class="albumheading" colspan="4"><h3>Birthday Parties</h3></td>
-</tr>
-<tr>
-<td><img src="photos/andybgoode0005-thumb.jpg" class="photo" alt="The Birthday Girl Dressed as a Flapper"></td>
-<td><img src="photos/andybgoode0015-thumb.jpg" class="photo" alt="Elaine's Birthday Party"></td>
-<td><img src="photos/andybgoode0006-thumb.jpg" class="photo" alt="Anne's Birthday Party"></td>
-<td><img src="photos/andybgoode0016-thumb.jpg" class="photo" alt="Elaine's Birthday Party"></td>
-</tr>
-<tr>
-<td class="phototext">The Birthday Girl Dressed as a Flapper</td>
-<td class="phototext">Elaine's Birthday Party</td>
-<td class="phototext">Anne's Birthday Party</td>
-<td class="phototext">What a card</td>
-</tr>
-
-<tr>
-<td class="albumheading" colspan="4"><h3>Vintage Fetes / Fayres</h3></td>
-</tr>
-<tr>
-<td><img src="photos/andybgoode0011-thumb.jpg" class="photo" alt="Waving the flag at St Pauls Dosthill Church Vintage Summer Fete and I wasn't the only one who dressed vintage style."></td>
-<td><img src="photos/andybgoode0012-thumb.jpg" class="photo" alt="Singing by a picturesque church"></td>
-<td><img src="photos/andybgoode0008-thumb.jpg" class="photo" alt="Fly me to the moon"></td>
-<td><img src="photos/andybgoode0010-thumb.jpg" class="photo" alt="Singing with Passion"></td>
-</tr>
-<tr>
-<td class="phototext">Waving the flag at St Pauls Dosthill Church Vintage Summer Fete and I wasn't the only one who dressed vintage style.</td>
-<td class="phototext">Singing by a picturesque church</td>
-<td class="phototext">Fly me to the moon</td>
-<td class="phototext">Singing with Passion</td>
-</tr>
-<tr>
-<td><img src="photos/andybgoode0007-thumb.jpg" class="photo" alt="A Traction engine at Norton Juxta Twycross Summer Fete"></td>
-<td><img src="photos/andybgoode0018-thumb.jpg" class="photo" alt="A beautiful summers day, with heavy rain showers...of course this is England"></td>
-<td><img src="photos/andybgoode0017-thumb.jpg" class="photo" alt="A lovely venue to sing, right by the swimming pool"></td>
-<td><img src="images/andybgoode-thumb.jpg" class="photo" alt="I sang 'Teenager in Love' live on the local radio station TRC FM"></td>
-</tr>
-<tr>
-<td class="phototext">A Traction engine at Norton Juxta Twycross Summer Fete</td>
-<td class="phototext">A beautiful summers day, with heavy rain showers...of course this is England</td>
-<td class="phototext">A lovely venue to sing, right by the swimming pool</td>
-<td class="phototext">I sang 'Teenager in Love' live on the local radio station TRC FM</td>
-</tr>
-
-<tr>
-<td class="albumheading" colspan="4"><h3>The Jays Vocal Vintage Tribute Group</h3>I am also proud to be part of a 1940s Vocal Vintage Tribute Group with some lovely ladies.We sing Andrews sisters, Bing Crosby, Frank Sinatra style songs. Do check out our <a href="https://www.facebook.com/TheJaysVintage">facebook</a> page and <a href="http://www.TheJaysVintageVocalGroup.webs.com">website</a>.</td>
-</tr>
-<tr>
-<td><img src="photos/thejays0001-thumb.jpg" class="photo" alt="The Jays at Tamworth Castle Grounds"></td>
-<td><img src="photos/thejays0002-thumb.jpg" class="photo" alt="The Jays at Tamworth Castle Grounds amongst the flowers"></td>
-<td><img src="photos/thejays0006-thumb.jpg" class="photo" alt="The Jays at Tamworth Castle Grounds 2016"></td>
-<td><img src="photos/thejays0007-thumb.jpg" class="photo" alt="The Jays at Ashby Christmas Light Switch on"></td>
-</tr>
-<tr>
-<td class="phototext">The Jays at Tamworth Castle Grounds</td>
-<td class="phototext">The Jays at Tamworth Castle Grounds amongst the flowers</td>
-<td class="phototext">The Jays perform at Tamworth Band Stand</td>
-<td class="phototext">The Jays at Ashby Christmas Light Switch on</td>
-</tr>
-<tr>
-<td><img src="photos/thejays0005-thumb.jpg" class="photo" alt="I'm just leaning on the lamp post on the corner of the street, till a certain little lady comes by"></td>
-<td><img src="photos/thejays0004-thumb.jpg" class="photo" alt="I believe I can fly"></td>
-<td><img src="photos/thejays0003-thumb.jpg" class="photo" alt="A Cheeky Jays Shot"></td>
-<td><img src="photos/thejays0008-thumb.jpg" class="photo" alt="The Jays Vocal Vintage Tribute Group from Tamworth Staffordshire"></td>
-</tr>
-<tr>
-<td class="phototext">I'm just leaning on the lamp post on the corner of the street, till a certain little lady comes by</td>
-<td class="phototext">I believe I can fly</td>
-<td class="phototext">A Cheeky Jays Shot</td>
-<td class="phototext">The Jays Vocal Vintage Tribute Group from Tamworth Staffordshire</td>
-</tr>
-
-</table>
-
-<a href="showhide.html">XXXX</a>
+<!-- photo controls -->
+<DIV id='controls'>
+<DIV id='buttonPlay' onClick="buttonStartSlideshow()">[PLAY]</DIV>
+<DIV id='buttonPause' onClick="buttonPauseSlideshow()">[PAUSE]</DIV>
+<DIV id='buttonPrevious' onClick="buttonPrevPhoto()">&#60;</DIV>
+<DIV id='buttonNext' onClick="buttonNextPhoto()">&#62;</DIV>
+<DIV id='buttonClose' onClick="buttonClosePhoto()">[CLOSE]</DIV>
+<DIV id='buttonDownload' onClick="buttonDownloadPhoto()"><a href="photos/andybgoode0002-highres.jpg" download>[DOWNLOAD]</a></DIV>
+</DIV>  
+<!-- photo page display area -->
+<DIV id='photosArea'>
+<DIV id='photoPageControlsAbove'></DIV>
+<DIV id='photoThumbnailPage'></DIV>
+<DIV id='photoPageControlsBelow'></DIV>
+</DIV>
+<!-- full screen photo display area (and caches) -->
+<DIV id='bigPhotoArea' class="largePolaroids">
+<DIV id='bigPhoto1' class="largePolaroid">big1 here</DIV>
+<DIV id='bigPhoto2' class="largePolaroid">big2 here</DIV>
+<DIV id='bigPhoto3' class="largePolaroid">big3 here</DIV>
+</DIV>
 
 </div>
 </div>
-
-
 
 
 <div name="contact" id="contact-area">
@@ -189,12 +519,150 @@ If you have have any great photos from my gigs, please do send me a link to them
 <li>Instagram: <a href="https://www.instagram.com/andybgoodevocalist">andybgoodevocalist</a></li>
 <li>YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
 <li>Twitter: <a href="http://www.twitter.com/AndyBGoode">AndyBGoode</a></li>
-<li>website: v2.0.9</li>
+<li>website: v2.0.12</li>
 </ul>
 </div>
 </div>
 
-</div>
-</body>
 
-</html>
+</div>
+
+
+
+<script type="text/javascript" src="albums.json"></script>
+<script type="text/javascript">
+
+function startWebPageCode() {
+  loadJSON(myJSONcallback);
+  //no code below here
+}
+function loadJSON(callbackFunction) { 
+
+  var  xhttp = new XMLHttpRequest();
+  xhttp.overrideMimeType("application/json");
+   xhttp.open('GET', albumFile, true);
+   xhttp.onreadystatechange = function () {
+    if ( xhttp.readyState == 4) {
+      if ( xhttp.status == "200") {
+	//Firefox
+        callbackFunction( xhttp.responseText);
+      }
+      if ( xhttp.status == "0") {
+        //Chrome needs status 0
+        callbackFunction( xhttp.responseText);
+      }
+    }
+  }
+  xhttp.send(null);
+}
+function myJSONcallback(response) {
+  // json data should be wrapped in square brackets
+  var rawJsonObj = JSON.parse(response);
+
+  var tempalbumJSONArray = rawJsonObj[0].albums;
+  for (albumIndex = 0; albumIndex < tempalbumJSONArray.length; albumIndex++) {
+    if (isPublishedNow(tempalbumJSONArray[albumIndex].published)) {
+	  assignAlbumFromJSON( tempalbumJSONArray[albumIndex] );
+    }	
+  }
+  initVars();
+}
+
+
+function assignAlbumFromJSON(albumJSON) {
+  var tempPhotoArray = [];
+  for (i = 0; i < albumJSON.photos.length; i++) {
+    if (isPublishedNow(albumJSON.photos[i].published) ) {
+      //validate photo data from JSON
+      fileName=(albumJSON.folder+albumJSON.photos[i].img==undefined) ? "andybgoode0001" : albumJSON.folder+albumJSON.photos[i].img;
+      caption=(albumJSON.photos[i].cap==undefined) ? "" : albumJSON.photos[i].cap;
+      tags=(albumJSON.photos[i].tags==undefined) ? "" : albumJSON.photos[i].tags;
+      date=(albumJSON.photos[i].date==undefined) ? "" : albumJSON.photos[i].date;
+      download=(albumJSON.photos[i].download==undefined) ? "" : albumJSON.photos[i].download;
+      var tempPhoto = {fileName:fileName, caption:caption, tags:tags, date:date, download:download,photoArrayRef:masterPhotoIndex};
+      masterPhotoIndex++;
+      tempPhotoArray.push(tempPhoto);
+      photoArray.push(tempPhoto);
+    }
+  }
+  //validate album data from JSON
+  title = (albumJSON.title==undefined) ? "": albumJSON.title;
+  desc = (albumJSON.desc==undefined) ? "" : albumJSON.desc;
+  folder = (albumJSON.folder==undefined) ? "" : albumJSON.folder;
+  urlTitle = (albumJSON.urlTitle==undefined) ? "" : albumJSON.urlTitle;
+  url = (albumJSON.url==undefined) ? "" : albumJSON.url;
+  var anAlbum = {title:title, caption:desc, folder:folder, urlTitle:urlTitle, url:url, photos: tempPhotoArray}; 
+  albumArray.push(anAlbum);
+}
+
+
+function initVars() {
+  prevPhotoIndex = 0; //last
+  selectedPhotoIndex = 0; //first
+  nextPhotoIndex = 0; //second
+
+  //assign albums onto pages, then show first page 
+  assignAlbumsOntoPages();
+  showPagesControls();
+  showPage(0);
+}
+
+
+window.addEventListener("resize", screenResized);
+
+
+//resize all cached big images if the screen resizes
+function screenResized() {
+  if (photo1cache!=-1) {
+    resizeBigPhoto('1');
+  }
+  if (photo2cache!=-1) {
+    resizeBigPhoto('2');
+  }
+  if (photo3cache!=-1) {
+    resizeBigPhoto('3');
+  }
+}
+
+
+//TESTED
+//Firefox .... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
+//IE ......... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
+
+// -------------------
+//TODO Test on Chrome Portrait..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
+//TODO Test on Chrome Landscape ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
+
+//TODO RETEST - iphone - full screen buttons Next and Previous text shown as unknown symbol box on iphone browser
+
+//TODO RETEST on Android Browser Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO RETEST on Android Browser Landscape.... OVERALL OK: Thumbnails =  OK, Full Screen =  photo captions dont wrap, causing minor display problems
+
+//TODO RETEST on Android Chrome Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO RETEST on Android Chrome Landscape.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+
+//TODO RETEST on iphone Safari Portrait..... OVERALL OK: Thumbnails = OK, Full Screen = OK ..... next and previous symbols dont show correctly
+//TODO RETEST on iphone Safari Landscape..... OVERALL OK: Thumbnails = OK, Full Screen = OK ..... next and previous symbols dont show correctly
+//iphone Safari zooms in and out when rotated
+
+//TODO TEST on Safari Portrait .....
+//TODO TEST on Safari Landscape ..... 
+
+//TODO Test on Edge Portrait....... 
+//TODO Test on Edge Landscape ....... 
+
+
+
+//TODO display some photos if no javascript
+//TODO manually resize All Large Photos to max 1024 (keep aspect ratio) + upload
+//TODO sort out which jays xmas photos are needed
+//TODO sort out a TCR FM photo
+
+//TODO Display Tag cloud
+
+</script>
+
+
+</BODY>
+</HTML>
+

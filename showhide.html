@@ -51,13 +51,16 @@
 //var albumFile = "file:///home/anbritto_gb/Documents/AJB/test/albums.json";
 var albumFile = "albums.json";
 var albumsPerPage = 7;
-var slideShowSlideTime = 6; // should be 8
+var slideShowSlideTime = 7; // should be 8
 var myVar = setInterval(theTimer, 500);
 //------------------------------------
 
 
-//TODO DELETE THIS
-var tempX = 0;
+//Image Sizes:
+//Thumbnail Photo Dimensions = 300x300
+//Large  Photo Dimensions = max 1024
+//High Res Dimensions = original size
+
 
 var theTime = 0;
 var slideShowRunning = false;
@@ -115,7 +118,10 @@ function locateCacheForPhoto(photoIndex) {
 //single cache - Full screen polaroid style
 function assignCache(cacheNumber,photo) {
   var fileName = photo.fileName;
-  var caption = photo.caption;  
+  var caption = photo.caption;
+  if (photo.date!="") {
+    caption += " ("+photo.date+")";
+  }
   o = "<DIV class='largePolaroid' onClick='buttonNextPhoto()'><TABLE class='largePolaroidTable'><TR class='largePhotocellrow'><TD class='largePhotocell'><img id='bigPhotoImg"+cacheNumber+"' src='"+fileName+".jpg' class='largePhotoH' alt='"+caption+"'></TD></TR><TR class='largePhototextrow'><TD id='largePhototextcell"+cacheNumber+"' class='largePhototextcell'>"+caption+"</TD></TR></TABLE></DIV>";
   document.getElementById('bigPhoto'+cacheNumber).innerHTML = o;  
   var thisPhoto = document.getElementById("bigPhotoImg"+cacheNumber);
@@ -409,6 +415,8 @@ function showPagesControls() {
 }
 
 
+
+
 //assign some albums onto pages
 function assignAlbumsOntoPages() {
   if (albumsPerPage<1) { albumsPerPage = 1; }
@@ -433,6 +441,20 @@ function assignAlbumsOntoPages() {
 }
 
 
+function isPublishedNow(pubValue) {
+  var pubValueCap;
+  if (pubValue==undefined) {
+    pubValueCap = "";
+  } else {
+    pubValueCap = pubValue.toUpperCase();
+  }
+  var published = true;
+  if ( (pubValueCap=="NO") || (pubValueCap=="FALSE") || (pubValueCap=="0") ) {
+    published = false;
+  }
+  return published;
+}
+
 
 </script>
 
@@ -455,17 +477,18 @@ function assignAlbumsOntoPages() {
 
 <div id="main">
 
-
 <div id="photos-highres-area">
 <h2 id="photos" class="banner">Photos</h2>
 <div class="textbox-area">
+
+<noscript>Your browser does not have JavaScript switched on. Please switch it on to see the photo albums.</noscript>
 
 <!-- photo controls -->
 <DIV id='controls'>
 <DIV id='buttonPlay' onClick="buttonStartSlideshow()">[PLAY]</DIV>
 <DIV id='buttonPause' onClick="buttonPauseSlideshow()">[PAUSE]</DIV>
-<DIV id='buttonPrevious' onClick="buttonPrevPhoto()">&#10094;</DIV>
-<DIV id='buttonNext' onClick="buttonNextPhoto()">&#10095;</DIV>
+<DIV id='buttonPrevious' onClick="buttonPrevPhoto()">&#60;</DIV>
+<DIV id='buttonNext' onClick="buttonNextPhoto()">&#62;</DIV>
 <DIV id='buttonClose' onClick="buttonClosePhoto()">[CLOSE]</DIV>
 <DIV id='buttonDownload' onClick="buttonDownloadPhoto()"><a href="photos/andybgoode0002-highres.jpg" download>[DOWNLOAD]</a></DIV>
 </DIV>  
@@ -516,21 +539,16 @@ function startWebPageCode() {
 function loadJSON(callbackFunction) { 
 
   var  xhttp = new XMLHttpRequest();
-//alert("TEST loadJSON A0 - ok");
   xhttp.overrideMimeType("application/json");
-//alert("TEST loadJSON A1 - ok");
    xhttp.open('GET', albumFile, true);
-//alert("TEST loadJSON A2 - ok");
    xhttp.onreadystatechange = function () {
     if ( xhttp.readyState == 4) {
-//alert("TEST loadJSON A3  xhttp.readyState="+ xhttp.readyState + "  xhttp.status="+ xhttp.status);
       if ( xhttp.status == "200") {
 	//Firefox
         callbackFunction( xhttp.responseText);
       }
       if ( xhttp.status == "0") {
         //Chrome needs status 0
-//alert("TEST loadJSON A4 xhttp.responseText="+xhttp.responseText);
         callbackFunction( xhttp.responseText);
       }
     }
@@ -539,38 +557,46 @@ function loadJSON(callbackFunction) {
 }
 function myJSONcallback(response) {
   // json data should be wrapped in square brackets
-//alert("TEST myJSONcallback myJSONcallback B1 response="+response);
   var rawJsonObj = JSON.parse(response);
-//var rawJsonObj = eval('(' + response + ')');
 
-//alert("TEST myJSONcallback myJSONcallback B2 rawJsonObj="+rawJsonObj);
   var tempalbumJSONArray = rawJsonObj[0].albums;
   for (albumIndex = 0; albumIndex < tempalbumJSONArray.length; albumIndex++) {
-//alert("TEST myJSONcallback myJSONcallback B3 albumIndex="+albumIndex);
-    if (tempalbumJSONArray[albumIndex].published == "YES") {
+    if (isPublishedNow(tempalbumJSONArray[albumIndex].published)) {
 	  assignAlbumFromJSON( tempalbumJSONArray[albumIndex] );
-	}	
+    }	
   }
   initVars();
 }
 
+
 function assignAlbumFromJSON(albumJSON) {
   var tempPhotoArray = [];
   for (i = 0; i < albumJSON.photos.length; i++) {
-    var tempPhoto = {fileName:albumJSON.folder+albumJSON.photos[i].img, caption:albumJSON.photos[i].cap, tags:albumJSON.photos[i].tags, date:albumJSON.photos[i].date, download:albumJSON.photos[i].download,photoArrayRef:masterPhotoIndex};
-    masterPhotoIndex++;
-    tempPhotoArray.push(tempPhoto);
-    photoArray.push(tempPhoto);
+    if (isPublishedNow(albumJSON.photos[i].published) ) {
+      //validate photo data from JSON
+      fileName=(albumJSON.folder+albumJSON.photos[i].img==undefined) ? "andybgoode0001" : albumJSON.folder+albumJSON.photos[i].img;
+      caption=(albumJSON.photos[i].cap==undefined) ? "" : albumJSON.photos[i].cap;
+      tags=(albumJSON.photos[i].tags==undefined) ? "" : albumJSON.photos[i].tags;
+      date=(albumJSON.photos[i].date==undefined) ? "" : albumJSON.photos[i].date;
+      download=(albumJSON.photos[i].download==undefined) ? "" : albumJSON.photos[i].download;
+      var tempPhoto = {fileName:fileName, caption:caption, tags:tags, date:date, download:download,photoArrayRef:masterPhotoIndex};
+      masterPhotoIndex++;
+      tempPhotoArray.push(tempPhoto);
+      photoArray.push(tempPhoto);
+    }
   }
-  var anAlbum = {title:albumJSON.title, caption:albumJSON.desc, folder:albumJSON.folder, urlTitle:albumJSON.urlTitle, url:albumJSON.url, photos: tempPhotoArray}; 
+  //validate album data from JSON
+  title = (albumJSON.title==undefined) ? "": albumJSON.title;
+  desc = (albumJSON.desc==undefined) ? "" : albumJSON.desc;
+  folder = (albumJSON.folder==undefined) ? "" : albumJSON.folder;
+  urlTitle = (albumJSON.urlTitle==undefined) ? "" : albumJSON.urlTitle;
+  url = (albumJSON.url==undefined) ? "" : albumJSON.url;
+  var anAlbum = {title:title, caption:desc, folder:folder, urlTitle:urlTitle, url:url, photos: tempPhotoArray}; 
   albumArray.push(anAlbum);
 }
 
 
 function initVars() {
-
-//console.log("TEST");
-
   prevPhotoIndex = 0; //last
   selectedPhotoIndex = 0; //first
   nextPhotoIndex = 0; //second
@@ -579,34 +605,6 @@ function initVars() {
   assignAlbumsOntoPages();
   showPagesControls();
   showPage(0);
-
-
-//TODO Thumbnail Photos
-//TODO High Res Photos
-
-//TODO Test on Firefox .... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
-//TODO Test on IE ......... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
-//TODO Test on Chrome ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
-//TODO Test on Edge ....... 
-
-//TODO full screen buttons Next and Previous text shown as unknown symbol box on iphone
-
-//TODO Test on Android Browser Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
-//TODO Test on Android Browser Landscape.... OVERALL OK: Thumbnails =  OK, Full Screen =  photo captions dont wrap, causing minor display problems
-
-//TODO Test on Android Chrome Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
-//TODO Test on Android Chrome Landscape.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
-
-//TODO Test on Safari Portrait..... OVERALL OK: Thumbnails = OK, Full Screen = OK ..... next and previous symbols dont show correctly
-//TODO Test on Safari Landscape..... OVERALL OK: Thumbnails = OK, Full Screen = OK ..... next and previous symbols dont show correctly
-//iphone Safari zooms in and out when rotated
-
-
-//TODO display something if no javascript
-
-//TODO Display Date (in full screen mode caption)
-//TODO Display Tag cloud
-
 }
 
 
@@ -626,8 +624,45 @@ function screenResized() {
   }
 }
 
+
+//TESTED
+//Firefox .... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
+//IE ......... OVERALL GREAT: Thumbnails = OK, Full Screen = OK
+
+// -------------------
+//TODO Test on Chrome Portrait..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
+//TODO Test on Chrome Landscape ..... OVERALL OK: Thumbnails =  Full Screen =  photo captions dont wrap correctly, causing minor display problems
+
+//TODO RETEST - iphone - full screen buttons Next and Previous text shown as unknown symbol box on iphone browser
+
+//TODO RETEST on Android Browser Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO RETEST on Android Browser Landscape.... OVERALL OK: Thumbnails =  OK, Full Screen =  photo captions dont wrap, causing minor display problems
+
+//TODO RETEST on Android Chrome Portrait.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+//TODO RETEST on Android Chrome Landscape.... OVERALL OK: Thumbnails = OK, Full Screen =  photo captions dont wrap, causing minor display problems
+
+//TODO RETEST on iphone Safari Portrait..... OVERALL OK: Thumbnails = OK, Full Screen = OK ..... next and previous symbols dont show correctly
+//TODO RETEST on iphone Safari Landscape..... OVERALL OK: Thumbnails = OK, Full Screen = OK ..... next and previous symbols dont show correctly
+//iphone Safari zooms in and out when rotated
+
+//TODO TEST on Safari Portrait .....
+//TODO TEST on Safari Landscape ..... 
+
+//TODO Test on Edge Portrait....... 
+//TODO Test on Edge Landscape ....... 
+
+
+
+//TODO display some photos if no javascript
+//TODO manually resize All Large Photos to max 1024 (keep aspect ratio) + upload
+//TODO sort out which jays xmas photos are needed
+//TODO sort out a TCR FM photo
+
+//TODO Display Tag cloud
+
 </script>
 
 
 </BODY>
 </HTML>
+

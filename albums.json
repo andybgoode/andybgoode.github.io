@@ -7,10 +7,10 @@
  "folder":"photos/",
  "urlTitle":"Andy B Goode Facebook Page", "url":"https://www.facebook.com/AndyBGoode",
  "photos":[
-  {"img":"andybgoode0001","cap":"Andy B Goode ready to entertain","tags":"","date":"01/01/2015","download":"-HighRes","published":""},
-  {"img":"andybgoode0004","cap":"Close up of Andy B Goode crooning","tags":"Mic,Singer","date":"","download":"-HighRes","published":""},
-  {"img":"andybgoode0014","cap":"My vintage style microphone","tags":"Mic","date":"","download":"-HighRes","published":""},
-  {"img":"andybgoode0002","cap":"Andy B Goode Flyer","tags":"Flyer","date":"","download":"-HighRes","published":""}
+  {"img":"andybgoode0001","cap":"Andy B Goode ready to entertain","tags":"","date":"01/03/2016","download":"-highres","published":""},
+  {"img":"andybgoode0004","cap":"Close up of Andy B Goode crooning","tags":"Mic,Singer","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0014","cap":"My vintage style microphone","tags":"Mic","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0002","cap":"Andy B Goode Flyer","tags":"Flyer","date":"","download":"-highres","published":""}
   ]
 }
 ,
@@ -21,10 +21,10 @@
  "folder":"photos/",
  "urlTitle":"", "url":"",
  "photos":[
-  {"img":"andybgoode0005","cap":"The Birthday Girl Dressed as a 1920s Flapper","tags":"Birthday,Flapper","date":"","download":"","published":""},
-  {"img":"andybgoode0015","cap":"Elaine's Birthday Party","tags":"Birthday","date":"","download":"","published":""},
-  {"img":"andybgoode0006","cap":"Anne's Birthday Party","tags":"Birthday","date":"","download":"","published":""},
-  {"img":"andybgoode0016","cap":"What a card","tags":"Singer","date":"","download":"","published":""}
+  {"img":"andybgoode0005","cap":"The Birthday Girl Dressed as a 1920s Flapper","tags":"Birthday,Flapper","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0015","cap":"Elaine's Birthday Party","tags":"Birthday","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0006","cap":"Anne's Birthday Party","tags":"Birthday","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0016","cap":"What a card","tags":"Singer","date":"","download":"-highres","published":""}
  ]
 }
 ,
@@ -35,14 +35,14 @@
  "folder":"photos/",
  "urlTitle":"", "url":"",
  "photos":[
-  {"img":"andybgoode0011","cap":"Waving the flag at St Pauls Fete. I wasn't the only one who dressed vintage style","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0012","cap":"Singing by the picturesque Dosthill church","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0008","cap":"Out together dancing, Cheek to Cheek","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0010","cap":"Singing with Passion","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0007","cap":"A Traction engine at Norton Juxta Twycross Summer Fete","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0018","cap":"A beautiful summers day, with heavy rain showers...of course this is England","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0017","cap":"A lovely venue to sing, right by the swimming pool","tags":"","date":"","download":"","published":""},
-  {"img":"andybgoode0017","cap":"I sang 'Teenager in Love' live on the local radio station TRC FM","tags":"","date":"","download":"","published":""}
+  {"img":"andybgoode0011","cap":"Waving the flag at St Pauls Fete. I wasn't the only one who dressed vintage style","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0012","cap":"Singing by the picturesque Dosthill church","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0008","cap":"Out together dancing, Cheek to Cheek","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0010","cap":"Singing with Passion","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0007","cap":"A Traction engine at Norton Juxta Twycross Summer Fete","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0018","cap":"A beautiful summers day, with heavy rain showers...of course this is England","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0017","cap":"A lovely venue to sing, right by the swimming pool","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0017","cap":"I sang 'Teenager in Love' live on the local radio station TRC FM","tags":"","date":"","download":"","published":"NO"}
  ]
 }
 ,
@@ -53,14 +53,14 @@
  "folder":"photos/",
  "urlTitle":"The Jays Facebook Page", "url":"https://www.facebook.com/TheJaysVintage",
  "photos":[
-  {"img":"thejays0001","cap":"The Jays at Tamworth Castle Grounds","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0002","cap":"The Jays at Tamworth Castle Grounds amongst the flowers","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0006","cap":"The Jays perform at Tamworth Band Stand","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0005","cap":"I'm just leaning on the lamp post...","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0004","cap":"Fly me to the moon","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0003","cap":"A Cheeky Jays Shot","tags":"","date":"","download":"","published":""},
-  {"img":"thejays0008","cap":"The Jays Vocal Vintage Tribute Group from Tamworth Staffordshire","tags":"","date":"","download":"","published":""}
+  {"img":"thejays0001","cap":"The Jays at Tamworth Castle Grounds","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0002","cap":"The Jays at Tamworth Castle Grounds amongst the flowers","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0006","cap":"The Jays perform at Tamworth Band Stand","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0005","cap":"I'm just leaning on the lamp post...","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0004","cap":"Fly me to the moon","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0003","cap":"A Cheeky Jays Shot","tags":"","date":"","download":"-highres","published":""},
+  {"img":"thejays0008","cap":"The Jays Vocal Vintage Tribute Group from Tamworth Staffordshire","tags":"","date":"","download":"-highres","published":""}
  ]
 }
 ,

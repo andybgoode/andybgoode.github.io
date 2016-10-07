@@ -1,3 +1,7 @@
+/*
+When viewing desktop websites on mobile devices, browsers usually layout the page at a fixed width of about 980 CSS pixels due to the default viewport settings. The user usually can't read the text when the page is initially displayed, but can zoom in to read it. However on a portrait phone screen, once zoomed in such that text is a legible size, only about a 320 CSS pixel wide area of content fits onscreen at a time.
+*/
+
 body {
     background-image: url("images/tiles.gif");
     background-repeat: repeat;
@@ -5,7 +9,8 @@ body {
     color: black;
     font-family: 'CherryCreamSoda', Helvetica, sans-serif;
     font-style: normal;
-    font-size: 1.0625em;
+/*    font-size: 1.0625em;*/
+font-size:15px;
    /* 
    17px;
    red=#EA2020
@@ -61,6 +66,31 @@ main {
 	src: local('Cherry Cream Soda'),
 	     local('Cherry-Cream-Soda'),
              url('misc/CherryCreamSoda.ttf') 
+	     format('truetype');
+}
+@font-face {
+/*This thin font requires a larger font-size than CherryCreamSoda*/
+	font-family: 'AirAmericana';
+	src: url('misc/Air Americana.ttf'); 
+	src: local('Air Americana'),
+	     local('Air-Americana'),
+             url('misc/Air Americana.ttf') 
+	     format('truetype');
+}
+@font-face {
+	font-family: 'AtomicAge-Regular';
+	src: url('misc/AtomicAge-Regular.ttf'); 
+	src: local('AtomicAge-Regular'),
+	     local('AtomicAge-Regular'),
+             url('misc/AtomicAge-Regular.ttf') 
+	     format('truetype');
+}
+@font-face {
+	font-family: 'MouseMemoirs-Regular';
+	src: url('misc/MouseMemoirs-Regular.ttf'); 
+	src: local('MouseMemoirs-Regular'),
+	     local('MouseMemoirs-Regular'),
+             url('misc/MouseMemoirs-Regular.ttf') 
 	     format('truetype');
 }
 
@@ -256,6 +286,33 @@ width: 300px;
 
 
 
+.boxPanel {
+	max-width: 400px;
+	margin: 5px;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
+.boxHeading {
+	font-size: 15px;
+	font-weight: bold;
+}
+.boxHeadingArea {
+	width:100%;
+	padding: 5px;
+}
+.boxInfoArea {
+	padding: 5px;
+}
+.boxImage {
+	width:150px;
+	height:auto;
+}
 
 
+.songlistHeadingArea {
+	width:500px;
+	padding: 5px;
+}
 

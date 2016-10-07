@@ -287,7 +287,7 @@ width: 300px;
 
 
 .boxPanel {
-	max-width: 400px;
+	width: 400px;
 	margin: 5px;
 	display: inline-block;
 	vertical-align: top;
@@ -310,9 +310,16 @@ width: 300px;
 	height:auto;
 }
 
-
+.boxPanelBlock {
+	width: 400px;
+	margin: 5px;
+	display: block;
+	vertical-align: top;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
 .songlistHeadingArea {
-	width:500px;
+	width:400px;
 	padding: 5px;
 }
 

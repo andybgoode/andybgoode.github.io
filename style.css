@@ -285,6 +285,7 @@ width: 300px;
 }
 
 
+
 .infoBlock {
 	display: block;
 }
@@ -323,21 +324,9 @@ width: 300px;
 	width:100px;
 	height:auto;
 }
-/*
+.boxImageBigger {
+	width:200px;
+	height:auto;
+}
 
-.boxPanelBlock {
-	min-width: 400px;
-	width: 400px;
-	margin: 5px;
-	display: block;
-	vertical-align: top;
-	border: 1px solid #000000;
-	border-collapse: collapse;
-}
-.songlistHeadingArea {
-	min-width: 400px;
-	width:400px;
-	padding: 5px;
-}
-*/
 

@@ -285,8 +285,18 @@ width: 300px;
 }
 
 
-
+.infoBlock {
+	display: block;
+}
+.boxPanelNoBorder {
+	min-width: 400px;
+	width: 400px;
+	margin: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
 .boxPanel {
+	min-width: 400px;
 	width: 400px;
 	margin: 5px;
 	display: inline-block;
@@ -309,8 +319,14 @@ width: 300px;
 	width:150px;
 	height:auto;
 }
+.boxImageSmaller {
+	width:100px;
+	height:auto;
+}
+/*
 
 .boxPanelBlock {
+	min-width: 400px;
 	width: 400px;
 	margin: 5px;
 	display: block;
@@ -319,7 +335,9 @@ width: 300px;
 	border-collapse: collapse;
 }
 .songlistHeadingArea {
+	min-width: 400px;
 	width:400px;
 	padding: 5px;
 }
+*/
 

@@ -53,10 +53,10 @@
  "folder":"photos/",
  "urlTitle":"The Jays Facebook Page", "url":"https://www.facebook.com/TheJaysVintage",
  "photos":[
+  {"img":"thejays0012","cap":"The Jays are ready to harmonize for you","tags":"","date":"","download":"-highres","published":""},
   {"img":"thejays0001","cap":"The Jays at Tamworth Castle Grounds","tags":"","date":"","download":"-highres","published":""},
   {"img":"thejays0002","cap":"The Jays at Tamworth Castle Grounds amongst the flowers","tags":"","date":"","download":"-highres","published":""},
   {"img":"thejays0006","cap":"The Jays perform at Tamworth Band Stand","tags":"","date":"","download":"-highres","published":""},
-  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"","date":"","download":"-highres","published":""},
   {"img":"thejays0005","cap":"I'm just leaning on the lamp post...","tags":"","date":"","download":"-highres","published":""},
   {"img":"thejays0004","cap":"Fly me to the moon","tags":"","date":"","download":"-highres","published":""},
   {"img":"thejays0003","cap":"A Cheeky Jays Shot","tags":"","date":"","download":"-highres","published":""},
@@ -65,16 +65,16 @@
 }
 ,
 {
- "title":"A Vintage Christmas",
- "desc":"Xmas with Andy B Goode and The Jays is always quite special. We have enjoyed performing some Xmas Lights Switch on events at Tamworth and Ashby-de-la-Zouche. Christmas Parties are quite fun when people sing along to classic Xmas songs from their youth.",
+ "title":"A Very Vintage Christmas",
+ "desc":"Christmas with Andy B Goode and The Jays is always quite special. We have enjoyed performing some Xmas Lights Switch on events at Tamworth and Ashby-de-la-Zouche. Christmas Parties are quite fun when people sing along to classic Xmas songs from their youth.",
  "published":"YES",
  "folder":"photos/",
  "urlTitle":"The Jays Facebook Page", "url":"https://www.facebook.com/TheJaysVintage",
  "photos":[
-  {"img":"thejays0007","cap":"The Jays at Tamworth Christmas Light Switch on","tags":"Christmas","date":"","download":"","published":"NO"},
-  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on","tags":"Christmas","date":"","download":"-highres","published":""},
-  {"img":"thejays0007","cap":"Posing for the local Tamworth Herald Paper","tags":"Christmas","date":"","download":"","published":"NO"},
-  {"img":"thejays0007","cap":"Simply having a wonderful Xmas time","tags":"Christmas","date":"","download":"","published":"NO"}
+  {"img":"thejays0009","cap":"Christmas with the Jays is full of 1940s nostalgia","tags":"Christmas","date":"","download":"-highres","published":""},
+  {"img":"thejays0007","cap":"The Jays at Ashby Christmas Light Switch on, oh boy did it rain","tags":"Christmas","date":"","download":"-highres","published":""},
+  {"img":"thejays0010","cap":"Singing classic Bing Crosby / Andrews Sisters xmas hits","tags":"Christmas","date":"","download":"-highres","published":""},
+  {"img":"thejays0011","cap":"Posing for the local Tamworth Herald Paper","tags":"Christmas","date":"","download":"","published":""}
  ]
 }
 ,

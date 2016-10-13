@@ -305,6 +305,22 @@ width: 300px;
 	border: 1px solid #000000;
 	border-collapse: collapse;
 }
+.boxPanelDoubleWidthNoBorder {
+	min-width: 819px;
+	width: 819px;
+	margin: 5px;
+	display: inline-block;
+	vertical-align: top;
+}
+.boxPanelDoubleWidth {
+	min-width: 817px;
+	width: 817px;
+	margin: 5px;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
 .boxHeading {
 	font-size: 15px;
 	font-weight: bold;
@@ -316,12 +332,12 @@ width: 300px;
 .boxInfoArea {
 	padding: 5px;
 }
-.boxImage {
-	width:150px;
-	height:auto;
-}
 .boxImageSmaller {
 	width:100px;
+	height:auto;
+}
+.boxImage {
+	width:150px;
 	height:auto;
 }
 .boxImageBigger {
@@ -332,4 +348,8 @@ width: 300px;
 	width:370px;
 	height:auto;
 }
+
+
+
+
 

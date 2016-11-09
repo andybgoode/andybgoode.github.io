@@ -22,6 +22,10 @@ font-size:15px;
    */
 }
 
+a, a:visited{
+     color: blue;
+}
+
 h1 {
     color: black;
     background: #82E8F6;
@@ -32,6 +36,7 @@ h1 {
     padding-right: 10px;
     font-size: 2.8125em; 
     /*45px;*/
+margin: 0px 5px 5px 0px;
     }
     
 h2 {
@@ -42,6 +47,7 @@ h2 {
     height: 30px;
     font-size: 1.75em;
     /*28px;*/
+    margin: 10px 0px 10px 0px;
 }
 
 h3 {
@@ -94,14 +100,61 @@ main {
 	     format('truetype');
 }
 
+
 ul {
-    list-style-image: url('images/bulletrecord.gif');
+	list-style-image: url('images/bulletrecord.gif');
+	margin: 2px 0px 5px 0px;
 }
 
 li {
 	/*margin: 0px 0px 3px 0px;*/
 	padding: 1px;
 }
+
+
+#contactList
+{
+	list-style: none inside;
+padding: 10px 10px 10px 10px;
+}
+
+#contactList #liPhone
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+#contactList #liEmail
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+#contactList #liFacebook
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+#contactList #liInstagram
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+#contactList #liYouTube
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+#contactList #liTwitter
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+#contactList #liWebsite
+{
+	background: url('images/bulletrecord.gif') no-repeat top left;
+	padding: 5px 1px 1px 28px;
+}
+
+
 
 img {
 	border: 0;
@@ -111,7 +164,8 @@ img {
 	color: black;
 	background: #FFFFFF;
 	border-radius: 10px;
-	padding: 10px;  
+	padding: 10px;
+	font-size:20px; 
 }
 
 
@@ -327,10 +381,12 @@ width: 300px;
 }
 .boxHeadingArea {
 	width:100%;
-	padding: 5px;
+	padding: 5px 5px 1px 5px;
+margin: 0px 0px 0px 0px;
 }
 .boxInfoArea {
-	padding: 5px;
+	padding: 2px 5px 2px 7px;
+margin: 0px 0px 5px 0px;
 }
 .boxImageSmaller {
 	width:100px;
@@ -348,7 +404,10 @@ width: 300px;
 	width:370px;
 	height:auto;
 }
-
+.boxImageDoubleWidth {
+	width:810px;
+	height:auto;
+}
 
 
 

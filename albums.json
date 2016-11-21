@@ -94,6 +94,19 @@
 }
 ,
 {
+ "title":"Swadlincote International Food and Drink Festival",
+ "desc":"Outside the lovely 'Curly Magpie' vintage shop. I sung classic Rock and Crooner tunes while people danced in the street. It was energetic 1950s Rock n Roll and tasty food from all over the world...What more could you want?",
+ "published":"Yes",
+ "folder":"photos/",
+ "urlTitle":"Curly Magpie Vintage Shop", "url":"http://www.curlymagpie.co.uk/",
+ "photos":[
+  {"img":"andybgoode0025","cap":"A great day to croon some Frank Sinatra","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0024","cap":"The Town Crier had a dance in the street","tags":"","date":"","download":"-highres","published":""},
+  {"img":"andybgoode0023","cap":"I sung surrounded by pom poms, or maybe tribbles","tags":"","date":"","download":"-highres","published":""}
+ ]
+}
+,
+{
  "title":"XXXX",
  "desc":"Txxxx",
  "published":"NO",

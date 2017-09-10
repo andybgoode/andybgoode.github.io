@@ -57,7 +57,8 @@
   <meta itemprop="genre" content="Rock n Roll" />
   <meta itemprop="keywords" content="Andy B Goode, AndyBGoode, Rock n Roll, Rock and Roll, Singer, Entertainer, Tamworth, Staffordshire, England, UK, Vintage, Classic" />
 </div>
-
+<script type="text/javascript" src="misc/instafeed.min.js"></script>
+ 
 
 <h1><img id="logo" src="images/logo.gif" alt="AndyBGoode Logo"> Andy B Goode</h1>
 
@@ -293,7 +294,18 @@ Come spend a lovely Mothering Sunday with us.
 </P>
 </DIV>
 -->
-
+ 
+<div id="instafeed"></div>
+ 
+<script type="text/javascript">
+    var feed = new Instafeed({
+        get: 'tagged',
+        tagName: 'andybgoodevocalist',
+        clientId: '3153218281'
+    });
+    feed.run();
+</script>
+ 
 </div>
 </div>
 

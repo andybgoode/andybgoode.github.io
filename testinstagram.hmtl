@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+ Copyright (C) 2017 Andrew Britton.
+ All rights reserved
+ -->
+<head>
+<title>Andy B Goode - Vintage Rock n Roll Singer, Staffordshire, UK</title>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<meta name="short" content="AndyBGoode 1950s/60 Rock and Roll Entertainer"/>
+<meta name="description" content="Andy B Goode 1950s/1960s Rock n Roll Singer based in Tamworth, Staffordshire, England">
+<meta name="author" content="Andrew Britton">
+<meta charset="UTF-8">
+<meta name="keywords" content="AndyBGoode,Andy B Goode,Singer,Vocalist,Tamworth,1950s,1960s,Rock n Roll,Rock and Roll,Entertainment,Vintage">
+
+<link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/images/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77123620-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+<body>
+
+<div itemscope itemtype="http://schema.org/WebSite">
+  <div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Andy B Goode"/></div>
+  <div itemprop="accountablePerson" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Andy B Goode"/></div>
+  <meta itemprop="description" content="Andy B Goode is a dynamic 1950s/1960s Rock n Roll/Vintage Singer based in Tamworth Staffordshire England" />
+  <meta itemprop="image" content="http://www.andybgoode.com/images/andybgoode.png" />
+  <meta itemprop="url" content="http://www.AndyBGoode.com" />
+  <meta itemprop="isFamilyFriendly" content="True" />
+  <meta itemprop="genre" content="Rock n Roll" />
+  <meta itemprop="keywords" content="Andy B Goode, AndyBGoode, Rock n Roll, Rock and Roll, Singer, Entertainer, Tamworth, Staffordshire, England, UK, Vintage, Classic" />
+</div>
+
+
+<h1><img id="logo" src="images/logo.gif" alt="AndyBGoode Logo"> Andy B Goode</h1>
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="news.html">News</a>
+<a href="photos.html">Photos</a>
+<a href="music.html">Music</a>
+<a href="videos.html">Videos</a>
+<a href="songlist.html">Songs</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="#contact">Contact</a>
+</div>
+<br/>
+
+<div id="main">
+
+<div id="info-area">
+<div class="textbox-area">
+
+<DIV class="boxPanelNoBorder">
+<P class='boxInfoArea'>
+<ul>
+<li>1950s/60s Rock and Roll Singer.</li>
+<li>1950s/60s Swing Singer.</li>
+<li>Let me enliven your events with some fun vintage 'Rock n Roll' music.</li>
+<li>Get your feet moving on the dance floor to some vintage 'Rock n Roll' classics.</li>
+</ul>
+</P>
+</DIV>
+
+<DIV class="boxPanelNoBorder">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBiggest" src="images/andybgoode.png" alt="Andy B Goode Headshot"></a></TD></TR>
+</TABLE>
+</DIV>
+
+<!--
+<table>
+<tr>
+<td>
+<h3>1950s/60s Rock and Roll / Swing Singer.</h3>
+<h3>Let me enliven your events with some fun vintage 'Rock n Roll' music.</h3>
+<h3>Get your feet moving on the dance floor to some vintage 'Rock n Roll' classics.</h3>
+</td>
+<td><img id="andybgoode" src="images/andybgoode.png" alt="Andy B Goode Headshot"></td>
+</tr>
+</table>
+-->
+
+</div>
+</div>
+
+<div id="what-area">
+<h2 id="what" class="banner">What do I do?</h2>
+<div class="textbox-area">
+
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/andybgoode0004-thumb.jpg" alt="Andy B Goode"></a></TD>
+<TD><DIV class="boxHeading">Dynamic Rock n Roll Vocalist and Heartfelt Crooner</DIV></TD></TR>
+</TABLE>
+<P class='boxInfoArea'>
+<ul>
+<li>Dynamic Rock n Roll Vocalist and Heartfelt Crooner</li>
+<li>Jive the night away to the energetic sounds those classic Rock n Roll songs.</li>
+<li>Epic hits by: Chuck Berry, Bill Haley and his Comets, Eddie Cochran, Elvis, Danny and the Juniors, Everly Brothers, Johnny Tillotson, The Pengiuns, Buddy Holly, Frank Sinatra, Dean Martin, The Platters, Michael Buble and many more.</li>
+</ul>
+</P>
+</DIV>
+
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/andybgoode0010-thumb.jpg" alt="AndyBGoode"></a></TD>
+<TD><DIV class="boxHeading">Quality Vintage Entertainment</DIV></TD></TR>
+</TABLE>
+<P class='boxInfoArea'>
+<ul>
+<li>Available for: Birthdays, Weddings, Anniversaries, Fayres, Fetes, Food Fayres, Vintage Events, Parties, Dances, Church Events, Residential Homes, Care Homes, Hospices, etc...</li>
+<li>Based in Tamworth, Staffordshire, Midlands</li>
+<li>I only use high quality backing tracks</li>
+<li>Fun 'Teddy boy' style outfit</li>
+<li>PA Provided for most events</li>
+<li>Current Public Liability Insurance</li>
+</ul>
+</P>
+</DIV>
+
+</div>
+</div>
+
+
+<div id="highlights-area">
+<h2 id="highlights" class="banner">Highlights</h2>
+<div class="textbox-area">
+
+<!--
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/andybgoode0026-thumb.jpg" alt="AndyBGoode"></a></TD>
+<TD><DIV class="boxHeading">THE CHRISTMAS WARWICKSHIRE VINTAGE AND ANTIQUE FAYRE</DIV></TD></TR>
+</TABLE>
+<P class='boxInfoArea'>
+Saturday 26th Nov 2016 - 10am<br/>
+Polesworth Sports Centre, 10-2pm,<br/>
+£1 Entry (Kids Under 12 Free)<br/>
+07762 546279<br/>
+I am singing some Xmas favourites at the local vintage and antique fayre in Polesworth.<br/>
+Do come along and snag a Christmas bargain. Munch on delicious cakes while you listen to some Rock n Roll / Swing classics.<br/>
+Loads of vintage fashion (both used and new). Hunt through collectables and other unique stuff for some great presents.
+</P>
+</DIV>
+-->
+
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/andybgoode0019-thumb.jpg" alt="AndyBGoode"></a></TD>
+<TD><DIV class="boxHeading">SPECIAL OFFER:<br/>1 hour for £100</DIV></TD></TR>
+</TABLE>
+<P class='boxInfoArea'>
+Right now, I am offering gigs starting at just:<br/>
+£100 + travel expenses for a 1h performance.<br/>
+<!--Remember at this time of year, this could be used to bring some xmas cheer vintage style.<br/> -->
+This could be used to bring some vintage fun to a 70th/80th birthday or even a 50th Wedding Anniversay.<br/>
+Limited time offer, Terms and conditions apply.
+</P>
+</DIV>
+
+
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="music.html"><img class="boxImageBigger" src="photos/andybgoode0028-thumb.jpg" alt="Vintage Love EP"></a></TD>
+<TD><DIV class="boxHeading">VINTAGE LOVE EP</DIV></TD></TR>
+</TABLE>
+<P class='boxInfoArea'>
+My 'Love' EP is now available<br/>
+5 pounds for 5 Romantic Vintage Tracks.<br/>
+It makes a lovely gift for that special someone.<br/>
+Contact me or meet me at a gig to get yours.<br/>
+Or click to download each mp3 for free.<br/>
+<a href="music.html#musicLetThereBeLove">'Let There Be Love'</a><br/>
+<a href="music.html#musicYoung">'You Make Me Feel So Young'</a><br/>
+<a href="music.html#musicEarth">'Earth Angel'</a><br/>
+<a href="music.html#musicLove">'L-O-V-E'</a><br/>
+<a href="music.html#musicPoetry">'Poetry in Motion'</a><br/>
+</P>
+</DIV>
+
+
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<tr><td><a href="photos.html"><img class="boxImageBigger" src="photos/thejays0016-thumb.jpg" alt="AndyBGoode"></a></td>
+<td><DIV class="boxHeading">UPCOMING PUBLIC GIGS: JUNE/JULY</DIV></td></tr>
+</TABLE>
+<P class='boxInfoArea'>
+I am delighted to announce some public gigs where vintage classics will be the order of the day. 
+Some are solo gigs and others with <a href="http://www.TheJaysVintage.com">'The Jays Vintage'</a> (1940s Vocal Harmony). 
+</P>
+<P class='boxInfoArea'>
+24 June 2017 10am till 3pm, Swadlincote Town Centre,
+Makers Market (ABG)
+</P>
+<P class='boxInfoArea'>
+8 July 2017 12 till 5pm, Norton Juxta Twycross,
+NJT Village Fete, 10 Orton Lane, Norton Juxta Twycross (ABG + Sophie)
+</P>
+<P class='boxInfoArea'>
+9 July 2017 11 till 3pm, Smethwick,
+Vintage in the Park Vintage Fair, B67 5DP (ABG)
+</P>
+<P class='boxInfoArea'>
+15 July 2017 Time TBC, Lichfield,
+Lichfield Fringe Festival (Jays)
+</P>
+<P class='boxInfoArea'>
+22 July 2017 10 till 2pm, Polesworth,
+Yesteryear Vintage Fair, B78 1QT (ABG)
+</P>
+<P class='boxInfoArea'>
+23 July 2017 12 till 4pm, Tamworth,
+Tamworth Bandstand (Jays)
+</P class='boxInfoArea'>
+<P class='boxInfoArea'>
+ABG: Andy B Goode solo gig.<br/>
+Jays: Andy B Goode and The Jays Vintage gig.
+</P class='boxInfoArea'>
+</DIV>
+
+
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<tr><td><a href="photos.html"><img class="boxImageBigger" src="photos/andybgoode0020-thumb.jpg" alt="AndyBGoode"></a></td>
+<td><DIV class="boxHeading">UPCOMING PUBLIC GIGS: AUGUST+</DIV></td></tr>
+</TABLE>
+<P class='boxInfoArea'>
+Heres some more public gigs from August 2017 and beyond.
+</P>
+<P class='boxInfoArea'>
+20 August 2017 Time TBC, Loughborough,
+Vintage Festival with Loughborough Loves Vintage (Jays)
+</P>
+<P class='boxInfoArea'>
+26 August 2017 10am till 3pm, Swadlincote Town Centre,
+Makers Market (ABG)
+</P>
+<P class='boxInfoArea'>
+30 Sept 2017 10am till 3pm, Swadlincote Town Centre,
+Makers Market (ABG)
+</P>
+<P class='boxInfoArea'>
+26 Nov 2017 Late Afternoon, Tamworth St Edithas Square,
+Tamworth Xmas Lights (Jays)
+</P>
+<P class='boxInfoArea'>
+ABG: Andy B Goode solo gig.<br/>
+Jays: Andy B Goode and The Jays Vintage gig.
+</P class='boxInfoArea'>
+</DIV>
+
+<!--
+<DIV class="boxPanel">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/andybgoode0014-thumb.jpg" alt="AndyBGoode"></a></TD>
+<TD><DIV class="boxHeading">SWINGING MOTHERS DAY AFTERNOON TEA</DIV></TD></TR>
+</TABLE>
+<P class='boxInfoArea'>
+Sunday 26th March 2pm till 6pm<br/>
+Old School Tea Rooms, 57 High Street, Ibstock, Leicestershire LE67 6LH.<br/>
+£15 Ticket (01530 267310).<br/>
+Listen to some Swing and Rock n Roll during Traditional Afternoon High Tea with a great selection of sandwiches, cakes and fancies plus teas and coffee.<br/>
+A most splendid '1916 Model T Ford' will be parked outside, so bring your camera.<br/>
+Come spend a lovely Mothering Sunday with us.
+</P>
+</DIV>
+-->
+
+</div>
+</div>
+
+
+<div id="contact" class="contact-area">
+<h2 class="banner">Contact me</h2>
+<div class="textbox-area">
+<DIV class="boxPanelNoBorder">
+<ul id="contactList">
+<li id="liPhone">Phone: 07415 338859</li>
+<li id="liEmail">email: <a href="mailto:Andy@AndyBGoode.com?Subject=Hi%20Andy" target="_top">Andy@AndyBGoode.com</a></li>
+<li id="liFacebook">Facebook: <a href="https://www.facebook.com/AndyBGoode">AndyBGoode</a></li>
+<li id="liInstagram">Instagram: <a href="https://www.instagram.com/andybgoodevocalist">andybgoodevocalist</a></li>
+<li id="liYouTube">YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
+<li id="liTwitter">Twitter: <a href="http://www.twitter.com/AndyBGoode">@AndyBGoode</a></li>
+<li id='liJays'>The Jays Vintage: <a href='http://www.TheJaysVintage.com'>The Jays Vintage</a></li>
+<li id="liWebsite">Version: v2.2.0</li>
+</ul>
+</DIV>
+<DIV class="boxPanelNoBorder">
+<TABLE class='boxHeadingArea'>
+<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/thejays0010-thumb.jpg" alt="AndyBGoode"></a></TD>
+<TD><a href="http://www.TheJaysVintage.com"><img class="boxImageBigger" src="photos/thejays0012-thumb.jpg" alt="TheJaysVintage"></a></TD></TR>
+</TABLE>
+</DIV>
+</div>
+</div>
+
+
+<div class="menu">
+<a href="index.html">Home</a>
+<a href="news.html">News</a>
+<a href="photos.html">Photos</a>
+<a href="music.html">Music</a>
+<a href="videos.html">Videos</a>
+<a href="songlist.html">Songs</a>
+<a href="testimonials.html">Testimonials</a>
+<a href="#contact">Contact</a>
+</div>
+
+
+</div>
+</body>
+
+</html>

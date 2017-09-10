@@ -302,19 +302,20 @@ Come spend a lovely Mothering Sunday with us.
 <DIV class="boxPanelDoubleWidth">
 <TABLE class='boxHeadingArea'>
 <TR><TD><DIV class="boxHeading">Recent Instagram Photos</DIV></TD></TR>
+<TR><TD><div id="instafeed"></div></TD></TR>
 </TABLE>
-<P>
-<div id="instafeed"></div>
- </P>
 </DIV>
  
  
  
 <script type="text/javascript">
+ var ajb1 = '3153218281.1677ed0.';
+ var ajb2 = 'a7ca15e521d244b69f85ef6fa1a54ba4';
+ var ajb3 = ajb1+ajb2;
     var userFeed = new Instafeed({
         get: 'user',
         userId: '3153218281',
-        accessToken: '3153218281.1677ed0.a7ca15e521d244b69f85ef6fa1a54ba4',
+        accessToken: ajb3,
         limit: 15
     });
     userFeed.run();

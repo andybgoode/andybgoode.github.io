@@ -382,6 +382,15 @@ img {
 	border: 1px solid #000000;
 	border-collapse: collapse;
 }
+.boxPanelFullWidth {
+	min-width: 100%;
+	width: 100%;
+	margin: 5px;
+	display: inline-block;
+	vertical-align: top;
+	border: 1px solid #000000;
+	border-collapse: collapse;
+}
 .boxHeading {
 	font-size: 15px;
 	font-weight: bold;

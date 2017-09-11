@@ -383,8 +383,8 @@ img {
 	border-collapse: collapse;
 }
 .boxPanelFullWidth {
-	min-width: 100%;
-	width: 100%;
+	min-width: 97%;
+	width: 97%;
 	margin: 5px;
 	display: inline-block;
 	vertical-align: top;

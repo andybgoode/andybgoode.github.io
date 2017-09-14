@@ -1,6 +1,6 @@
 //Copyright 2017: Andy B Goode 1950s/60s Rock n Roll/Swing Singer
 
-var siteVersion = "2.2.0";
+var siteVersion = "2.3.4";
 
 
 function createMenuBar(topOrBottom) {

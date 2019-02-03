@@ -85,6 +85,11 @@
   <a href="testimonials.html" class="w3-bar-item w3-button w3-border">Reviews</a>
 </div>
 <script>
+
+//instagram
+var instaImageWidth = 200;	// was 260
+var instaLimit = 12; //default
+
 function menuFunction() {
   var x = document.getElementById("topMenu");
   if (x.className.indexOf("w3-show") == -1) {
@@ -94,14 +99,12 @@ function menuFunction() {
   }
 }
 
-
 function CalcScreen() {
-	
-	var aW = screen.availWidth;
-	//alert("A");
-	
+	var aW = window.innerWidth-60;
+	var instaRow = (aW - (aW % instaImageWidth)) / instaImageWidth;
+	instaLimit = 3 * instaRow;
+	if (aW <= 768) {instaLimit = 9};
 }
-
 
 function screenResize() {
 	CalcScreen();
@@ -296,7 +299,7 @@ Some are solo gigs ('ABG') and others with <a href="http://www.TheJaysVintage.co
   <h1>Social Media</h1> 
   <p>Check out my <a href="https://www.facebook.com/AndyBGoode">Facebook</a>, <a href="https://www.instagram.com/andybgoodevocalist">Instagram</a> or even <a href="http://www.twitter.com/AndyBGoode">Twitter</a>.</p>
   <p>RECENT INSTAGRAM POSTS (from 'Andy B Goode' and 'The Jays Vintage')</p>
-  <div id="instafeed"></div>
+  <div id="instafeed" class="w3-text-black"></div>
 </div>
 
 
@@ -341,13 +344,11 @@ Some are solo gigs ('ABG') and others with <a href="http://www.TheJaysVintage.co
 
 </div>
 <script>
-//width was 260
 
+ //Displays 3 rows
+ // template: '<a href="{{link}}"> <img width="'+instaImageWidth+'" src="{{image}}" alt="({{location}}) {{caption}}"/></a>'
+ CalcScreen();
 
-CalcScreen();
-
- var changebleLimit = 12;
- var imageWidth = 200;
  var ajb1 = '3153218281.1677ed0.';
  var ajb2 = 'a7ca15e521d244b69f85ef6fa1a54ba4';
  var ajb3 = ajb1+ajb2;
@@ -355,9 +356,9 @@ CalcScreen();
         get: 'user',
         userId: '3153218281',
         accessToken: ajb3,
-        limit: changebleLimit,
+        limit: instaLimit,
         resolution: 'low_resolution',
-        template: '<a href="{{link}}"> <img width="'+imageWidth+'" src="{{image}}" alt="({{location}}) {{caption}}"/></a>'
+        template: '<a href="{{link}}"> <img src="{{image}}" class="w3-image-insta" alt="({{location}}) {{caption}}"/></a>'
     });
     userFeed.run();
 </script>

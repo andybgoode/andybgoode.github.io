@@ -42,7 +42,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-image{max-width:100%;height:auto}img{vertical-align:middle}
 /*a{color:inherit}*/
 a{color:Grey}
-.w3-image-abg,.w3-image-abg-1,.w3-image-abg-2,.w3-image-abg-3,.w3-image-abg-4,.w3-image-abg-5,.w3-image-abg-6,.w3-image-abg-7,.w3-image-insta{width:200px}
+.w3-image-abg,.w3-image-abg-1,.w3-image-abg-2,.w3-image-abg-3,.w3-image-abg-4,.w3-image-abg-5,.w3-image-abg-6,.w3-image-abg-7,.w3-image-abg-8,.w3-image-abg-9,.w3-image-insta{width:200px}
 .w3-image-abg-x{width:32%;max-width:400px}
 .w3-table,.w3-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.w3-table-all{border:1px solid #ccc}
 .w3-bordered tr,.w3-table-all tr{border-bottom:1px solid #ddd}.w3-striped tbody tr:nth-child(even){background-color:#f1f1f1}
@@ -110,6 +110,10 @@ a{color:Grey}
 @media (max-width:1110px){.w3-image-abg-5{display:none!important}}
 @media (max-width:1310px){.w3-image-abg-6{display:none!important}}
 @media (max-width:1510px){.w3-image-abg-7{display:none!important}}
+@media (max-width:1710px){.w3-image-abg-8{display:none!important}}
+@media (max-width:1910px){.w3-image-abg-9{display:none!important}}
+@media (max-width:1910px){.w3-image-abg-1{width:12%}.w3-image-abg-2{width:12%}.w3-image-abg-3{width:12%}.w3-image-abg-4{width:12%}.w3-image-abg-5{width:12%}.w3-image-abg-6{width:12%}.w3-image-abg-7{width:12%}.w3-image-abg-8{width:12%}}
+@media (max-width:1710px){.w3-image-abg-1{width:14%}.w3-image-abg-2{width:14%}.w3-image-abg-3{width:14%}.w3-image-abg-4{width:14%}.w3-image-abg-5{width:14%}.w3-image-abg-6{width:14%}.w3-image-abg-7{width:14%}}
 @media (max-width:1510px){.w3-image-abg-1{width:16%}.w3-image-abg-2{width:16%}.w3-image-abg-3{width:16%}.w3-image-abg-4{width:16%}.w3-image-abg-5{width:16%}.w3-image-abg-6{width:16%}}
 @media (max-width:1310px){.w3-image-abg-1{width:19%}.w3-image-abg-2{width:19%}.w3-image-abg-3{width:19%}.w3-image-abg-4{width:19%}.w3-image-abg-5{width:19%}}
 @media (max-width:1110px){.w3-image-abg-1{width:24%}.w3-image-abg-2{width:24%}.w3-image-abg-3{width:24%}.w3-image-abg-4{width:24%}}

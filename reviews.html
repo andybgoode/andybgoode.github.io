@@ -71,7 +71,18 @@
   <a href="songlist.html" class="w3-bar-item w3-button w3-border">Songs</a>
   <a href="news.html" class="w3-bar-item w3-button w3-border">News</a>
 </div>
+<script>
 
+function menuFunction() {
+  var x = document.getElementById("topMenu");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+</script>
 
 
 

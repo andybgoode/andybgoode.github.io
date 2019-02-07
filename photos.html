@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<HTML>
+<html lang="en">
 <!--
- Copyright (C) 2016 Andrew Britton.
+ Copyright (C) 2019 Andrew Britton.
  All rights reserved
  -->
-<HEAD>
-<title>Andy B Goode - Photos- Vintage Rock n Roll Singer, Staffordshire, UK</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
+<head>
+<title>Andy B Goode - Photos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="expires" content="0" />
-<meta name="short" content="AndyBGoode 1950s/60 Rock and Roll Entertainer - Photos"/>
-<meta name="description" content="Andy B Goode 1950s/1960s Rock n Roll Singer based in Tamworth, Staffordshire, England">
+<meta name="short" content="Andy B Goode - Vintage Singer (Rock and Roll, Rat Pack Singer, 1940s/1950s/1960s/1970s), Entertainer"/>
+<meta name="description" content="Andy B Goode - Vintage Singer (Rock and Roll, Rat Pack Singer, 1940s/1950s/1960s/1970s) based in Tamworth, Staffordshire, England">
 <meta name="author" content="Andrew Britton">
 <meta charset="UTF-8">
-<meta name="keywords" content="AndyBGoode,Andy B Goode,Singer,Vocalist,Tamworth,1950s,1960s,Rock n Roll,Rock and Roll,Entertainment,Vintage,Photos">
+<meta name="keywords" content="AndyBGoode,Andy B Goode,Singer,Vocalist,Tamworth,1940s,1950s,1960s,1970s,Rat Pack,Rock n Roll,Rock and Roll,Entertainment,Vintage">
 
 <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
@@ -36,15 +38,6 @@
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
 
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-77123620-1', 'auto');
-  ga('send', 'pageview');
-</script>
-
-<script type="text/javascript">
 
 //------------------------------------
 //User Variables Here
@@ -357,7 +350,7 @@ function displayAlbum(anAlbum,albumIndex) {
     linkText = "<DIV id='album"+albumIndex+"URLTitle'><a href='"+anAlbum.url+"'>"+anAlbum.urlTitle+"</a></DIV>";
   }
   o = "<DIV class='albumInfo'>";
-  o += "<DIV id='album"+albumIndex+"Title' class='albumTitle'>"+anAlbum.title+"</DIV>";
+  o += "<DIV id='album"+albumIndex+"Title' class='albumTitle'><h3>"+anAlbum.title+"</h3></DIV>";
   o += linkText;
   o += "<DIV id='album"+albumIndex+"Caption' class='albumCaption'>"+anAlbum.caption+"</DIV>";
   o += "</DIV>";
@@ -367,7 +360,7 @@ function displayAlbum(anAlbum,albumIndex) {
   //create placeholders for each photo in this album
   a = "";
   for (i = 0; i < anAlbum.photos.length; i++) {
-    a += "<DIV id='a"+albumIndex+"p"+i+"PhotoArea' style='display: inline-block'></DIV>";
+    a += "<DIV id='a"+albumIndex+"p"+i+"PhotoArea' class='aXpXPhotoArea'></DIV>";
   }
   document.getElementById("album"+albumIndex+"Photos").innerHTML = a;
 
@@ -381,7 +374,7 @@ function displayAlbum(anAlbum,albumIndex) {
 function displayPage(pageNumIndex) {
   //create placeholders for each album
   var tempAlbumArray = pageArray[pageNumIndex];
-  o = "<DIV id='buttonStart' onClick='buttonStartSlideshow()'>[START SLIDESHOW]</DIV>";
+  o = "<DIV id='buttonStart' onClick='buttonStartSlideshow()' class='w3-button w3-border'>START SLIDESHOW</DIV>";
   for (albumIndex = 0; albumIndex < tempAlbumArray.length; albumIndex++) {
     o += "<DIV id='album"+albumIndex+"Area' class='albumArea'></DIV>"
   }
@@ -401,14 +394,17 @@ function showPage(pageNumIndex) {
 }
 
 
-//show a control for each available page
+//show a control for each available page (if more than 1)
 function showPagesControls() {
-  o = "Page ";  
-  for (pageIndex = 0; pageIndex < pageArray.length; pageIndex++) {
-    if (pageIndex!=0) {
-      o += ", ";
+//  o = "Page ";  
+  o = "";
+  if (pageArray.length>1) {
+    for (pageIndex = 0; pageIndex < pageArray.length; pageIndex++) {
+//    if (pageIndex!=0) {
+//      o += ", ";
+//    }
+      o += "<DIV id='pageControl("+pageIndex+")' class='pageControl w3-button w3-border' onClick='showPage("+pageIndex+")'>Page "+(pageIndex+1)+"</DIV>";
     }
-    o += "<DIV id='pageControl("+pageIndex+")' class='pageControl' onClick='showPage("+pageIndex+")'>["+(pageIndex+1)+"]</DIV>";
   }
   document.getElementById('photoPageControlsAbove').innerHTML = o;
   document.getElementById('photoPageControlsBelow').innerHTML = o;
@@ -458,31 +454,72 @@ function isPublishedNow(pubValue) {
 
 </script>
 
-</HEAD>
-<BODY onload="startWebPageCode()">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77123620-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+
+<body onload="startWebPageCode()">
+<div itemscope itemtype="http://schema.org/WebSite">
+  <div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Andy B Goode"/></div>
+  <div itemprop="accountablePerson" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Andy B Goode"/></div>
+  <meta itemprop="description" content="Andy B Goode is a dynamic 1950s/1960s Rock and Roll/Rat Pack/1940s/Vintage Singer based in Tamworth Staffordshire England" />
+  <meta itemprop="image" content="http://www.andybgoode.com/images/andybgoode.png" />
+  <meta itemprop="url" content="http://www.AndyBGoode.com" />
+  <meta itemprop="isFamilyFriendly" content="True" />
+  <meta itemprop="genre" content="Rat Pack" />
+  <meta itemprop="keywords" content="Andy B Goode, AndyBGoode, Rock n Roll, Rock and Roll, Rat Pack, Singer, Entertainer, Tamworth, Staffordshire, England, UK, Vintage, Classic, 1940s, 1950s, 1960s, 1970s" />
+</div>
+<noscript>
+ For full functionality of this site it is necessary to enable JavaScript.
+ Here are the <a href="https://www.enable-javascript.com/">
+ instructions how to enable JavaScript in your web browser</a>.
+</noscript>
+
+<div class="w3-container w3-black">
 
 
-<h1><img id="logo" src="images/logo.gif" alt="AndyBGoode Logo"> Andy B Goode</h1>
+<div class="w3-bar w3-black">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border w3-hide-large w3-hide-medium" onclick="menuFunction()">&#9776;</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-border">Home</a>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-border">Contact</a>
+  <a href="videos.html" class="w3-bar-item w3-button w3-border">Videos</a>
+  <a href="music.html" class="w3-bar-item w3-button w3-border w3-hide-small">Music</a>
+  <a href="songlist.html" class="w3-bar-item w3-button w3-border w3-hide-small">Songs</a>
+  <a href="news.html" class="w3-bar-item w3-button w3-border w3-hide-small">News</a>
+  <a href="reviews.html" class="w3-bar-item w3-button w3-border w3-hide-small">Reviews</a>
+</div>
+<div id="topMenu" class="w3-bar-block w3-border w3-hide w3-hide-large w3-hide-medium w3-black">
+  <a href="music.html" class="w3-bar-item w3-button w3-border">Music</a>
+  <a href="songlist.html" class="w3-bar-item w3-button w3-border">Songs</a>
+  <a href="news.html" class="w3-bar-item w3-button w3-border">News</a>
+  <a href="reviews.html" class="w3-bar-item w3-button w3-border">Reviews</a>
+</div>
+<script>
 
-<div class="menu">
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="photos.html">Photos</a>
-<a href="music.html">Music</a>
-<a href="videos.html">Videos</a>
-<a href="songlist.html">Songs</a>
-<a href="testimonials.html">Testimonials</a>
-<a href="#contact">Contact</a>
+function menuFunction() {
+  var x = document.getElementById("topMenu");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+</script>
+
+
+
+<div class="w3-container w3-black w3-border-bottom w3-border-black">
+  <h1>Photos</h1> 
 </div>
 
-
-<div id="main">
-
-<div id="photos-highres-area">
-<h2 id="photos" class="banner">Photos</h2>
-<div class="textbox-area">
-
-<noscript>Your browser does not have JavaScript switched on. Please switch it on to see the photo albums.</noscript>
 
 <!-- photo controls -->
 <DIV id='controls'>
@@ -506,14 +543,14 @@ function isPublishedNow(pubValue) {
 <DIV id='bigPhoto3' class="largePolaroid">big3 here</DIV>
 </DIV>
 
-</div>
-</div>
 
 
-<div id="contact" class="contact-area">
-<h2 class="banner">Contact me</h2>
-<div class="textbox-area">
-<DIV class="boxPanelNoBorder">
+<div class="w3-container w3-black">
+  <h1>Contacts</h1> 
+  
+  <div id="contact" class="w3-third w3-black">
+    <img src="photos/andybgoode0004-thumb.jpg" class="w3-image w3-image-abg w3-round" alt="1950s/60s Rock and Roll Entertainer">
+	<h2>Contact Me</h2>
 <ul id="contactList">
 <li id="liPhone">Phone: 07415 338859</li>
 <li id="liEmail">email: <a href="mailto:Andy@AndyBGoode.com?Subject=Hi%20Andy" target="_top">Andy@AndyBGoode.com</a></li>
@@ -521,37 +558,22 @@ function isPublishedNow(pubValue) {
 <li id="liInstagram">Instagram: <a href="https://www.instagram.com/andybgoodevocalist">andybgoodevocalist</a></li>
 <li id="liYouTube">YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
 <li id="liTwitter">Twitter: <a href="http://www.twitter.com/AndyBGoode">@AndyBGoode</a></li>
-<li id="liWebsite">Version: v2.1.8</li>
+<li id='liJays'>The Jays Vintage: <a href='http://www.TheJaysVintage.com'>The Jays Vintage</a></li>
+<li id="liWebsite">Version: v2.5.0</li>
 </ul>
-</DIV>
-<DIV class="boxPanelNoBorder">
-<TABLE class='boxHeadingArea'>
-<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/thejays0010-thumb.jpg" alt="AndyBGoode"></a></TD>
-<TD><a href="http://www.TheJaysVintage.com"><img class="boxImageBigger" src="photos/thejays0012-thumb.jpg" alt="TheJaysVintage"></a></TD></TR>
-</TABLE>
-</DIV>
-</div>
+  </div>
 </div>
 
 
-<div class="menu">
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="photos.html">Photos</a>
-<a href="music.html">Music</a>
-<a href="videos.html">Videos</a>
-<a href="songlist.html">Songs</a>
-<a href="testimonials.html">Testimonials</a>
-<a href="#contact">Contact</a>
-</div>
 
 
 </div>
 
 
 
-<script type="text/javascript" src="albums.json"></script>
-<script type="text/javascript">
+
+<script src="albums.json"></script>
+<script>
 
 function startWebPageCode() {
   loadJSON(myJSONcallback);
@@ -684,6 +706,5 @@ function screenResized() {
 </script>
 
 
-</BODY>
-</HTML>
-
+</body>
+</html>

@@ -312,11 +312,11 @@ a{color:Grey}
 #controls {cursor: pointer; position: absolute;display: none}
 #buttonStart {cursor: pointer; display: block;padding:2px;width:300px}
 
-#buttonPlay {position: fixed; top: 10px; left: 10px; z-index: 100; width: auto; display: inline; font-weight: bold}
-#buttonPause {position: fixed; top: 10px; left: 10px; z-index: 100; width: auto; display: inline; font-weight: bold}
+#buttonPlay {position: fixed; top: 90%; left: 10px; z-index: 100; width: auto; display: inline; font-weight: bold}
+#buttonPause {position: fixed; top: 90%; left: 10px; z-index: 100; width: auto; display: inline; font-weight: bold}
 #buttonClose {position: fixed; top: 10px; right: 10px; z-index: 100; width: auto; display: inline; font-weight: bold}
 #buttonPrevious {position: fixed; top: 50%; left: 10px; z-index: 99; width: auto; display: inline; font-weight: bold}
 #buttonNext {position: fixed; top: 50%; right: 10px; z-index: 99; width: auto; display: inline; font-weight: bold}
-#buttonDownload {position: fixed; top: 90px; left: 10px; z-index: 98; width: auto; display: inline; font-weight: bold}
+#buttonDownload {position: fixed; top: 90%; right: 10px; z-index: 98; width: auto; display: inline; font-weight: bold}
 
-
+.noUnder {text-decoration:none}

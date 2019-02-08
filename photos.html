@@ -277,7 +277,7 @@ function showPhoto(photoArrayRef,cacheNumber) {
   }  
   //alter download button
   var extension = photoArray[photoArrayRef].download+".jpg";
-  document.getElementById('buttonDownload').innerHTML = "<a href='"+photoArray[photoArrayRef].fileName+extension+"' download>Save</a>"
+  document.getElementById('buttonDownload').innerHTML = "<a class='w3-text-white noUnder' href='"+photoArray[photoArrayRef].fileName+extension+"' download>Save</a>"
 }
 
 function buttonPrevPhoto() {

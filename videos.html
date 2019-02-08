@@ -85,6 +85,8 @@
 </div>
 <script>
 
+var videoArray = [];
+
 function menuFunction() {
   var x = document.getElementById("topMenu");
   if (x.className.indexOf("w3-show") == -1) {
@@ -92,6 +94,23 @@ function menuFunction() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
+}
+
+//Extract url parameters
+function GetURLParameter(param) {
+    var pageURL = window.location.search.substring(1);
+    var URLVars = pageURL.split('&');
+    for (var i = 0; i < URLVars.length; i++) {
+        var paramName = URLVars[i].split('=');
+        if (paramName[0] == param) {
+            return paramName[1];
+        }
+  }
+}
+
+function addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID) {
+  var tempVideo = {videoRef:videoRef,name:name, caption:caption, thumbnail:thumbnail, isPlaylist:isPlaylist, youTubeID:youTubeID};
+  videoArray.push(tempVideo);
 }
 
 </script>
@@ -110,7 +129,6 @@ function menuFunction() {
 </div>
 </div>
 
-
 <div class="w3-row-padding">
   <div class="w3-half w3-black">
     <h3>Andy B Goode</h3>
@@ -118,7 +136,7 @@ function menuFunction() {
 <a href="#videoSummerShowReel2016">Summer Showreel</a><br/>
 <a href="#videoChristmasPlaylist">Christmas Playlist</a> (Run Rudolph Run, Frosty the Snowman, Winter Wonderland, Jingle Bells, Holly Jolly Christmas, Rockin Robin, Rudolph the Red-Nosed Reindeer, White Christmas, Silent Night, The Christmas Song)<br/>
 <a href="#videoFlyMe">Fly Me To The Moon</a><br/>
-<a href="#videoYouMakeMeFeel">You Make Me Feel So Young</a>
+<a href="#videoYouMakeMeYoung">You Make Me Feel So Young</a>
 </p>
   </div>
 
@@ -129,9 +147,19 @@ function menuFunction() {
 <a href="#videoMagicMoments">Magic Moments</a>
 </p>
   </div>
-
 </div>
 
+<!--
+<div class="w3-row-padding">
+  <div id="playerPlaylist" class="w3-half-video w3-black">
+   <p>Playlist</p>
+  </div>
+  
+  <div id="player1" class="w3-half-video w3-black">
+<div id="player2" class="embed-container-abg"><iframe src="https://www.youtube.com/embed/?listType=playlist&list=PLTlGVrSbUuPhcs2zGuGratWyUqKBq169Z" allow="autoplay" allowfullscreen></iframe></div>
+  </div>
+</div>
+-->
 
 <div class="w3-row-padding">
   <div id="videoRnRJukebox" class="w3-half-video w3-black">
@@ -166,7 +194,7 @@ function menuFunction() {
 
 
 <div class="w3-row-padding">
-  <div id="videoYouMakeMeFeel" class="w3-half-video w3-black">
+  <div id="videoYouMakeMeYoung" class="w3-half-video w3-black">
     <h2>You Make Me Feel So Young</h2>
     <p>Another Frank Sinatra tune about his love for his favourite girl. All those times that make life worth living.</p>
 <div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/u5rZBDsEwBQ" allowfullscreen></iframe></div>
@@ -210,7 +238,7 @@ function menuFunction() {
 <div class="w3-container w3-black">
   <h1>Contacts</h1> 
   
-  <div id="contact" class="w3-third w3-black">
+  <div id="contact" class="w3-half w3-black">
     <img src="photos/andybgoode0004-thumb.jpg" class="w3-image w3-image-abg w3-round" alt="1950s/60s Rock and Roll Entertainer">
 	<h2>Contact Me</h2>
 <ul id="contactList">
@@ -230,6 +258,33 @@ function menuFunction() {
 
 
 </div>
+
+<script>
+
+//TODO
+//1) video selection onto a single player (click video name/thumbnail navigates to player + loads selected video)
+//loadSelectedVideo(1)
+//video record: number,name,description,thumbnail,is a playlist,youTube ID
+//addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID)
+addVideo("11",0,"one","a","cap 2","qwe")
+addVideo("22",0,"two","b","cap 2","asd")
+addVideo("33",0,"three","c","cap 3","zxc")
+
+//single video
+//addVideo("FlyMoon",0,"Fly Me To The Moon","photo0010","The definitive Frank Sinatra song from the time when holidays on jets liners were new. This was recorded live at norton Juxta Twycross Fete.","01BAwrxATqc");
+
+//playlist
+//addVideo("RnRJukeBox",1,"1950s/60s Rock n Roll Jukebox","photo0011","Here's some of my Rock and Roll hits, including: Hound Dog, Johnny B. Goode, Teenager in Love, This Ole House, Great Balls of Fire and more. Feel free to sing along. 'Johnny B. Goode' originally by the fantastic Chuck Berry. 'Back to the Future' is one of my favourite movies, and that track really adds energy to the film.","PLTlGVrSbUuPhcs2zGuGratWyUqKBq169Z");
+
+
+
+//2) video loading when page opens (from link on another page)
+//on page load if video is specified the load youTube video (or playlist) in player
+//http://www.andybgoode.com/?videoID=1
+//var videoID = GetURLParameter('videoID');
+//alert("videoID=" + videoID);
+
+</script>
 
 </body>
 </html>

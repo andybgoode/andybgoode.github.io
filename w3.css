@@ -310,6 +310,7 @@ a{color:Grey}
 #bigPhoto2 {display: none}
 #bigPhoto3 {display: none}
 #controls {cursor: pointer; position: absolute;display: none}
+
 #buttonStart {cursor: pointer; display: block;padding:2px;width:300px}
 #buttonPlay {position: fixed; top: 10px; left: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 20px; border-radius: 10px}
 #buttonPause {position: fixed; top: 10px; left: 10px; z-index: 100; width: auto; background-color: #DDDDDD; display: inline;padding: 16px; vertical-align: middle;text-align: center; font-weight: bold; font-size: 20px; border-radius: 10px}

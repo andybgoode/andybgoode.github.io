@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <!--
- Copyright (C) 2016 Andrew Britton.
+ Copyright (C) 2019 Andrew Britton.
  All rights reserved
  -->
 <head>
-<title>Andy B Goode - Songs List - Vintage Rock n Roll Singer, Staffordshire, UK</title>
-<link rel="stylesheet" type="text/css" href="style.css"/>
+<title>Andy B Goode - Songs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="w3.css">
+
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="expires" content="0" />
-<meta name="short" content="AndyBGoode 1950s/60 Rock and Roll Entertainer - Song List"/>
-<meta name="description" content="Andy B Goode 1950s/1960s Rock n Roll Singer based in Tamworth, Staffordshire, England">
+<meta name="short" content="Andy B Goode - Vintage Singer (Rock and Roll, Rat Pack Singer, 1940s/1950s/1960s/1970s), Entertainer"/>
+<meta name="description" content="Andy B Goode - Vintage Singer (Rock and Roll, Rat Pack Singer, 1940s/1950s/1960s/1970s) based in Tamworth, Staffordshire, England">
 <meta name="author" content="Andrew Britton">
 <meta charset="UTF-8">
-<meta name="keywords" content="AndyBGoode,Andy B Goode,Singer,Vocalist,Tamworth,1950s,1960s,Rock n Roll,Rock and Roll,Entertainment,Vintage,Song list">
+<meta name="keywords" content="AndyBGoode,Andy B Goode,Singer,Vocalist,Tamworth,1940s,1950s,1960s,1970s,Rat Pack,Rock n Roll,Rock and Roll,Entertainment,Vintage">
 
 <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png">
@@ -34,14 +36,7 @@
 <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-<STYLE>
 
-
-
-
-
-</STYLE>
- 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -53,49 +48,79 @@
 </head>
 
 <body>
+<div itemscope itemtype="http://schema.org/WebSite">
+  <div itemprop="author" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Andy B Goode"/></div>
+  <div itemprop="accountablePerson" itemscope itemtype="http://schema.org/Person"><meta itemprop="name" content="Andy B Goode"/></div>
+  <meta itemprop="description" content="Andy B Goode is a dynamic 1950s/1960s Rock and Roll/Rat Pack/1940s/Vintage Singer based in Tamworth Staffordshire England" />
+  <meta itemprop="image" content="http://www.andybgoode.com/images/andybgoode.png" />
+  <meta itemprop="url" content="http://www.AndyBGoode.com" />
+  <meta itemprop="isFamilyFriendly" content="True" />
+  <meta itemprop="genre" content="Rat Pack" />
+  <meta itemprop="keywords" content="Andy B Goode, AndyBGoode, Rock n Roll, Rock and Roll, Rat Pack, Singer, Entertainer, Tamworth, Staffordshire, England, UK, Vintage, Classic, 1940s, 1950s, 1960s, 1970s" />
+</div>
+<noscript>
+ For full functionality of this site it is necessary to enable JavaScript.
+ Here are the <a href="https://www.enable-javascript.com/">
+ instructions how to enable JavaScript in your web browser</a>.
+</noscript>
 
-<h1><img id="logo" src="images/logo.gif" alt="AndyBGoode Logo"> Andy B Goode</h1>
+<div class="w3-container w3-black">
 
-<div class="menu">
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="photos.html">Photos</a>
-<a href="music.html">Music</a>
-<a href="videos.html">Videos</a>
-<a href="songlist.html">Songs</a>
-<a href="testimonials.html">Testimonials</a>
-<a href="#contact">Contact</a>
+<div class="w3-bar w3-black">
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-border w3-hide-large w3-hide-medium" onclick="menuFunction()">&#9776;</a>
+  <a href="index.html" class="w3-bar-item w3-button w3-border">Home</a>
+  <a href="index.html#contact" class="w3-bar-item w3-button w3-border">Contact</a>
+  <a href="videos.html" class="w3-bar-item w3-button w3-border">Videos</a>
+  <a href="photos.html" class="w3-bar-item w3-button w3-border w3-hide-small">Photos</a>
+  <a href="music.html" class="w3-bar-item w3-button w3-border w3-hide-small">Music</a>
+  <a href="news.html" class="w3-bar-item w3-button w3-border w3-hide-small">News</a>
+  <a href="reviews.html" class="w3-bar-item w3-button w3-border w3-hide-small">Reviews</a>
+</div>
+<div id="topMenu" class="w3-bar-block w3-border w3-hide w3-hide-large w3-hide-medium w3-black">
+  <a href="photos.html" class="w3-bar-item w3-button w3-border">Photos</a>
+  <a href="music.html" class="w3-bar-item w3-button w3-border">Music</a>
+  <a href="news.html" class="w3-bar-item w3-button w3-border">News</a>
+  <a href="reviews.html" class="w3-bar-item w3-button w3-border">Reviews</a>
+</div>
+<script>
+
+function menuFunction() {
+  var x = document.getElementById("topMenu");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+</script>
+
+
+
+<div class="w3-container w3-black w3-border-bottom w3-border-black">
+  <h1>Songs</h1> 
 </div>
 
- 
-
-<div id="main">
 
 
+<div class="w3-container w3-black w3-border-bottom w3-border-black">
+<div class="w3-cell-row">
+<img src="photos/andybgoode0034-thumb.jpg" class="w3-image w3-image-abg-1 w3-round" alt="xxxx"><img src="photos/andybgoode0035-thumb.jpg" class="w3-image w3-image-abg-2 w3-round" alt="xxxx"><img src="photos/andybgoode0036-thumb.jpg" class="w3-image w3-image-abg-3 w3-round" alt="xxxx"><img src="photos/andybgoode0037-thumb.jpg" class="w3-image w3-image-abg-4 w3-round" alt="xxxx"><img src="photos/andybgoode0040-thumb.jpg" class="w3-image w3-image-abg-5 w3-round" alt="xxxx"><img src="photos/andybgoode0038-thumb.jpg" class="w3-image w3-image-abg-6 w3-round" alt="xxxx"><img src="photos/andybgoode0019-thumb.jpg" class="w3-image w3-image-abg-7 w3-round" alt="xxxx"><img src="photos/andybgoode0039-thumb.jpg" class="w3-image w3-image-abg-8 w3-round" alt="xxxx"><img src="photos/thejays0016-thumb.jpg" class="w3-image w3-image-abg-9 w3-round" alt="xxxx"> 
+</div>
+</div>
 
-<div id="songs" class="songs-area">
-<h2 class="banner">Songs</h2>
-<div class="textbox-area">
 
-<DIV class="infoBlock">
-<DIV class="boxPanelNoBorder">
-<TABLE class='boxHeadingArea'>
-<TR><TD>Here's some of my songs that I perform.</TD></TR>
-</TABLE>
-</DIV>
-<DIV class="boxPanelNoBorder">
-<TABLE class='boxHeadingArea'>
-<TR><TD>Snippets of many of these can be found in my <a href="videos.html#videoSummerShowReel2016">'Showreel'</a>, do go and have a listen.</TD></TR>
-</TABLE>
-</DIV>
-</DIV>
 
-<DIV class="boxPanel">
-<TABLE class='boxHeadingArea'>
-<TR><TD><a href="photos.html"><img class="boxImage" src="photos/andybgoode0010-thumb.jpg" alt="Rock Around the Clock"></a></TD>
-<TD><DIV class="boxHeading">ROCK N ROLL / JIVE HITS</DIV></TD></TR>
-</TABLE>
-<P class='boxInfoArea'>
+<div class="w3-container w3-black">
+  <p>Here's some of my songs that I perform.<br/>
+Hear some on my <a href="videos.html">videos</a> page, do go and have a listen.</p>
+</div>
+
+<div class="w3-row-padding">
+  <div class="w3-half w3-black">
+<img class="w3-image w3-image-abg w3-round" src="photos/andybgoode0004-thumb.jpg" alt="Vintage Rock and Roll Singer">
+    <h2>Rock and Roll / Jive / Rockabilly</h2>
+    <p>
 Chuck Berry: <a href="videos.html#videoJohnnyBGoode">Johnny B. Goode</a>; Rock and Roll Music<br/>
 Bill Haley and His Comets: Rock Around the Clock; Shake, Rattle and Roll; See You Later Alligator<br/>
 Elvis: Blue Suede Shoes; Hound Dog; All Shook Up; Jailhouse Rock; Can't Help Falling in Love<br/>
@@ -118,82 +143,84 @@ Roy Orbison: Ooby Dooby; Oh, Pretty Woman<br/>
 Fats Domino: I'm Walking<br/>
 Shakin' Stevens: Green Door; This Ole House<br/>
 The Platters: Harbour Lights<br/>
-</P>
-</DIV>
+</p>
+  </div>
 
-
-<DIV class="boxPanel">
-<TABLE class='boxHeadingArea'>
-<tr><td><a href="photos.html"><img class="boxImage" src="photos/thejays0010-thumb.jpg" alt="Andy B Good at Xmas"></a></td>
-<td><DIV class="boxHeading">XMAS CLASSICS</DIV></td></tr>
-</TABLE>
-<P class='boxInfoArea'>
-Michael Bublé: Holly Jolly Christmas; Frosty The Snowman<br/>
-Michael Bublé and Puppini Sisters: Jingle Bells<br/>
+  <div class="w3-half w3-black">
+<img class="w3-image w3-image-abg w3-round" src="photos/andybgoode0037-thumb.jpg" alt="Christmas Singer">
+    <h2>Xmas Classics</h2>
+    <p>
+Michael Bublé: <a href="videos.html#videoChristmasPlaylist">Holly Jolly Christmas</a>; <a href="videos.html#videoChristmasPlaylist">Frosty The Snowman</a><br/>
+Michael Bublé and Puppini Sisters: <a href="videos.html#videoChristmasPlaylist">Jingle Bells</a><br/>
 Perry Como: It’s Beginning To Look A Lot Like Christmas<br/>
 Dean Martin: Let it Snow, Let it Snow, Let it Snow<br/>
-Bing Crosby: Santa Claus is Comin’ to Town; White Christmas<br/>
-Frank Sinatra: I’ll Be Home for Christmas, Rudolph the Red-Nosed Reindeer<br/>
+Bing Crosby: Santa Claus is Comin’ to Town; <a href="videos.html#videoChristmasPlaylist">White Christmas</a><br/>
+Frank Sinatra: I’ll Be Home for Christmas, <a href="videos.html#videoChristmasPlaylist">Rudolph the Red-Nosed Reindeer</a><br/>
 Dickie Valentine: Christmas Alphabet<br/>
-Nat King Cole: The Chrismas Song<br/>
+Nat King Cole: <a href="videos.html#videoChristmasPlaylist">The Christmas Song</a><br/>
 Tony Bennett: Sleigh Ride<br/>
-Elvis: Blue Christmas, Lonely This Christmas<br/>
-Chuck Berry: Run, Run, Rudolph<br/>
+Elvis: Blue Christmas, <a href="videos.html#videoChristmasPlaylist">Winter Wonderland</a>, <a href="videos.html#videoChristmasPlaylist">Silent Night</a><br/>
+Chuck Berry: <a href="videos.html#videoChristmasPlaylist">Run, Run, Rudolph</a><br/>
 Bobby Helms: Jingle Bell Rock<br/>
-Bobby Day: Rockin' Robin<br/>
+Bobby Day: <a href="videos.html#videoChristmasPlaylist">Rockin' Robin</a><br/>
 Shakin' Stevens: Merry Xmas Everyone<br/>
-</P>
-</DIV>
+</p>
+  </div>
+</div>
 
- 
-<BR/>
- 
 
-<DIV class="boxPanel">
-<TABLE class="boxHeadingArea">
-<tr><td><a href="photos.html"><img class="boxImage" src="photos/thejays0005-thumb.jpg" alt="1940s Classics"></a></td>
-<td><DIV class="boxHeading">1940's CLASSICS</DIV></td></tr>
-</TABLE>
-<P class="boxInfoArea">
-Bing Crosby: Blue Skies, I'll Be Seeing You, Swinging on A Star, You Are My Sunshine<br/>
-Dean Martin: It Don't Mean A Thing<br/>
+<div class="w3-row-padding">
+  <div class="w3-half w3-black">
+<img class="w3-image w3-image-abg w3-round" src="photos/andybgoode0036-thumb.jpg" alt="1940s Singer">
+    <h2>1940's Classics</h2>
+    <p>
+Al Bowlly: Goodnight Sweetheart<br/>
 Dooley Wilson: As Time Goes By<br/>
+Bing Crosby: Blue Skies, I'll Be Seeing You, Swinging on A Star, You Are My Sunshine<br/>
+Cliff Edwards : When You Wish Upon a Star<br/>
+James Baskett: Zip-a-Dee-Doo-Dah<br/>
+Frank Sinatra: When You're Smiling<br/>
 Harry Connick, Jr.: It Had To Be You<br/>
 Michael Bublé: You're Nobody Till Somebody Loves You<br/>
-Nat King Cole: It's Only A Paper Moon, Route 66, Stardust, Straighten Up And Fly Right<br/>
+Nat King Cole: Straighten Up And Fly Right, It's Only A Paper Moon, Route 66, Stardust, Smile<br/>
 Rudy Vallée: Harbour Lights<br/>
 Wartime Classics: Bless them All, Hang Out This Washing, Kiss Me Goodnight Sergeant Major, Pack Up Your Troubles, Wish Me Luck As You Wave Me Goodbye<br/>
 Vera Lynn: The White Cliffs of Dover, We'll Meet Again<br/>
-</P>
-</DIV> 
- 
+</p>
+  </div>
 
-<DIV class="boxPanel">
-<TABLE class='boxHeadingArea'>
-<tr><td><a href="photos.html"><img class="boxImage" src="photos/andybgoode0004-thumb.jpg" alt="Crooning"></a></td>
-<td><DIV class="boxHeading">RAT PACK / CROONER / SWING HITS</DIV></td></tr>
-</TABLE>
-<P class='boxInfoArea'>
-Frank Sinatra: New York, New York; Fly Me To The Moon; Cheek To Cheek; Come Fly With Me; <a href="music.html#musicYoung">You Make Me Feel So Young</a>; I've Got You Under My Skin; The Lady Is a Tramp; Love and Marriage<br/>
+  <div class="w3-half w3-black">
+<img class="w3-image w3-image-abg w3-round" src="photos/andybgoode0035-thumb.jpg" alt="Rat Pack / Swing Singer">
+    <h2>Rat Pack / Crooner / Swing Hits</h2>
+    <p>
+Frank Sinatra: New York, New York; <a href="videos.html#videoFlyMe">Fly Me To The Moon<a/>; Cheek To Cheek; Come Fly With Me; <a href="videos.html#videoYouMakeMeYoung">You Make Me Feel So Young</a>; I've Got You Under My Skin; The Lady Is a Tramp; Love and Marriage<br/>
 Bing Crosby: Pennies from Heaven; All I Do Is Dream of You<br/>
 Bobby Darin: Mack the Knife; Beyond the Sea; Things<br/>
-Dean Martin: Sway; Memories Are Made Of This, How D'Ya Like Your Eggs in the Morning<br/>
+Dean Martin: Sway; Memories Are Made Of This, <a href="videos.html#videoHowDoYouLike">How D'Ya Like Your Eggs in the Morning<a/>, It Don't Mean A Thing<br/>
 Nat King Cole: <a href="music.html#musicLove">L-O-V-E</a>, <a href="music.html#musicLetThereBeLove">Let There Be Love</a>; When I Fall in Love<br/>
 Michael Bublé: All of Me; You've Got A Friend In Me<br/>
-</P>
-</DIV> 
- 
- 
-</div>
+</p>
+  </div>
 </div>
 
 
 
 
-<div id="contact" class="contact-area">
-<h2 class="banner">Contact me</h2>
-<div class="textbox-area">
-<DIV class="boxPanelNoBorder">
+
+<div class="w3-container w3-black w3-border-bottom w3-border-black">
+<div class="w3-cell-row">
+<img src="photos/andybgoode0037-thumb.jpg" class="w3-image w3-image-abg-1 w3-round" alt="xxxx"><img src="photos/andybgoode0008-thumb.jpg" class="w3-image w3-image-abg-2 w3-round" alt="xxxx"><img src="photos/thejays0004-thumb.jpg" class="w3-image w3-image-abg-3 w3-round" alt="1940s and Wartime Vocalist"><img src="photos/andybgoode0041-thumb.jpg" class="w3-image w3-image-abg-4 w3-round" alt="xxxx"><img src="photos/thejays0014-thumb.jpg" class="w3-image w3-image-abg-5 w3-round" alt="1960s Rat Pack, Swing Singer"><img src="photos/andybgoode0007-thumb.jpg" class="w3-image w3-image-abg-6 w3-round" alt="xxxx"><img src="photos/andybgoode0016-thumb.jpg" class="w3-image w3-image-abg-7 w3-round" alt="xxxx"><img src="photos/thejays0024-thumb.jpg" class="w3-image w3-image-abg-8 w3-round" alt="xxxx"><img src="photos/andybgoode0024-thumb.jpg" class="w3-image w3-image-abg-9 w3-round" alt="xxxx"> 
+</div>
+</div>
+
+
+
+<div class="w3-container w3-black">
+  <h1>Contacts</h1> 
+  
+  <div id="contact" class="w3-half w3-black">
+    <img src="photos/andybgoode0004-thumb.jpg" class="w3-image w3-image-abg w3-round" alt="1950s/60s Rock and Roll Entertainer">
+	<h2>Contact Me</h2>
 <ul id="contactList">
 <li id="liPhone">Phone: 07415 338859</li>
 <li id="liEmail">email: <a href="mailto:Andy@AndyBGoode.com?Subject=Hi%20Andy" target="_top">Andy@AndyBGoode.com</a></li>
@@ -201,32 +228,16 @@ Michael Bublé: All of Me; You've Got A Friend In Me<br/>
 <li id="liInstagram">Instagram: <a href="https://www.instagram.com/andybgoodevocalist">andybgoodevocalist</a></li>
 <li id="liYouTube">YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
 <li id="liTwitter">Twitter: <a href="http://www.twitter.com/AndyBGoode">@AndyBGoode</a></li>
-<li id="liWebsite">Version: v2.1.9</li>
+<li id='liJays'>The Jays Vintage: <a href='http://www.TheJaysVintage.com'>The Jays Vintage</a></li>
+<li id="liWebsite">Version: v2.5.0</li>
 </ul>
-</DIV>
-<DIV class="boxPanelNoBorder">
-<TABLE class='boxHeadingArea'>
-<TR><TD><a href="photos.html"><img class="boxImageBigger" src="photos/thejays0010-thumb.jpg" alt="AndyBGoode"></a></TD>
-<TD><a href="http://www.TheJaysVintage.com"><img class="boxImageBigger" src="photos/thejays0012-thumb.jpg" alt="TheJaysVintage"></a></TD></TR>
-</TABLE>
-</DIV>
-</div>
+  </div>
 </div>
 
 
-<div class="menu">
-<a href="index.html">Home</a>
-<a href="news.html">News</a>
-<a href="photos.html">Photos</a>
-<a href="music.html">Music</a>
-<a href="videos.html">Videos</a>
-<a href="songlist.html">Songs</a>
-<a href="testimonials.html">Testimonials</a>
-<a href="#contact">Contact</a>
-</div>
 
 
 </div>
+
 </body>
-
 </html>

@@ -277,7 +277,7 @@ function showPhoto(photoArrayRef,cacheNumber) {
   }  
   //alter download button
   var extension = photoArray[photoArrayRef].download+".jpg";
-  document.getElementById('buttonDownload').innerHTML = "<a href='"+photoArray[photoArrayRef].fileName+extension+"' download>[DOWNLOAD]</a>"
+  document.getElementById('buttonDownload').innerHTML = "<a href='"+photoArray[photoArrayRef].fileName+extension+"' download>Save</a>"
 }
 
 function buttonPrevPhoto() {
@@ -523,12 +523,12 @@ function menuFunction() {
 
 <!-- photo controls -->
 <DIV id='controls'>
-<DIV id='buttonPlay' onClick="buttonStartSlideshow()">Play</DIV>
-<DIV id='buttonPause' onClick="buttonPauseSlideshow()">Pause</DIV>
-<DIV id='buttonPrevious' onClick="buttonPrevPhoto()">&#60;</DIV>
-<DIV id='buttonNext' onClick="buttonNextPhoto()">&#62;</DIV>
-<DIV id='buttonClose' onClick="buttonClosePhoto()">X</DIV>
-<DIV id='buttonDownload' onClick="buttonDownloadPhoto()"><a href="photos/andybgoode0002-highres.jpg" download>Save</a></DIV>
+<DIV id='buttonPlay' class="w3-button w3-border" onClick="buttonStartSlideshow()">Play</DIV>
+<DIV id='buttonPause' class="w3-button w3-border" onClick="buttonPauseSlideshow()">Pause</DIV>
+<DIV id='buttonPrevious' class="w3-button w3-border" onClick="buttonPrevPhoto()">&#60;</DIV>
+<DIV id='buttonNext' class="w3-button w3-border" onClick="buttonNextPhoto()">&#62;</DIV>
+<DIV id='buttonClose' class="w3-button w3-border" onClick="buttonClosePhoto()">X</DIV>
+<DIV id='buttonDownload' class="w3-button w3-border" onClick="buttonDownloadPhoto()"><a href="photos/andybgoode0002-highres.jpg" download>Save</a></DIV>
 </DIV>  
 <!-- photo page display area -->
 <DIV id='photosArea'>

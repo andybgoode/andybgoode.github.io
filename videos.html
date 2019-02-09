@@ -85,8 +85,6 @@
 </div>
 <script>
 
-var videoArray = [];
-
 function menuFunction() {
   var x = document.getElementById("topMenu");
   if (x.className.indexOf("w3-show") == -1) {
@@ -94,23 +92,6 @@ function menuFunction() {
   } else { 
     x.className = x.className.replace(" w3-show", "");
   }
-}
-
-//Extract url parameters
-function GetURLParameter(param) {
-    var pageURL = window.location.search.substring(1);
-    var URLVars = pageURL.split('&');
-    for (var i = 0; i < URLVars.length; i++) {
-        var paramName = URLVars[i].split('=');
-        if (paramName[0] == param) {
-            return paramName[1];
-        }
-  }
-}
-
-function addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID) {
-  var tempVideo = {videoRef:videoRef,name:name, caption:caption, thumbnail:thumbnail, isPlaylist:isPlaylist, youTubeID:youTubeID};
-  videoArray.push(tempVideo);
 }
 
 </script>
@@ -129,99 +110,16 @@ function addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID) {
 </div>
 </div>
 
-<div class="w3-row-padding">
-  <div class="w3-half w3-black">
-    <h3>Andy B Goode</h3>
-    <p><a href="#videoRnRJukebox">1950s/60s Rock n Roll Jukebox</a> (Hound Dog, Johnny B. Goode, Teenager in Love, This Ole House, Great Balls of Fire, Earth Angel)<br/>
-<a href="#videoSummerShowReel2016">Summer Showreel</a><br/>
-<a href="#videoChristmasPlaylist">Christmas Playlist</a> (Run Rudolph Run, Frosty the Snowman, Winter Wonderland, Jingle Bells, Holly Jolly Christmas, Rockin Robin, Rudolph the Red-Nosed Reindeer, White Christmas, Silent Night, The Christmas Song)<br/>
-<a href="#videoFlyMe">Fly Me To The Moon</a><br/>
-<a href="#videoYouMakeMeYoung">You Make Me Feel So Young</a>
-</p>
-  </div>
 
-  <div class="w3-half w3-black">
-    <h3>The Jays Vintage</h3>
-    <p><a href="#videoHowDoYouLike">How Do You Like Your Eggs in the Morning</a><br/>
-<a href="#videoBeerBarrel">Beer Barrel Polka</a><br/>
-<a href="#videoMagicMoments">Magic Moments</a>
-</p>
-  </div>
-</div>
 
-<!--
 <div class="w3-row-padding">
-  <div id="playerPlaylist" class="w3-half-video w3-black">
+  <div id="player1" class="w3-half-video w3-black">
+<div id="videoPlayerVideo" class="embed-container-abg"><iframe src="https://www.youtube.com/embed/?listType=playlist&list=PLTlGVrSbUuPhcs2zGuGratWyUqKBq169Z" allow="autoplay" allowfullscreen></iframe></div>
+  </div>
+  <div id="videoPlayerList" class="w3-half-video w3-black">
    <p>Playlist</p>
   </div>
-  
-  <div id="player1" class="w3-half-video w3-black">
-<div id="player2" class="embed-container-abg"><iframe src="https://www.youtube.com/embed/?listType=playlist&list=PLTlGVrSbUuPhcs2zGuGratWyUqKBq169Z" allow="autoplay" allowfullscreen></iframe></div>
-  </div>
 </div>
--->
-
-<div class="w3-row-padding">
-  <div id="videoRnRJukebox" class="w3-half-video w3-black">
-    <h2>1950s/60s Rock n Roll Jukebox</h2>
-    <p>Here's some of my Rock and Roll hits, including: Hound Dog, Johnny B. Goode, Teenager in Love, This Ole House, Great Balls of Fire and more. Feel free to sing along. <br/>
-'Johnny B. Goode' originally by the fantastic Chuck Berry. 'Back to the Future' is one of my favourite movies, and that track really adds energy to the film.</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/?listType=playlist&list=PLTlGVrSbUuPhcs2zGuGratWyUqKBq169Z" allow="autoplay" allowfullscreen></iframe></div>
-  </div>
-
-  <div id="videoSummerShowReel2016" class="w3-half-video w3-black">
-    <h2>Summer Showreel</h2>
-    <p>You could play 'Name that Tune' while you listen.</p>
-    <p>Snippets of many of my songs can be found in the 'Andy B Goode Summer Showreel 2016'. This was recorded live at St Pauls Church Dosthill Summer Vintage Fete. Enjoy!</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/f4x4ei3muL8" allowfullscreen></iframe></div>
-  </div>
-</div>
-
-
-<div class="w3-row-padding">
-  <div id="videoChristmasPlaylist" class="w3-half-video w3-black">
-    <h2>Christmas Playlist</h2>
-	<p>Christmas is a special time for music. Here's a few classics including hits by Chuck Berry, Dean Martin and Michael Buble: Run Rudolph Run, Frosty the Snowman, Winter Wonderland, Jingle Bells, Holly Jolly Christmas, Rockin Robin, Rudolph the Red-Nosed Reindeer, White Christmas, Silent Night and The Christmas Song.</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/?listType=playlist&list=PLTlGVrSbUuPi7yMifCQYbKwjlhQiL4afJ" allow="autoplay" allowfullscreen></iframe></div>
-  </div>
-
-  <div id="videoFlyMe" class="w3-half-video w3-black">
-    <h2>Fly Me To The Moon</h2>
-    <p>The definitive Frank Sinatra song from the time when holidays on jets liners were new. This was recorded live at norton Juxta Twycross Fete.</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/01BAwrxATqc" allowfullscreen></iframe></div>
-  </div>
-</div>
-
-
-<div class="w3-row-padding">
-  <div id="videoYouMakeMeYoung" class="w3-half-video w3-black">
-    <h2>You Make Me Feel So Young</h2>
-    <p>Another Frank Sinatra tune about his love for his favourite girl. All those times that make life worth living.</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/u5rZBDsEwBQ" allowfullscreen></iframe></div>
-  </div>
-
-  <div id="videoHowDoYouLike" class="w3-half-video w3-black">
-    <h2>How Do You Like Your Eggs in the Morning</h2>
-    <p>A Dean Martin song performed by Andy B Goode and Sophie Dangerfield. What is a morning on BBC 2 without it.</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/SKQFrn1tmZM" allowfullscreen></iframe></div>
-  </div>
-</div>
-
-
-<div class="w3-row-padding">
-  <div id="videoBeerBarrel" class="w3-half-video w3-black">
-    <h2>Beer Barrel Polka</h2>
-    <p>The Jays Vintage (Vintage Vocal Harmony Tribute Group) performs the classic, "Beer Barrel Polka".</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/lgGX0rofXpA" allowfullscreen></iframe></div>
-  </div>
-
- <div id="videoMagicMoments" class="w3-half-video w3-black">
-    <h2>Magic Moments</h2>
-    <p>Dean Martins song remembering those little events that make life special.</p>
-<div class="embed-container-abg"><iframe src="https://www.youtube.com/embed/TSs-vgnPoaY" allowfullscreen></iframe></div>
-  </div>
-</div>
-
 
 
 <br/>
@@ -249,7 +147,7 @@ function addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID) {
 <li id="liYouTube">YouTube: <a href="https://www.youtube.com/channel/UCHJsASS25ndVJYEykEK9BLQ">Andy B Goode</a></li>
 <li id="liTwitter">Twitter: <a href="http://www.twitter.com/AndyBGoode">@AndyBGoode</a></li>
 <li id='liJays'>The Jays Vintage: <a href='http://www.TheJaysVintage.com'>The Jays Vintage</a></li>
-<li id="liWebsite">Version: v2.5.0</li>
+<li id="liWebsite">Version: v2.5.1</li>
 </ul>
   </div>
 </div>
@@ -259,16 +157,18 @@ function addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID) {
 
 </div>
 
+<script src="misc/andybgoode-video.js"></script>
 <script>
+  //initialise video player
+  displayVideoPlayer("videoPlayerVideo","videoPlayerList","No Autoplay");
+
 
 //TODO
 //1) video selection onto a single player (click video name/thumbnail navigates to player + loads selected video)
 //loadSelectedVideo(1)
 //video record: number,name,description,thumbnail,is a playlist,youTube ID
 //addVideo(videoRef,isPlaylist,name,thumbnail,caption,youTubeID)
-addVideo("11",0,"one","a","cap 2","qwe")
-addVideo("22",0,"two","b","cap 2","asd")
-addVideo("33",0,"three","c","cap 3","zxc")
+
 
 //single video
 //addVideo("FlyMoon",0,"Fly Me To The Moon","photo0010","The definitive Frank Sinatra song from the time when holidays on jets liners were new. This was recorded live at norton Juxta Twycross Fete.","01BAwrxATqc");

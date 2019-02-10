@@ -102,7 +102,7 @@ function displayVideoList(htmlID) {
   var tempDisplay="";
   for (videoIndex = 0; videoIndex < videoArray.length; videoIndex++) {
 	  if (videoArray[videoIndex].isHidden==0) {
-        tempDisplay += "<div onClick='videoListItemClick("+videoIndex+",true,0)' class='w3-button w3-border'>"+videoArray[videoIndex].name+"</div>";
+        tempDisplay += "<div onClick='videoListItemClick("+videoIndex+",true,0)' class='w3-button w3-border w3-small'>"+videoArray[videoIndex].name+"</div>";
 	  }
   }
   document.getElementById(videoListHTMLID).innerHTML = tempDisplay+"<div id='videoCaption'></div";

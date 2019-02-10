@@ -12,7 +12,7 @@ var videoArray = [];
 var videoListHTMLID = "";
 var videoPlayerHTMLID = "";
 
-//addVideo("videoRef",isPlaylist,"name","thumbnail","caption","youTubeID");
+//addVideo("videoRef",isPlaylist,isHidden,"name","thumbnail","caption","youTubeID");
 
 //Videos
 addVideo("videoHoundDog",0,0,"Hound Dog","photo","You aint nothing but a Hound Dog! What fab lyrics. This Elvis style cover of the original blues classic is one of the most famous rock and roll songs of all time.","B4oriWzwbO0");
@@ -21,13 +21,24 @@ addVideo("videoFlyMe",0,0,"Fly Me To The Moon","photo","The definitive Frank Sin
 addVideo("videoYouMakeMeYoung",0,0,"You Make Me Feel So Young","photo","Another Frank Sinatra tune about his love for his favourite girl. All those times that make life worth living.","u5rZBDsEwBQ");
 addVideo("videoTeenagerInLove",0,0,"Teenager in Love","photo","Do you remember when you were a teenager in love? It's great to hear people joining in at the chorus. This was recorded at the Dosthill Summer Vintage Fayre. I also performed this song on TCR FM at the Norton Juxta Twycross Summer Fete.","xfGqHgRePIY");
 addVideo("videoHowDoYouLike",0,0,"How Do You Like Your Eggs","photo","A Dean Martin song performed by Andy B Goode and Sophie Dangerfield. What is a morning on BBC 2 without it.","SKQFrn1tmZM");
-addVideo("videoBeerBarrel",0,0,"Beer Barrel Polka","photo","The Jays Vintage (Vintage Vocal Harmony Tribute Group) performs the classic Andrew's Sisters 'Beer Barrel Polka'.","lgGX0rofXpA");
 addVideo("videoMagicMoments",0,0,"Magic Moments","photo","Dean Martins song remembering those little events that make life special","TSs-vgnPoaY");
 addVideo("videoSummerShowReel2016",0,0,"Summer Showreel","photo","You could play 'Name that Tune' while you listen. Snippets of many of my songs can be found in the 'Andy B Goode Summer Showreel 2016'. This was recorded live at St Pauls Church Dosthill Summer Vintage Fete. Enjoy!","f4x4ei3muL8");
 addVideo("videoRnRPlaylist",1,0,"Playlist: Vintage Rock n Roll","photo","Here's some of my 1950s/60s Rock and Roll hits, including: Hound Dog, Johnny B. Goode, Teenager in Love, This Ole House, Great Balls of Fire and more. Feel free to sing along.","PLTlGVrSbUuPhcs2zGuGratWyUqKBq169Z");
-addVideo("videoChristmasPlaylist",1,0,"Playlist: Christmas Classics","photo","Christmas is a special time for music. Here's a few classics including hits by Chuck Berry, Dean Martin and Michael Buble: Run Rudolph Run, Frosty the Snowman, Winter Wonderland, Jingle Bells, Holly Jolly Christmas, Rockin Robin, Rudolph the Red-Nosed Reindeer, White Christmas, Silent Night and The Christmas Song.","PLTlGVrSbUuPi7yMifCQYbKwjlhQiL4afJ");
+addVideo("videoGreatBalls",0,0,"Great Balls of Fire","thumbnail","The Fantastic Jerry Lee Lewis smash. It's fun to hear and it's fun sing!","4xVeQbkKNmQ");
+addVideo("videoThisOleHouse",0,0,"This Ole House","thumbnail","covered by Shaking Steves","bDCP4a0qJ-M");
 addVideo("videoFrosty",0,1,"Frosty the Snowman","photo","Here's a dynamic track from my Christmas set.","-wjfPpTqyHA");
-addVideo("videoHollyJolly",0,1,"Holly Jolly Christmas","photo","A lovely Michael Buble style Christmas track from my Christmas set.","UOglQOzmDNU");
+addVideo("videoHollyJolly",0,1,"Holly Jolly Christmas","photo","A lovely Michael Bublé style Christmas track from my Christmas set.","UOglQOzmDNU");
+addVideo("videoJingleBells",0,1,"Jingle Bells","photo","Here's every childs favourite Christmas song. From my Christmas set.","2U-nhubmJh0");
+addVideo("videoWhiteChristmas",0,1,"White Christmas","photo","From the movie Holiday Inn, its the crooning Bing Crosby classic. From my Christmas set.","HDBR_8Ll348");
+addVideo("videoRudolph",0,1,"Rudolph the Red-Nosed Reindeer","photo","The Dean Martin version of the seasonal classic. From my Christmas set.","XdutAMGV3UA");
+addVideo("videoChristmas",0,1,"The Christmas Song","photo","Nat King Cole created this old time classic. From my Christmas set.","2sSKaddR9s0");
+addVideo("videoWinter",0,0,"Winter Wonderland","photo","This one is performed in Elvis-style. From my Christmas set.","prYhaRXuatw");
+addVideo("videoRun",0,0,"Run Rudolph Run","photo","Chuck Berry created this energetic smash. From my Christmas set.","Agj9vVIQkA4");
+addVideo("videoBeerBarrel",0,0,"Beer Barrel Polka","photo","The Jays Vintage (Vintage Vocal Harmony Tribute Group) performs the classic Andrew's Sisters 'Beer Barrel Polka'.","lgGX0rofXpA");
+addVideo("videoRobin",0,1,"Rockin' Robin","photo","The 1970s groovy hit about a little bird. From my Christmas set.","xXvjLN_zedQ");
+addVideo("videoSilent",0,1,"Silent Night","photo","A lovely Christmas carol performed in an Elvis style. From my Christmas set.","G7Rq3i3XWiE");
+addVideo("videoSunshine",0,0,"You Are My Sunshine","photo","My favourite Bing Crosby number. Sang to me by my Grand parents.","JzTnYon8ipQ");
+addVideo("videoChristmasPlaylist",1,0,"Playlist: Christmas Classics","photo","Christmas is a special time for music. Here's a few classics including hits by Chuck Berry, Dean Martin and Michael Buble: Run Rudolph Run, Frosty the Snowman, Winter Wonderland, Jingle Bells, Holly Jolly Christmas, Rockin Robin, Rudolph the Red-Nosed Reindeer, White Christmas, Silent Night and The Christmas Song.","PLTlGVrSbUuPi7yMifCQYbKwjlhQiL4afJ");
 
 
 //---------------------------------------------------------------------------
